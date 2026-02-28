@@ -2,42 +2,39 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Phoenix Automobile — Demande</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Phoenix Automobile - Demande</title>
 
-  <!-- Font clean -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <!-- Police propre, lisible -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --phoenix:#F08D34;
-      --bg0:#070A0F;
-      --bg1:#0B1020;
-      --card: rgba(255,255,255,.06);
-      --card2: rgba(255,255,255,.08);
-      --stroke: rgba(255,255,255,.12);
-      --text:#EAF0FF;
-      --muted: rgba(234,240,255,.70);
-      --muted2: rgba(234,240,255,.52);
-      --ok:#33D17A;
-      --danger:#FF4D4D;
-      --shadow: 0 14px 50px rgba(0,0,0,.50);
-      --radius: 22px;
+      --orange:#F08D34;
+      --bg1:#0B1424;
+      --bg2:#050A12;
+      --card:rgba(255,255,255,.08);
+      --card2:rgba(255,255,255,.10);
+      --stroke:rgba(255,255,255,.14);
+      --text:#F3F6FF;
+      --muted:rgba(243,246,255,.72);
+      --muted2:rgba(243,246,255,.55);
+      --danger:#FF5C5C;
+      --ok:#30D158;
+      --shadow: 0 18px 50px rgba(0,0,0,.55);
+      --radius:18px;
     }
-
-    *{ box-sizing:border-box; }
-    html,body{ height:100%; }
+    *{box-sizing:border-box}
+    html,body{height:100%}
     body{
       margin:0;
-      font-family: "Manrope", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color: var(--text);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
       background:
-        radial-gradient(900px 500px at 20% 10%, rgba(240,141,52,.25), transparent 60%),
-        radial-gradient(900px 600px at 85% 20%, rgba(120,120,255,.16), transparent 60%),
-        radial-gradient(900px 600px at 60% 95%, rgba(255,255,255,.08), transparent 60%),
-        linear-gradient(180deg, var(--bg0), var(--bg1));
+        radial-gradient(1200px 800px at 15% 10%, rgba(240,141,52,.20), transparent 55%),
+        radial-gradient(900px 700px at 85% 20%, rgba(255,255,255,.08), transparent 60%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
       overflow-x:hidden;
     }
 
@@ -46,878 +43,923 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      padding:28px 16px 44px;
+      padding:28px 14px;
     }
 
     .shell{
-      width:min(980px, 100%);
+      width:min(920px, 100%);
       display:grid;
       grid-template-columns: 1.05fr .95fr;
       gap:18px;
     }
 
-    @media (max-width: 980px){
-      .shell{ grid-template-columns:1fr; }
+    @media (max-width: 860px){
+      .shell{grid-template-columns:1fr}
     }
 
-    .panel{
-      border: 1px solid var(--stroke);
-      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      position:relative;
-    }
-
-    .panel::before{
-      content:"";
-      position:absolute;
-      inset:-2px;
-      background:
-        radial-gradient(700px 250px at 20% 0%, rgba(240,141,52,.23), transparent 62%),
-        radial-gradient(700px 250px at 85% 10%, rgba(255,255,255,.10), transparent 62%);
-      pointer-events:none;
-      opacity:.9;
-    }
-
-    .panel > *{ position:relative; }
-
-    /* LEFT: brand */
     .brand{
-      padding:26px 26px 20px;
-      display:flex;
-      flex-direction:column;
-      gap:14px;
+      border:1px solid var(--stroke);
+      border-radius:var(--radius);
+      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      box-shadow:var(--shadow);
+      padding:18px;
+      position:relative;
+      overflow:hidden;
     }
-    .brandTop{
+
+    .brand:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(600px 260px at 30% 0%, rgba(240,141,52,.30), transparent 60%);
+      pointer-events:none;
+    }
+
+    .topbar{
       display:flex;
       align-items:center;
-      gap:14px;
+      gap:12px;
+      position:relative;
+      z-index:1;
     }
     .logo{
-      width:46px;
-      height:46px;
+      width:44px;height:44px;
       border-radius:14px;
-      background: rgba(240,141,52,.12);
-      border: 1px solid rgba(240,141,52,.35);
-      display:grid;
-      place-items:center;
+      background:rgba(0,0,0,.25);
+      border:1px solid rgba(255,255,255,.14);
+      display:flex;align-items:center;justify-content:center;
       overflow:hidden;
+      flex:0 0 auto;
     }
-    .logo img{
-      width:34px;
-      height:34px;
-      object-fit:contain;
-      display:block;
-      filter: drop-shadow(0 8px 14px rgba(0,0,0,.35));
+    .logo img{width:34px;height:34px;object-fit:contain}
+
+    .title{
+      display:flex;flex-direction:column;gap:2px;
     }
-    .brandTitle{
-      line-height:1.05;
-    }
-    .brandTitle .name{
+    .title .h1{
       font-weight:800;
-      letter-spacing:.06em;
-      font-size:18px;
+      letter-spacing:.6px;
       text-transform:uppercase;
+      font-size:18px;
+      line-height:1.1;
     }
-    .brandTitle .tag{
-      margin-top:4px;
-      color: var(--muted);
+    .title .sub{
+      color:var(--muted);
       font-size:13px;
-      font-weight:500;
+      line-height:1.2;
     }
 
-    .hero{
-      margin-top:6px;
-      padding:18px 20px;
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,.10);
-      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
-    }
-    .hero h1{
-      margin:0 0 10px;
-      font-size:32px;
-      letter-spacing:-.02em;
-      line-height:1.06;
-    }
-    .hero p{
-      margin:0;
-      color: var(--muted);
-      font-size:14px;
-      line-height:1.55;
-    }
-
-    .badges{
-      margin-top:14px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-    }
     .badge{
-      font-size:12px;
-      color: var(--muted);
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      padding:8px 10px;
+      margin-left:auto;
+      padding:8px 12px;
       border-radius:999px;
-      display:flex;
-      align-items:center;
-      gap:8px;
-      user-select:none;
-    }
-    .dot{
-      width:8px;
-      height:8px;
-      border-radius:999px;
-      background: var(--phoenix);
-      box-shadow:0 0 0 3px rgba(240,141,52,.14);
-    }
-
-    .contactBar{
-      margin-top:auto;
-      padding:18px 26px 22px;
-      border-top: 1px solid rgba(255,255,255,.10);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-    .contactInfo{
-      display:flex;
-      flex-direction:column;
-      gap:2px;
-      min-width: 240px;
-    }
-    .contactInfo .label{
-      color: var(--muted2);
+      background:rgba(240,141,52,.18);
+      border:1px solid rgba(240,141,52,.28);
+      color:var(--text);
+      font-weight:700;
       font-size:12px;
-      font-weight:600;
-    }
-    .contactInfo .value{
-      font-size:16px;
-      font-weight:800;
-      letter-spacing:.02em;
-    }
-    .ctaRow{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-    .btn{
-      appearance:none;
-      border:0;
-      cursor:pointer;
-      font-weight:800;
-      letter-spacing:.01em;
-      border-radius:14px;
-      padding:12px 14px;
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      transition: transform .12s ease, filter .12s ease, background .12s ease;
-      text-decoration:none;
-      user-select:none;
       white-space:nowrap;
     }
-    .btn:active{ transform: translateY(1px); }
-    .btnPrimary{
-      background: linear-gradient(180deg, rgba(240,141,52,1), rgba(219,118,33,1));
-      color:#111;
-      box-shadow: 0 14px 40px rgba(240,141,52,.20);
-    }
-    .btnGhost{
-      background: rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.14);
-      color: var(--text);
-    }
-    .btn:hover{ filter: brightness(1.05); }
 
-    /* RIGHT: form */
-    .formWrap{
-      padding:24px 22px 20px;
+    .steps{
+      margin-top:16px;
       display:flex;
-      flex-direction:column;
-      gap:14px;
-    }
-
-    .topRow{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
       gap:10px;
+      align-items:center;
+      position:relative;
+      z-index:1;
       flex-wrap:wrap;
+    }
+    .pill{
+      display:flex;align-items:center;gap:10px;
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(0,0,0,.18);
+      color:var(--muted);
+      font-weight:700;
+      font-size:13px;
+    }
+    .pill .n{
+      width:26px;height:26px;
+      border-radius:999px;
+      display:flex;align-items:center;justify-content:center;
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.14);
+      color:var(--muted);
+      font-weight:800;
+    }
+    .pill.active{
+      background:rgba(240,141,52,.14);
+      border-color:rgba(240,141,52,.30);
+      color:var(--text);
+    }
+    .pill.active .n{
+      background:var(--orange);
+      border-color:rgba(0,0,0,.12);
+      color:#111;
+    }
+    .pill.done{
+      background:rgba(48,209,88,.10);
+      border-color:rgba(48,209,88,.22);
+      color:var(--text);
+    }
+    .pill.done .n{
+      background:rgba(48,209,88,.28);
+      border-color:rgba(48,209,88,.28);
+      color:var(--text);
     }
 
     .progress{
+      margin-top:14px;
       display:flex;
       align-items:center;
       gap:10px;
-      width:100%;
+      position:relative;
+      z-index:1;
     }
-    .steps{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-
-    .stepPill{
-      display:flex;
-      align-items:center;
-      gap:8px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      padding:8px 10px;
-      border-radius:999px;
-      font-size:12px;
-      color: var(--muted);
-      user-select:none;
-    }
-    .stepPill .n{
-      width:18px; height:18px;
-      border-radius:999px;
-      display:grid; place-items:center;
-      font-weight:900;
-      color:#111;
-      background: rgba(240,141,52,1);
-    }
-    .stepPill.done{
-      border-color: rgba(51,209,122,.35);
-      background: rgba(51,209,122,.08);
-      color: rgba(234,240,255,.85);
-    }
-    .stepPill.done .n{
-      background: var(--ok);
-      color:#07110B;
-    }
-
     .bar{
-      flex:1;
       height:10px;
       border-radius:999px;
-      background: rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.12);
       overflow:hidden;
-      min-width: 180px;
+      flex:1;
     }
-    .bar > div{
-      height:100%;
+    .bar > span{
+      display:block;height:100%;
       width:0%;
-      background: linear-gradient(90deg, rgba(240,141,52,1), rgba(255,255,255,.30));
+      background:linear-gradient(90deg, rgba(240,141,52,.95), rgba(240,141,52,.45));
       border-radius:999px;
-      transition: width .25s ease;
+      transition:width .25s ease;
+    }
+    .ratio{
+      font-weight:800;
+      color:var(--muted);
+      font-size:12px;
+      min-width:42px;
+      text-align:right;
+    }
+
+    .panel{
+      border:1px solid var(--stroke);
+      border-radius:var(--radius);
+      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      box-shadow:var(--shadow);
+      padding:18px;
+      position:relative;
+      overflow:hidden;
     }
 
     .card{
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.18);
-      border-radius: 18px;
-      padding: 16px;
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:16px;
+      background:rgba(0,0,0,.20);
+      padding:16px;
     }
 
-    .card h2{
-      margin:0 0 10px;
-      font-size:15px;
-      letter-spacing:.01em;
+    h2{
+      margin:0 0 10px 0;
+      font-size:16px;
+      letter-spacing:.2px;
     }
-    .card .sub{
-      margin:0 0 14px;
+    p{
+      margin:0 0 14px 0;
+      color:var(--muted);
       font-size:13px;
-      color: var(--muted);
       line-height:1.45;
     }
 
-    .grid2{
+    .options{
       display:grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns:1fr;
       gap:12px;
-    }
-    @media (max-width: 520px){
-      .grid2{ grid-template-columns:1fr; }
+      margin-top:10px;
     }
 
-    label{
-      display:block;
-      font-size:12px;
-      font-weight:700;
-      color: rgba(234,240,255,.85);
-      margin:0 0 6px;
-    }
-    .field{
-      width:100%;
-      border-radius: 14px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.05);
-      color: var(--text);
-      padding: 12px 12px;
-      outline:none;
-      font-size:14px;
-      transition: border-color .12s ease, background .12s ease, transform .12s ease;
-    }
-    .field::placeholder{ color: rgba(234,240,255,.38); }
-    .field:focus{
-      border-color: rgba(240,141,52,.55);
-      background: rgba(255,255,255,.06);
-      box-shadow: 0 0 0 4px rgba(240,141,52,.10);
-    }
-    .radioRow{
+    .opt{
       display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:8px;
-    }
-    .choice{
-      flex:1;
-      min-width: 160px;
-      border-radius: 16px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      padding: 12px 12px;
-      display:flex;
+      gap:12px;
       align-items:flex-start;
-      gap:10px;
+      padding:14px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
       cursor:pointer;
-      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+      transition: transform .08s ease, border-color .12s ease, background .12s ease;
       user-select:none;
     }
-    .choice:hover{
-      border-color: rgba(240,141,52,.40);
-      background: rgba(240,141,52,.06);
+    .opt:hover{transform:translateY(-1px)}
+    .opt .radio{
+      width:18px;height:18px;
+      border-radius:999px;
+      border:2px solid rgba(255,255,255,.35);
+      margin-top:2px;
+      position:relative;
+      flex:0 0 auto;
     }
-    .choice input{
-      margin-top:3px;
-      accent-color: var(--phoenix);
-      transform: scale(1.1);
-      cursor:pointer;
+    .opt.selected{
+      border-color:rgba(240,141,52,.42);
+      background:rgba(240,141,52,.10);
     }
-    .choice .t{
-      font-weight:900;
-      letter-spacing:.01em;
-      font-size:13px;
+    .opt.selected .radio{
+      border-color:rgba(240,141,52,.70);
     }
-    .choice .d{
+    .opt.selected .radio:after{
+      content:"";
+      position:absolute; inset:3px;
+      border-radius:999px;
+      background:var(--orange);
+    }
+    .opt h3{
+      margin:0;
+      font-size:15px;
+      font-weight:800;
+    }
+    .opt .desc{
+      margin-top:4px;
+      color:var(--muted);
+      font-size:12.5px;
+      line-height:1.35;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+    @media (max-width:520px){
+      .grid{grid-template-columns:1fr}
+    }
+    .field{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+    label{
       font-size:12px;
-      color: var(--muted);
-      margin-top:3px;
+      color:var(--muted);
+      font-weight:700;
+    }
+    input, textarea, select{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(0,0,0,.26);
+      color:var(--text);
+      outline:none;
+      font-size:14px;
+    }
+    input::placeholder, textarea::placeholder{
+      color:rgba(243,246,255,.35);
+    }
+    textarea{min-height:92px;resize:vertical}
+
+    .hint{
+      margin-top:10px;
+      color:var(--muted2);
+      font-size:12px;
       line-height:1.35;
     }
 
     .actions{
       display:flex;
-      justify-content:space-between;
-      gap:10px;
-      margin-top:10px;
-      flex-wrap:wrap;
+      gap:12px;
+      align-items:center;
+      margin-top:14px;
     }
-    .btnWide{
-      min-width: 150px;
+    .btn{
+      appearance:none;
+      border:none;
+      border-radius:14px;
+      padding:12px 14px;
+      font-weight:800;
+      font-size:14px;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
       justify-content:center;
+      gap:10px;
+      transition: transform .08s ease, opacity .12s ease;
+      user-select:none;
     }
-    .btnDanger{
-      background: rgba(255,77,77,.10);
-      border:1px solid rgba(255,77,77,.25);
-      color: rgba(255,215,215,.95);
+    .btn:active{transform:translateY(1px)}
+    .btn.primary{
+      background:linear-gradient(180deg, rgba(240,141,52,.98), rgba(240,141,52,.78));
+      color:#111;
+      flex:1;
     }
+    .btn.ghost{
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      border:1px solid rgba(255,255,255,.14);
+    }
+    .btn.danger{
+      background:rgba(255,92,92,.12);
+      color:var(--text);
+      border:1px solid rgba(255,92,92,.25);
+    }
+    .btn[disabled]{opacity:.55;cursor:not-allowed}
 
-    .hint{
-      margin-top:12px;
-      font-size:12px;
-      color: var(--muted2);
-      line-height:1.45;
-    }
-
-    .toast{
+    .err{
+      margin-top:10px;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,92,92,.30);
+      background:rgba(255,92,92,.10);
+      color:#FFD7D7;
+      font-weight:700;
+      font-size:12.5px;
       display:none;
-      margin-top:12px;
-      border-radius:16px;
-      padding:12px 12px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.05);
-      color: var(--muted);
+    }
+
+    /* Sidebar */
+    .side{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+    .hero{
+      border-radius:var(--radius);
+      border:1px solid rgba(255,255,255,.14);
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.28), rgba(0,0,0,.18)),
+        url("Sans%20titre%20(22).png") center/cover no-repeat;
+      min-height:210px;
+      padding:18px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero:after{
+      content:"";
+      position:absolute; inset:0;
+      background:linear-gradient(90deg, rgba(11,20,36,.88), rgba(11,20,36,.58), rgba(11,20,36,.20));
+      pointer-events:none;
+    }
+    .hero .content{
+      position:relative; z-index:1;
+      max-width:420px;
+    }
+    .hero .kicker{
+      font-weight:800;
+      letter-spacing:.6px;
+      text-transform:uppercase;
+      font-size:12px;
+      color:rgba(243,246,255,.78);
+    }
+    .hero .big{
+      margin-top:10px;
+      font-size:22px;
+      line-height:1.15;
+      font-weight:900;
+      letter-spacing:.2px;
+    }
+    .hero .small{
+      margin-top:10px;
+      color:rgba(243,246,255,.70);
       font-size:13px;
       line-height:1.45;
     }
-    .toast.ok{
-      display:block;
-      border-color: rgba(51,209,122,.30);
-      background: rgba(51,209,122,.08);
-      color: rgba(234,240,255,.92);
-    }
-    .toast.err{
-      display:block;
-      border-color: rgba(255,77,77,.30);
-      background: rgba(255,77,77,.08);
-      color: rgba(255,235,235,.95);
-    }
 
-    .small{
-      font-size:12px;
-      color: var(--muted2);
+    .contact{
+      border-radius:var(--radius);
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(0,0,0,.20);
+      padding:16px;
     }
-
-    .lock{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:8px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.14);
-      color: rgba(234,240,255,.75);
-      font-size:12px;
-      user-select:none;
-    }
-    .lock b{ color: rgba(234,240,255,.92); }
-
-    .hidden{ display:none !important; }
-
-    .spin{
-      width:16px; height:16px;
-      border-radius:999px;
-      border:2px solid rgba(255,255,255,.25);
-      border-top-color: rgba(240,141,52,1);
-      animation: spin .9s linear infinite;
-    }
-    @keyframes spin{ to{ transform:rotate(360deg); } }
-
-    /* Footer note */
-    .foot{
+    .contact .row{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
       margin-top:10px;
-      text-align:center;
-      font-size:12px;
-      color: rgba(234,240,255,.45);
     }
-    .foot a{ color: rgba(240,141,52,.95); text-decoration:none; }
-    .foot a:hover{ text-decoration:underline; }
+    .chip{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      font-weight:800;
+      font-size:13px;
+      text-decoration:none;
+    }
+    .chip strong{color:var(--orange)}
+    .footer{
+      text-align:center;
+      color:rgba(243,246,255,.45);
+      font-size:12px;
+      margin-top:10px;
+    }
   </style>
 </head>
 
 <body>
   <div class="wrap">
     <div class="shell">
-
-      <!-- LEFT BRAND -->
-      <section class="panel">
-        <div class="brand">
-          <div class="brandTop">
-            <div class="logo" aria-label="Logo Phoenix Automobile">
-              <img src="assets/logo.png" alt="Phoenix Automobile" onerror="this.style.display='none'; this.parentElement.style.background='rgba(240,141,52,.18)'; this.parentElement.style.borderColor='rgba(240,141,52,.45)';">
-            </div>
-            <div class="brandTitle">
-              <div class="name">PHOENIX<br>AUTOMOBILE</div>
-              <div class="tag">Vente rapide, sécurisée et au meilleur prix.</div>
-            </div>
+      <!-- Colonne gauche -->
+      <div class="brand" id="brand">
+        <div class="topbar">
+          <div class="logo">
+            <img src="assets/logo.png" alt="Phoenix Automobile" />
           </div>
+          <div class="title">
+            <div class="h1">PHOENIX AUTOMOBILE</div>
+            <div class="sub">Demande rapide - reponse sous 24h</div>
+          </div>
+          <div class="badge" id="secureBadge">Donnees envoyees a Phoenix</div>
+        </div>
 
-          <div class="hero">
-            <h1>Demande en 60 secondes.</h1>
-            <p>
-              Remplis le formulaire, et on te recontacte vite avec une proposition claire :
-              estimation, plan d’action, et prise de rendez-vous.
-            </p>
+        <div class="steps" aria-hidden="true">
+          <div class="pill" id="pill1"><span class="n">1</span>Type</div>
+          <div class="pill" id="pill2"><span class="n">2</span>Vehicule</div>
+          <div class="pill" id="pill3"><span class="n">3</span>Client</div>
+        </div>
 
-            <div class="badges" aria-label="Avantages">
-              <div class="badge"><span class="dot"></span> Estimation gratuite</div>
-              <div class="badge"><span class="dot"></span> Acheteurs filtrés</div>
-              <div class="badge"><span class="dot"></span> Accompagnement administratif</div>
-              <div class="badge"><span class="dot"></span> Transaction sécurisée</div>
-            </div>
+        <div class="progress" aria-hidden="true">
+          <div class="bar"><span id="barFill"></span></div>
+          <div class="ratio" id="ratio">1/3</div>
+        </div>
+
+        <div style="height:14px"></div>
+
+        <div class="panel">
+          <div id="view"></div>
+        </div>
+
+        <div class="footer">Phoenix Automobile - Intermediation entre particuliers.</div>
+      </div>
+
+      <!-- Colonne droite -->
+      <div class="side">
+        <div class="hero">
+          <div class="content">
+            <div class="kicker">Accompagnement complet</div>
+            <div class="big">Vente rapide, securisee, au meilleur prix.</div>
+            <div class="small">Acheteurs filtres, suivi administratif, prise de rendez-vous rapide.</div>
           </div>
         </div>
 
-        <div class="contactBar">
-          <div class="contactInfo">
-            <div class="label">Contact direct</div>
-            <div class="value">06 63 62 03 97</div>
-            <div class="small">contact@phoenix-automobile.com</div>
+        <div class="contact">
+          <div style="font-weight:900;font-size:15px;">Contact direct</div>
+          <div style="color:var(--muted);font-size:12.5px;margin-top:6px;">Reponse rapide - disponible 7j/7</div>
+
+          <div class="row">
+            <a class="chip" href="tel:+33663620397">Appeler <strong>06 63 62 03 97</strong></a>
+            <a class="chip" href="mailto:contact@phoenix-automobile.com">Email <strong>contact@phoenix-automobile.com</strong></a>
           </div>
-          <div class="ctaRow">
-            <a class="btn btnGhost" href="tel:+33663620397" aria-label="Appeler Phoenix Automobile">📞 Appeler</a>
-            <a class="btn btnPrimary" href="https://wa.me/33663620397" target="_blank" rel="noopener" aria-label="WhatsApp Phoenix Automobile">🟧 WhatsApp</a>
-          </div>
+
+          <div class="hint">Astuce : plus la demande est precise, plus l'estimation / le cadrage peut etre fait des le premier contact.</div>
         </div>
-      </section>
-
-      <!-- RIGHT FORM -->
-      <section class="panel">
-        <div class="formWrap">
-
-          <div class="topRow">
-            <div class="steps" id="stepPills">
-              <div class="stepPill" data-step="1"><span class="n">1</span> Type</div>
-              <div class="stepPill" data-step="2"><span class="n">2</span> Véhicule</div>
-              <div class="stepPill" data-step="3"><span class="n">3</span> Client</div>
-            </div>
-            <div class="lock">🔒 <b>Données</b> envoyées en direct à Phoenix</div>
-          </div>
-
-          <div class="progress" aria-label="Progression">
-            <div class="bar" aria-hidden="true"><div id="barFill"></div></div>
-            <div class="small" id="ratio">1/3</div>
-          </div>
-
-          <!-- STEP 1 -->
-          <div class="card" id="step1">
-            <h2>1) Acheter ou vendre un véhicule ?</h2>
-            <p class="sub">Choisis une option pour personnaliser la suite.</p>
-
-            <div class="radioRow">
-              <label class="choice" for="typeAcheter">
-                <input type="radio" id="typeAcheter" name="typeDemande" value="Acheter" />
-                <div>
-                  <div class="t">Acheter</div>
-                  <div class="d">Tu cherches un véhicule, on te propose des options pertinentes.</div>
-                </div>
-              </label>
-
-              <label class="choice" for="typeVendre">
-                <input type="radio" id="typeVendre" name="typeDemande" value="Vendre" />
-                <div>
-                  <div class="t">Vendre</div>
-                  <div class="d">Tu vends ton véhicule, on sécurise et on accélère la vente.</div>
-                </div>
-              </label>
-            </div>
-
-            <div class="actions">
-              <button class="btn btnGhost btnWide btnDanger" type="button" id="resetAll">↺ Réinitialiser</button>
-              <button class="btn btnPrimary btnWide" type="button" id="next1">Continuer →</button>
-            </div>
-
-            <div class="hint">Astuce : plus c’est précis, plus on peut te donner une estimation juste dès le premier contact.</div>
-          </div>
-
-          <!-- STEP 2 -->
-          <div class="card hidden" id="step2">
-            <h2>2) Infos véhicule</h2>
-            <p class="sub">Le minimum pour comprendre ton besoin.</p>
-
-            <div class="grid2">
-              <div>
-                <label for="modele">Modèle du véhicule</label>
-                <input class="field" id="modele" placeholder="Ex : Peugeot 208 1.2 PureTech" autocomplete="off" />
-              </div>
-              <div>
-                <label for="annee">Année</label>
-                <input class="field" id="annee" placeholder="Ex : 2019" inputmode="numeric" autocomplete="off" />
-              </div>
-            </div>
-
-            <div class="actions">
-              <button class="btn btnGhost btnWide" type="button" id="back2">← Retour</button>
-              <button class="btn btnPrimary btnWide" type="button" id="next2">Continuer →</button>
-            </div>
-          </div>
-
-          <!-- STEP 3 -->
-          <div class="card hidden" id="step3">
-            <h2>3) Infos client</h2>
-            <p class="sub">On te recontacte au créneau que tu choisis.</p>
-
-            <div class="grid2">
-              <div>
-                <label for="nom">Nom</label>
-                <input class="field" id="nom" placeholder="Ex : Cinar" autocomplete="family-name" />
-              </div>
-              <div>
-                <label for="prenom">Prénom</label>
-                <input class="field" id="prenom" placeholder="Ex : Mathéo" autocomplete="given-name" />
-              </div>
-              <div>
-                <label for="cp">Code postal</label>
-                <input class="field" id="cp" placeholder="Ex : 22000" inputmode="numeric" autocomplete="postal-code" />
-              </div>
-              <div>
-                <label for="ville">Ville</label>
-                <input class="field" id="ville" placeholder="Ex : Saint-Brieuc" autocomplete="address-level2" />
-              </div>
-            </div>
-
-            <div style="margin-top:12px;">
-              <label for="contact">Contact (numéro ou email)</label>
-              <input class="field" id="contact" placeholder="Ex : 06 xx xx xx xx ou nom@mail.com" autocomplete="email" />
-            </div>
-
-            <div style="margin-top:12px;">
-              <label for="creneau">Créneau de rappel souhaité</label>
-              <input class="field" id="creneau" placeholder="Ex : mardi dans l’après-midi" autocomplete="off" />
-            </div>
-
-            <div class="actions">
-              <button class="btn btnGhost btnWide" type="button" id="back3">← Retour</button>
-              <button class="btn btnPrimary btnWide" type="button" id="submitBtn">
-                <span id="submitIcon">✅</span> Envoyer
-              </button>
-            </div>
-
-            <div class="toast" id="toast"></div>
-          </div>
-
-          <div class="foot">
-            © Phoenix Automobile — Intermédiation entre particuliers.
-          </div>
-        </div>
-      </section>
-
+      </div>
     </div>
   </div>
 
-  <script>
-    // ======= CONFIG =======
-    const ENDPOINT = "https://script.google.com/macros/s/AKfycby8XrrhPsyJR_1IKZ53u6K8cc0jPSPyvvAQAElHMYuShJhKaRtiR3ETY8CNy-HAi_VH/exec";
-    const SOURCE_TAG = "phoenix-automobile.com";
+<script>
+(function(){
+  // URL Apps Script (ta URL)
+  const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycby8XrrhPsyJR_1IKZ53u6K8cc0jPSPyvvAQAElHMYuShJhKaRtiR3ETY8CNy-HAi_VH/exec";
 
-    // ======= STATE =======
-    let step = 1;
-    const els = {
-      step1: document.getElementById("step1"),
-      step2: document.getElementById("step2"),
-      step3: document.getElementById("step3"),
-      pills: document.querySelectorAll(".stepPill"),
-      barFill: document.getElementById("barFill"),
-      ratio: document.getElementById("ratio"),
-      toast: document.getElementById("toast"),
-      submitBtn: document.getElementById("submitBtn"),
-      submitIcon: document.getElementById("submitIcon"),
+  const $ = (id)=>document.getElementById(id);
+  const view = $("view");
+  const barFill = $("barFill");
+  const ratio = $("ratio");
 
-      typeAcheter: document.getElementById("typeAcheter"),
-      typeVendre: document.getElementById("typeVendre"),
-      modele: document.getElementById("modele"),
-      annee: document.getElementById("annee"),
-      nom: document.getElementById("nom"),
-      prenom: document.getElementById("prenom"),
-      cp: document.getElementById("cp"),
-      ville: document.getElementById("ville"),
-      contact: document.getElementById("contact"),
-      creneau: document.getElementById("creneau"),
-    };
+  const pill1 = $("pill1");
+  const pill2 = $("pill2");
+  const pill3 = $("pill3");
 
-    // ======= HELPERS =======
-    function setToast(kind, msg){
-      els.toast.className = "toast " + (kind === "ok" ? "ok" : "err");
-      els.toast.textContent = msg;
+  const state = {
+    step: 1,          // 1..3 + success
+    type: "",         // acheter|vendre
+    // Acheter:
+    buyMarque: "",
+    buyTrancheAnnee: "",
+    buyBudget: "",
+    // Vendre:
+    sellMarqueModele: "",
+    sellAnnee: "",
+    sellPrixSouhaite: "",
+    // Client
+    nom: "",
+    prenom: "",
+    cp: "",
+    ville: "",
+    contact: "",
+    creneau: "",
+    details: ""
+  };
+
+  function setStep(step){
+    // Evite le "remonte en haut" iOS: on memorise la position et on blur le focus
+    const y = window.scrollY || 0;
+    if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
+
+    state.step = step;
+    render();
+
+    // Restore scroll (et laisse une micro-tick)
+    setTimeout(()=>{ window.scrollTo(0, y); }, 0);
+  }
+
+  function updateProgress(){
+    const s = Math.min(Math.max(state.step,1),3);
+    ratio.textContent = s + "/3";
+    barFill.style.width = ((s-1)/2)*100 + "%";
+
+    pill1.className = "pill" + (s===1 ? " active" : (s>1 ? " done" : ""));
+    pill2.className = "pill" + (s===2 ? " active" : (s>2 ? " done" : (s<2 ? "" : "")));
+    pill3.className = "pill" + (s===3 ? " active" : "");
+  }
+
+  function render(){
+    if(state.step === 4){
+      // Ecran final: juste la confirmation + bouton menu
+      view.innerHTML = `
+        <div class="card" style="text-align:center;padding:22px;">
+          <div style="font-size:42px;line-height:1;">✅</div>
+          <div style="margin-top:10px;font-weight:900;font-size:16px;">Le formulaire a ete envoye.</div>
+          <div style="margin-top:8px;color:var(--muted);font-size:13px;">
+            Phoenix Automobile vous recontactera pour proposer un rendez-vous dans les plus brefs delais.
+          </div>
+          <div class="actions" style="margin-top:16px;">
+            <button class="btn ghost" type="button" id="backToMenu">Retour au menu principal</button>
+          </div>
+        </div>
+      `;
+      $("backToMenu").onclick = resetAll;
+      // progress fixe a 3/3
+      barFill.style.width = "100%";
+      ratio.textContent = "3/3";
+      pill1.className = "pill done";
+      pill2.className = "pill done";
+      pill3.className = "pill done";
+      return;
     }
-    function clearToast(){
-      els.toast.className = "toast";
-      els.toast.textContent = "";
+
+    updateProgress();
+
+    if(state.step === 1){
+      view.innerHTML = step1Html();
+      bindStep1();
+      return;
     }
-
-    function getType(){
-      const r = document.querySelector('input[name="typeDemande"]:checked');
-      return r ? r.value : "";
+    if(state.step === 2){
+      view.innerHTML = step2Html();
+      bindStep2();
+      return;
     }
+    if(state.step === 3){
+      view.innerHTML = step3Html();
+      bindStep3();
+      return;
+    }
+  }
 
-    function goTo(n){
-      step = n;
-      // show cards
-      els.step1.classList.toggle("hidden", step !== 1);
-      els.step2.classList.toggle("hidden", step !== 2);
-      els.step3.classList.toggle("hidden", step !== 3);
+  function step1Html(){
+    return `
+      <div class="card">
+        <h2>1) Acheter ou vendre un vehicule ?</h2>
+        <p>Choisissez une option pour personnaliser la suite.</p>
 
-      // update progress
-      els.ratio.textContent = `${step}/3`;
-      els.barFill.style.width = (step/3*100) + "%";
+        <div class="options">
+          <div class="opt ${state.type==="acheter" ? "selected":""}" data-type="acheter">
+            <div class="radio"></div>
+            <div>
+              <h3>Acheter</h3>
+              <div class="desc">Demande d'achat : quelques informations pour cibler le besoin.</div>
+            </div>
+          </div>
 
-      // pills state: done if < step, current if === step
-      els.pills.forEach(p => {
-        const s = Number(p.dataset.step);
-        p.classList.toggle("done", s < step);
+          <div class="opt ${state.type==="vendre" ? "selected":""}" data-type="vendre">
+            <div class="radio"></div>
+            <div>
+              <h3>Vendre</h3>
+              <div class="desc">Demande de vente : cadrage du vehicule et du prix souhaite.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="err" id="err1"></div>
+
+        <div class="actions">
+          <button class="btn danger" type="button" id="reset">Reinitialiser</button>
+          <button class="btn primary" type="button" id="next1">Continuer</button>
+        </div>
+      </div>
+    `;
+  }
+
+  function bindStep1(){
+    const opts = view.querySelectorAll(".opt");
+    opts.forEach(opt=>{
+      opt.addEventListener("click", ()=>{
+        state.type = opt.getAttribute("data-type");
+        // Quand on change de type, on nettoie les champs vehicule pour eviter validations bloquantes
+        state.buyMarque = "";
+        state.buyTrancheAnnee = "";
+        state.buyBudget = "";
+        state.sellMarqueModele = "";
+        state.sellAnnee = "";
+        state.sellPrixSouhaite = "";
+        render();
       });
+    });
 
-      clearToast();
-      // scroll to top of form panel on mobile
-      if (window.innerWidth < 980) {
-        window.scrollTo({ top: 0, behavior: "smooth" });
+    $("reset").onclick = resetAll;
+    $("next1").onclick = ()=>{
+      const err = $("err1");
+      err.style.display = "none";
+      if(!state.type){
+        err.textContent = "Veuillez selectionner Acheter ou Vendre.";
+        err.style.display = "block";
+        return;
       }
+      setStep(2);
+    };
+  }
+
+  function step2Html(){
+    const isBuy = state.type === "acheter";
+    return `
+      <div class="card">
+        <h2>2) Informations vehicule</h2>
+        <p>${isBuy ? "Informations pour comprendre le besoin." : "Informations pour cadrer le vehicule a vendre."}</p>
+
+        ${isBuy ? `
+          <div class="grid">
+            <div class="field">
+              <label>Marque voulue</label>
+              <input id="buyMarque" inputmode="text" autocomplete="off" value="${esc(state.buyMarque)}" />
+            </div>
+            <div class="field">
+              <label>Tranche d'annee</label>
+              <input id="buyTrancheAnnee" inputmode="text" autocomplete="off" value="${esc(state.buyTrancheAnnee)}" />
+            </div>
+          </div>
+
+          <div style="height:12px"></div>
+
+          <div class="grid">
+            <div class="field">
+              <label>Budget</label>
+              <input id="buyBudget" inputmode="text" autocomplete="off" value="${esc(state.buyBudget)}" />
+            </div>
+            <div class="field">
+              <label>Message (optionnel)</label>
+              <input id="details2" inputmode="text" autocomplete="off" value="${esc(state.details)}" />
+            </div>
+          </div>
+        ` : `
+          <div class="grid">
+            <div class="field">
+              <label>Marque et modele</label>
+              <input id="sellMarqueModele" inputmode="text" autocomplete="off" value="${esc(state.sellMarqueModele)}" />
+            </div>
+            <div class="field">
+              <label>Annee du vehicule</label>
+              <input id="sellAnnee" inputmode="numeric" autocomplete="off" value="${esc(state.sellAnnee)}" />
+            </div>
+          </div>
+
+          <div style="height:12px"></div>
+
+          <div class="grid">
+            <div class="field">
+              <label>Tranche de prix souhaitee</label>
+              <input id="sellPrixSouhaite" inputmode="text" autocomplete="off" value="${esc(state.sellPrixSouhaite)}" />
+            </div>
+            <div class="field">
+              <label>Message (optionnel)</label>
+              <input id="details2" inputmode="text" autocomplete="off" value="${esc(state.details)}" />
+            </div>
+          </div>
+        `}
+
+        <div class="err" id="err2"></div>
+
+        <div class="actions">
+          <button class="btn ghost" type="button" id="back2">Retour</button>
+          <button class="btn primary" type="button" id="next2">Continuer</button>
+        </div>
+      </div>
+    `;
+  }
+
+  function bindStep2(){
+    const isBuy = state.type === "acheter";
+    const err = $("err2");
+
+    // Inputs
+    const d2 = $("details2");
+    d2.addEventListener("input", ()=> state.details = d2.value.trim());
+
+    if(isBuy){
+      const a = $("buyMarque"), b = $("buyTrancheAnnee"), c = $("buyBudget");
+      a.addEventListener("input", ()=> state.buyMarque = a.value.trim());
+      b.addEventListener("input", ()=> state.buyTrancheAnnee = b.value.trim());
+      c.addEventListener("input", ()=> state.buyBudget = c.value.trim());
+    } else {
+      const a = $("sellMarqueModele"), b = $("sellAnnee"), c = $("sellPrixSouhaite");
+      a.addEventListener("input", ()=> state.sellMarqueModele = a.value.trim());
+      b.addEventListener("input", ()=> state.sellAnnee = b.value.trim());
+      c.addEventListener("input", ()=> state.sellPrixSouhaite = c.value.trim());
     }
 
-    function require(val){
-      return String(val || "").trim().length > 0;
-    }
-    function onlyDigits(val){
-      return String(val || "").replace(/[^\d]/g, "");
-    }
+    $("back2").onclick = ()=> setStep(1);
 
-    function validateStep1(){
-      if (!require(getType())){
-        setToast("err", "Choisis d’abord : Acheter ou Vendre.");
-        return false;
+    // IMPORTANT: sur iPhone, "suivant" qui fait rien vient souvent d'un submit implicite.
+    // Ici boutons type="button" + validation claire.
+    $("next2").onclick = ()=>{
+      err.style.display = "none";
+
+      if(!state.type){
+        err.textContent = "Veuillez selectionner un type (Acheter/Vendre).";
+        err.style.display = "block";
+        return;
       }
-      return true;
-    }
 
-    function validateStep2(){
-      const modele = els.modele.value.trim();
-      const annee = onlyDigits(els.annee.value.trim());
-
-      if (!require(modele)){
-        setToast("err", "Indique le modèle du véhicule.");
-        return false;
-      }
-      if (!require(annee) || annee.length !== 4){
-        setToast("err", "Indique une année valide (ex : 2019).");
-        return false;
-      }
-      // light sanity check
-      const y = Number(annee);
-      const now = new Date().getFullYear();
-      if (y < 1980 || y > now + 1){
-        setToast("err", "Année incohérente. Mets une année réaliste.");
-        return false;
-      }
-      return true;
-    }
-
-    function validateStep3(){
-      const nom = els.nom.value.trim();
-      const prenom = els.prenom.value.trim();
-      const cp = onlyDigits(els.cp.value.trim());
-      const ville = els.ville.value.trim();
-      const contact = els.contact.value.trim();
-      const creneau = els.creneau.value.trim();
-
-      if (!require(nom) || !require(prenom)){
-        setToast("err", "Nom + Prénom sont requis.");
-        return false;
-      }
-      if (!require(cp) || cp.length < 4){
-        setToast("err", "Code postal invalide.");
-        return false;
-      }
-      if (!require(ville)){
-        setToast("err", "Ville requise.");
-        return false;
-      }
-      if (!require(contact)){
-        setToast("err", "Contact requis (téléphone ou email).");
-        return false;
-      }
-      if (!require(creneau)){
-        setToast("err", "Indique ton créneau de rappel.");
-        return false;
-      }
-      return true;
-    }
-
-    function payload(){
-      return {
-        typeDemande: getType(),
-        modele: els.modele.value.trim(),
-        annee: onlyDigits(els.annee.value.trim()),
-        nom: els.nom.value.trim(),
-        prenom: els.prenom.value.trim(),
-        cp: onlyDigits(els.cp.value.trim()),
-        ville: els.ville.value.trim(),
-        contact: els.contact.value.trim(),
-        creneau: els.creneau.value.trim(),
-        details: "", // optionnel si tu veux ajouter plus tard
-        source: SOURCE_TAG,
-        ts: new Date().toISOString()
-      };
-    }
-
-    async function send(){
-      clearToast();
-
-      // UI loading
-      els.submitBtn.disabled = true;
-      els.submitBtn.style.opacity = "0.85";
-      els.submitIcon.innerHTML = '<span class="spin" aria-hidden="true"></span>';
-
-      try{
-        const res = await fetch(ENDPOINT, {
-          method: "POST",
-          headers: { "Content-Type": "text/plain;charset=utf-8" },
-          body: JSON.stringify(payload())
-        });
-
-        // Apps Script renvoie parfois 200 même si erreur -> on tente JSON
-        const txt = await res.text();
-        let out = null;
-        try { out = JSON.parse(txt); } catch (e) { out = { ok: res.ok, raw: txt }; }
-
-        if (!out || out.ok !== true){
-          const msg = (out && (out.error || out.message)) ? (out.error || out.message) : "Erreur d’envoi. Réessaie.";
-          setToast("err", msg);
+      if(isBuy){
+        // Pour acheter : marque / tranche annee / budget au minimum 1 info utile
+        if(!state.buyMarque && !state.buyTrancheAnnee && !state.buyBudget){
+          err.textContent = "Veuillez renseigner au moins une information (marque, tranche d'annee ou budget).";
+          err.style.display = "block";
           return;
         }
-
-        // SUCCESS UI
-        // Mark step 3 done (check green)
-        els.pills.forEach(p => {
-          const s = Number(p.dataset.step);
-          if (s <= 3) p.classList.add("done");
-        });
-        els.ratio.textContent = "3/3 ✅";
-        els.barFill.style.width = "100%";
-
-        setToast("ok", "✅ 3/3 — C’est envoyé.\nPhoenix Automobile vous enverra un message pour vous proposer un rendez-vous dans les plus brefs délais.");
-
-        // Optional: reset after success (leave as is)
-        // resetAll(false);
-      } catch(err){
-        setToast("err", "Impossible d’envoyer (connexion / autorisation Apps Script). Réessaie dans 30 secondes.");
-      } finally{
-        els.submitBtn.disabled = false;
-        els.submitBtn.style.opacity = "1";
-        els.submitIcon.textContent = "✅";
+      } else {
+        // Pour vendre : marqueModele + annee (recommandes), prix souhaite (optionnel)
+        if(!state.sellMarqueModele || !state.sellAnnee){
+          err.textContent = "Veuillez renseigner la marque/modele et l'annee du vehicule.";
+          err.style.display = "block";
+          return;
+        }
       }
-    }
 
-    function resetAll(alsoStep=true){
-      // reset inputs
-      els.typeAcheter.checked = false;
-      els.typeVendre.checked = false;
-      els.modele.value = "";
-      els.annee.value = "";
-      els.nom.value = "";
-      els.prenom.value = "";
-      els.cp.value = "";
-      els.ville.value = "";
-      els.contact.value = "";
-      els.creneau.value = "";
-      clearToast();
-      if (alsoStep) goTo(1);
-    }
+      setStep(3);
+    };
+  }
 
-    // ======= EVENTS =======
-    document.getElementById("next1").addEventListener("click", () => {
-      clearToast();
-      if (!validateStep1()) { setToast("err", "Choisis d’abord : Acheter ou Vendre."); return; }
-      goTo(2);
-    });
+  function step3Html(){
+    return `
+      <div class="card">
+        <h2>3) Informations client</h2>
+        <p>Coordonnees pour etre recontacte(e).</p>
 
-    document.getElementById("back2").addEventListener("click", () => goTo(1));
-    document.getElementById("next2").addEventListener("click", () => {
-      clearToast();
-      if (!validateStep2()) return;
-      goTo(3);
-    });
+        <div class="grid">
+          <div class="field">
+            <label>Nom</label>
+            <input id="nom" autocomplete="family-name" value="${esc(state.nom)}" />
+          </div>
+          <div class="field">
+            <label>Prenom</label>
+            <input id="prenom" autocomplete="given-name" value="${esc(state.prenom)}" />
+          </div>
+        </div>
 
-    document.getElementById("back3").addEventListener("click", () => goTo(2));
+        <div style="height:12px"></div>
 
-    els.submitBtn.addEventListener("click", async () => {
-      clearToast();
-      if (!validateStep1()) { goTo(1); return; }
-      if (!validateStep2()) { goTo(2); return; }
-      if (!validateStep3()) { return; }
-      await send();
-    });
+        <div class="grid">
+          <div class="field">
+            <label>Code postal</label>
+            <input id="cp" inputmode="numeric" autocomplete="postal-code" value="${esc(state.cp)}" />
+          </div>
+          <div class="field">
+            <label>Ville</label>
+            <input id="ville" autocomplete="address-level2" value="${esc(state.ville)}" />
+          </div>
+        </div>
 
-    document.getElementById("resetAll").addEventListener("click", () => resetAll(true));
+        <div style="height:12px"></div>
 
-    // Enter key: go next / submit
-    document.addEventListener("keydown", (e) => {
-      if (e.key !== "Enter") return;
-      const active = document.activeElement;
-      if (!active || active.tagName === "TEXTAREA") return;
+        <div class="grid">
+          <div class="field">
+            <label>Contact (numero ou email)</label>
+            <input id="contact" placeholder="ex: 06 00 00 00 00 ou email@domaine.com" value="${esc(state.contact)}" />
+          </div>
+          <div class="field">
+            <label>Creneau souhaite pour etre rappele(e)</label>
+            <input id="creneau" placeholder="ex: mardi apres-midi" value="${esc(state.creneau)}" />
+          </div>
+        </div>
 
-      if (step === 1) document.getElementById("next1").click();
-      else if (step === 2) document.getElementById("next2").click();
-      else if (step === 3) els.submitBtn.click();
-    });
+        <div class="err" id="err3"></div>
 
-    // Default start
-    goTo(1);
-  </script>
+        <div class="actions">
+          <button class="btn ghost" type="button" id="back3">Retour</button>
+          <button class="btn primary" type="button" id="send">Envoyer</button>
+        </div>
+      </div>
+    `;
+  }
+
+  function bindStep3(){
+    const err = $("err3");
+
+    const nom = $("nom"), prenom = $("prenom"), cp = $("cp"), ville = $("ville"),
+          contact = $("contact"), creneau = $("creneau");
+
+    nom.addEventListener("input", ()=> state.nom = nom.value.trim());
+    prenom.addEventListener("input", ()=> state.prenom = prenom.value.trim());
+    cp.addEventListener("input", ()=> state.cp = cp.value.trim());
+    ville.addEventListener("input", ()=> state.ville = ville.value.trim());
+    contact.addEventListener("input", ()=> state.contact = contact.value.trim());
+    creneau.addEventListener("input", ()=> state.creneau = creneau.value.trim());
+
+    $("back3").onclick = ()=> setStep(2);
+
+    $("send").onclick = async ()=>{
+      err.style.display = "none";
+
+      const missing = [];
+      if(!state.nom) missing.push("Nom");
+      if(!state.prenom) missing.push("Prenom");
+      if(!state.cp) missing.push("Code postal");
+      if(!state.ville) missing.push("Ville");
+      if(!state.contact) missing.push("Contact");
+      if(!state.creneau) missing.push("Creneau souhaite");
+
+      if(missing.length){
+        err.textContent = "Champs manquants : " + missing.join(", ") + ".";
+        err.style.display = "block";
+        return;
+      }
+
+      // Payload vers Apps Script (Acheter/Vendre different)
+      const payload = {
+        typeDemande: state.type,
+        // Acheter
+        buyMarque: state.buyMarque,
+        buyTrancheAnnee: state.buyTrancheAnnee,
+        buyBudget: state.buyBudget,
+        // Vendre
+        sellMarqueModele: state.sellMarqueModele,
+        sellAnnee: state.sellAnnee,
+        sellPrixSouhaite: state.sellPrixSouhaite,
+        // Client
+        nom: state.nom,
+        prenom: state.prenom,
+        cp: state.cp,
+        ville: state.ville,
+        contact: state.contact,
+        creneau: state.creneau,
+        details: state.details,
+        source: "phoenix-automobile.com",
+        ts: new Date().toISOString()
+      };
+
+      // Pour eviter les soucis CORS avec Apps Script depuis un site statique:
+      // on envoie en no-cors (on ne lit pas la reponse, mais l'email part).
+      try{
+        $("send").disabled = true;
+        await fetch(WEBHOOK_URL, {
+          method:"POST",
+          mode:"no-cors",
+          headers:{ "Content-Type":"application/json" },
+          body: JSON.stringify(payload)
+        });
+
+        setStep(4);
+      }catch(ex){
+        err.textContent = "Erreur lors de l'envoi. Veuillez reessayer.";
+        err.style.display = "block";
+      }finally{
+        $("send").disabled = false;
+      }
+    };
+  }
+
+  function resetAll(){
+    state.step = 1;
+    state.type = "";
+    state.buyMarque = "";
+    state.buyTrancheAnnee = "";
+    state.buyBudget = "";
+    state.sellMarqueModele = "";
+    state.sellAnnee = "";
+    state.sellPrixSouhaite = "";
+    state.nom = "";
+    state.prenom = "";
+    state.cp = "";
+    state.ville = "";
+    state.contact = "";
+    state.creneau = "";
+    state.details = "";
+    render();
+  }
+
+  function esc(s){
+    return String(s||"")
+      .replace(/&/g,"&amp;")
+      .replace(/</g,"&lt;")
+      .replace(/>/g,"&gt;")
+      .replace(/"/g,"&quot;")
+      .replace(/'/g,"&#039;");
+  }
+
+  render();
+})();
+</script>
 </body>
 </html>
