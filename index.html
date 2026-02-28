@@ -53,39 +53,193 @@ padding:40px;
 }
 
 .phone{
-font-size:26px;
-font-weight:bold;
-}
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Phoenix Automobile — Vente rapide et sécurisée</title>
+  <meta name="description" content="Vendez votre voiture rapidement et au meilleur prix à Saint-Brieuc. Estimation gratuite. Contact WhatsApp." />
 
-</style>
+  <style>
+    :root{
+      --navy:#0b2a4a;
+      --orange:#f28c28;
+      --bg:#f4f6f8;
+      --text:#0e1726;
+      --muted:#5b6472;
+      --card:#ffffff;
+      --shadow: 0 10px 30px rgba(0,0,0,.08);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background: linear-gradient(180deg, #eef2f6 0%, #ffffff 40%, #ffffff 100%);
+    }
+    .wrap{max-width:1100px;margin:0 auto;padding:28px 18px 70px}
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:16px; padding:14px 16px; background:rgba(255,255,255,.7);
+      border:1px solid rgba(0,0,0,.06); border-radius: 16px; backdrop-filter: blur(8px);
+    }
+    .brand{
+      display:flex; gap:12px; align-items:center;
+      font-weight:800; letter-spacing:.6px; color:var(--navy);
+      text-transform: uppercase;
+    }
+    .badge{
+      width:42px;height:42px;border-radius:50%;
+      background: radial-gradient(circle at 30% 30%, #ffd2a3 0%, var(--orange) 35%, #b85b08 100%);
+      box-shadow: 0 10px 25px rgba(242,140,40,.25);
+    }
+    .cta-row{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 16px; border-radius: 14px; border:1px solid rgba(0,0,0,.08);
+      font-weight:700; text-decoration:none; color:var(--navy); background:#fff;
+    }
+    .btn.primary{background:var(--orange); color:#1c1206; border-color: rgba(0,0,0,.08)}
+    .btn:hover{transform: translateY(-1px)}
+    .hero{
+      margin-top:22px;
+      display:grid; gap:18px;
+      grid-template-columns: 1.2fr .8fr;
+      align-items:stretch;
+    }
+    @media (max-width:900px){ .hero{grid-template-columns:1fr} }
+    .panel{
+      background: var(--card);
+      border:1px solid rgba(0,0,0,.06);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:22px;
+      position:relative;
+      overflow:hidden;
+    }
+    .panel::before{
+      content:"";
+      position:absolute; inset:-40% -30% auto auto;
+      width:420px; height:420px;
+      background: radial-gradient(circle at 30% 30%, rgba(242,140,40,.28) 0%, rgba(242,140,40,0) 60%);
+      transform: rotate(12deg);
+      pointer-events:none;
+    }
+    h1{margin:0 0 10px; font-size:38px; line-height:1.05; color:var(--navy)}
+    .sub{margin:0 0 18px; color:var(--muted); font-size:16px}
+    .chips{display:flex; gap:10px; flex-wrap:wrap; margin:12px 0 0}
+    .chip{
+      padding:8px 10px; border-radius: 999px;
+      background: #f7f9fc; border:1px solid rgba(0,0,0,.06);
+      color:#223047; font-weight:650; font-size:13px;
+    }
+    .grid{
+      display:grid; gap:12px;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      margin-top:14px;
+    }
+    @media (max-width:520px){ .grid{grid-template-columns:1fr} }
+    .card{
+      padding:14px; border-radius: 16px;
+      border:1px solid rgba(0,0,0,.06);
+      background: #fff;
+    }
+    .card b{color:var(--navy)}
+    .how{
+      margin-top:18px;
+      display:grid; gap:12px;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+    }
+    @media (max-width:900px){ .how{grid-template-columns:1fr} }
+    .step{
+      border-radius:16px; padding:14px;
+      border:1px solid rgba(0,0,0,.06);
+      background: linear-gradient(180deg, #ffffff 0%, #fbfcfe 100%);
+    }
+    .num{
+      width:34px;height:34px;border-radius:10px;
+      display:inline-flex; align-items:center; justify-content:center;
+      background: rgba(242,140,40,.18); color: #7a3a00; font-weight:900;
+      margin-bottom:10px;
+    }
+    .contact{
+      display:flex; flex-direction:column; gap:10px;
+      background: #0b2a4a;
+      color:#fff;
+      border-radius: var(--radius);
+      padding:20px;
+      box-shadow: 0 12px 35px rgba(11,42,74,.25);
+    }
+    .contact .small{opacity:.85}
+    .line{display:flex; gap:10px; flex-wrap:wrap}
+    .contact a{color:#fff}
+    footer{margin-top:22px; color:var(--muted); font-size:13px; text-align:center}
+    .sep{height:1px;background:rgba(0,0,0,.06); margin:18px 0}
+  </style>
 </head>
 
 <body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <span class="badge" aria-hidden="true"></span>
+        <span>PHOENIX&nbsp;AUTOMOBILE</span>
+      </div>
+      <div class="cta-row">
+        <a class="btn" href="tel:+33663620397">Appeler</a>
+        <a class="btn primary" href="https://wa.me/33663620397?text=Bonjour,%20je%20souhaite%20une%20estimation%20gratuite%20de%20mon%20v%C3%A9hicule." target="_blank" rel="noopener">WhatsApp — Estimation gratuite</a>
+      </div>
+    </div>
 
-<header>
-<h1>PHOENIX AUTOMOBILE</h1>
-<div class="subtitle">Vente rapide, sécurisée et au meilleur prix.</div>
-<a class="btn" href="https://wa.me/33663620397">Estimation gratuite</a>
-</header>
+    <div class="hero">
+      <div class="panel">
+        <h1>Vendez votre voiture rapidement, au meilleur prix.</h1>
+        <p class="sub">Saint-Brieuc / Côtes-d’Armor — sélection d’acheteurs, accompagnement, vente sécurisée.</p>
 
-<div class="section">
-<h2>Spécialiste vente auto entre particuliers</h2>
-<p>Je vous accompagne de A à Z pour vendre votre véhicule rapidement, en toute sécurité et au meilleur prix.</p>
-</div>
+        <div class="chips">
+          <span class="chip">✅ Estimation gratuite</span>
+          <span class="chip">✅ Acheteurs filtrés</span>
+          <span class="chip">✅ Accompagnement administratif</span>
+          <span class="chip">✅ Paiement sécurisé</span>
+        </div>
 
-<div class="section">
-<h2>Pourquoi passer par moi ?</h2>
-<p>✔ Négociation  
-✔ Sécurisation des paiements  
-✔ Gestion administrative  
-✔ Filtrage des acheteurs  
-✔ Gain de temps</p>
-</div>
+        <div class="sep"></div>
 
-<div class="contact">
-<div class="phone">06 63 62 03 97</div>
-<div>contact@phoenix-automobile.com</div>
-</div>
+        <div class="grid">
+          <div class="card"><b>Plus rapide</b><br><span style="color:var(--muted)">Moins de visites inutiles, moins de “dispo ?” fantômes.</span></div>
+          <div class="card"><b>Plus sûr</b><br><span style="color:var(--muted)">On cadre les échanges et on sécurise la transaction.</span></div>
+          <div class="card"><b>Plus simple</b><br><span style="color:var(--muted)">Je t’accompagne jusqu’au changement de carte grise.</span></div>
+          <div class="card"><b>Local</b><br><span style="color:var(--muted)">Saint-Brieuc, Plérin, Guingamp, Lannion, etc.</span></div>
+        </div>
 
+        <div class="how">
+          <div class="step"><div class="num">1</div><b>Estimation</b><div style="color:var(--muted);margin-top:6px">Tu m’envoies les infos + photos. Je te donne une estimation claire.</div></div>
+          <div class="step"><div class="num">2</div><b>Recherche d’acheteurs</b><div style="color:var(--muted);margin-top:6px">Diffusion + base d’acquéreurs + tri des prospects.</div></div>
+          <div class="step"><div class="num">3</div><b>Vente sécurisée</b><div style="color:var(--muted);margin-top:6px">On finalise proprement : paiement, papiers, remise.</div></div>
+        </div>
+      </div>
+
+      <div class="contact">
+        <div style="font-size:20px; font-weight:900">Contact direct</div>
+        <div class="small">Réponse rapide — disponible 7j/7</div>
+        <div class="line">
+          <a class="btn primary" href="https://wa.me/33663620397?text=Bonjour,%20je%20souhaite%20une%20estimation%20gratuite%20de%20mon%20v%C3%A9hicule." target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn" href="mailto:contact@phoenix-automobile.com">Email</a>
+          <a class="btn" href="tel:+33663620397">06 63 62 03 97</a>
+        </div>
+        <div class="sep" style="background:rgba(255,255,255,.15)"></div>
+        <div class="small">
+          <b>Zone :</b> Saint-Brieuc / Bretagne<br/>
+          <b>Adresse :</b> 22000 Saint-Brieuc
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      © Phoenix Automobile — Intermédiation entre particuliers.  
+    </footer>
+  </div>
 </body>
 </html>
