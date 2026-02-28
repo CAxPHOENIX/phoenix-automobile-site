@@ -1,271 +1,1026 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Phoenix Automobile</title>
+<title>Phoenix Automobile — Formulaire</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+:root{
+--phoenix:#F08D34;
+--bg0:#070A0F;
+--bg1:#0B1020;
+--card: rgba(255,255,255,.06);
+--stroke: rgba(255,255,255,.12);
+--text:#EAF0FF;
+--muted: rgba(234,240,255,.70);
+--muted2: rgba(234,240,255,.52);
+--ok:#33D17A;
+--danger:#FF4D4D;
+--shadow: 0 14px 50px rgba(0,0,0,.50);
+--radius: 22px;
+}
+
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
 body{
-font-family: Arial, sans-serif;
 margin:0;
-background:#0f172a;
-color:#fff;
+font-family: "Manrope", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+color: var(--text);
+background:
+radial-gradient(900px 500px at 20% 10%, rgba(240,141,52,.25), transparent 60%),
+radial-gradient(900px 600px at 85% 20%, rgba(120,120,255,.16), transparent 60%),
+radial-gradient(900px 600px at 60% 95%, rgba(255,255,255,.08), transparent 60%),
+linear-gradient(180deg, var(--bg0), var(--bg1));
+overflow-x:hidden;
 }
-.container{max-width:520px;margin:auto;padding:20px;}
-.logo{width:120px;display:block;margin:20px auto;}
-.card{
-background:rgba(255,255,255,0.06);
-border-radius:20px;
-padding:20px;
-backdrop-filter:blur(12px);
-border:1px solid rgba(255,255,255,0.08);
+
+.wrap{
+min-height:100%;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:28px 16px 44px;
 }
-h1{font-size:20px;text-align:center;margin:8px 0 16px;}
-label{display:block;margin:10px 0;}
-input, select{
-width:100%;
-padding:12px;
-margin:8px 0;
-border-radius:12px;
-border:none;
-font-size:16px;
-outline:none;
+
+.shell{
+width:min(980px, 100%);
+display:grid;
+grid-template-columns: 1.05fr .95fr;
+gap:18px;
 }
-.row{display:flex;gap:10px;}
-.row > div{flex:1;}
-.hint{font-size:12px;opacity:.8;margin-top:6px;}
-.error{
-background:rgba(240,141,52,0.18);
-border:1px solid rgba(240,141,52,0.45);
-color:#fff;
-padding:10px 12px;
-border-radius:12px;
-margin:10px 0;
-display:none;
+@media (max-width: 980px){
+.shell{ grid-template-columns:1fr; }
 }
-button{
-width:100%;
-padding:14px;
-border:none;
+
+.panel{
+border: 1px solid var(--stroke);
+background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+border-radius: var(--radius);
+box-shadow: var(--shadow);
+overflow:hidden;
+position:relative;
+}
+.panel::before{
+content:"";
+position:absolute;
+inset:-2px;
+background:
+radial-gradient(700px 250px at 20% 0%, rgba(240,141,52,.23), transparent 62%),
+radial-gradient(700px 250px at 85% 10%, rgba(255,255,255,.10), transparent 62%);
+pointer-events:none;
+opacity:.9;
+}
+.panel > *{ position:relative; }
+
+/* LEFT */
+.brand{
+padding:26px 26px 20px;
+display:flex;
+flex-direction:column;
+gap:14px;
+min-height: 520px;
+}
+.brandTop{
+display:flex;
+align-items:center;
+gap:14px;
+}
+.logo{
+width:50px;
+height:50px;
 border-radius:14px;
-font-size:16px;
-margin-top:10px;
-cursor:pointer;
-background:#F08D34;
-color:#111;
-font-weight:700;
+background: rgba(240,141,52,.12);
+border: 1px solid rgba(240,141,52,.35);
+display:grid;
+place-items:center;
+overflow:hidden;
 }
-button.secondary{
-background:transparent;
-color:#fff;
-border:1px solid rgba(255,255,255,0.2);
+.logo img{
+width:36px;
+height:36px;
+object-fit:contain;
+display:block;
+filter: drop-shadow(0 8px 14px rgba(0,0,0,.35));
+}
+.brandTitle{
+line-height:1.05;
+}
+.brandTitle .name{
+font-weight:800;
+letter-spacing:.06em;
+font-size:18px;
+text-transform:uppercase;
+}
+.brandTitle .tag{
+margin-top:5px;
+color: var(--muted);
+font-size:13px;
 font-weight:600;
 }
-.progress{
+
+.hero{
+margin-top:6px;
+padding:18px 20px;
+border-radius:18px;
+border:1px solid rgba(255,255,255,.10);
+background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+}
+.hero h1{
+margin:0 0 10px;
+font-size:30px;
+letter-spacing:-.02em;
+line-height:1.06;
+}
+.hero p{
+margin:0;
+color: var(--muted);
+font-size:14px;
+line-height:1.55;
+}
+
+.badges{
+margin-top:14px;
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+}
+.badge{
+font-size:12px;
+color: var(--muted);
+border:1px solid rgba(255,255,255,.12);
+background: rgba(255,255,255,.04);
+padding:8px 10px;
+border-radius:999px;
+display:flex;
+align-items:center;
+gap:8px;
+user-select:none;
+}
+.dot{
+width:8px;
 height:8px;
-background:#334155;
-border-radius:10px;
-overflow:hidden;
-margin:10px 0 18px;
+border-radius:999px;
+background: var(--phoenix);
+box-shadow:0 0 0 3px rgba(240,141,52,.14);
+}
+
+.contactBar{
+margin-top:auto;
+padding:18px 26px 22px;
+border-top: 1px solid rgba(255,255,255,.10);
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:12px;
+flex-wrap:wrap;
+}
+.contactInfo{
+display:flex;
+flex-direction:column;
+gap:2px;
+min-width: 240px;
+}
+.contactInfo .label{
+color: var(--muted2);
+font-size:12px;
+font-weight:700;
+}
+.contactInfo .value{
+font-size:16px;
+font-weight:900;
+letter-spacing:.02em;
+}
+.ctaRow{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+}
+.btn{
+appearance:none;
+border:0;
+cursor:pointer;
+font-weight:900;
+letter-spacing:.01em;
+border-radius:14px;
+padding:12px 14px;
+display:inline-flex;
+align-items:center;
+gap:10px;
+transition: transform .12s ease, filter .12s ease, background .12s ease;
+text-decoration:none;
+user-select:none;
+white-space:nowrap;
+}
+.btn:active{ transform: translateY(1px); }
+.btnPrimary{
+background: linear-gradient(180deg, rgba(240,141,52,1), rgba(219,118,33,1));
+color:#111;
+box-shadow: 0 14px 40px rgba(240,141,52,.20);
+}
+.btnGhost{
+background: rgba(255,255,255,.06);
+border:1px solid rgba(255,255,255,.14);
+color: var(--text);
+}
+.btnDanger{
+background: rgba(255,77,77,.10);
+border:1px solid rgba(255,77,77,.25);
+color: rgba(255,215,215,.95);
+}
+.btn:hover{ filter: brightness(1.05); }
+
+/* RIGHT */
+.formWrap{
+padding:24px 22px 20px;
+display:flex;
+flex-direction:column;
+gap:14px;
+}
+
+.topRow{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.steps{
+display:flex;
+align-items:center;
+gap:10px;
+flex-wrap:wrap;
+}
+.stepPill{
+display:flex;
+align-items:center;
+gap:8px;
+border:1px solid rgba(255,255,255,.12);
+background: rgba(255,255,255,.04);
+padding:8px 10px;
+border-radius:999px;
+font-size:12px;
+color: var(--muted);
+user-select:none;
+}
+.stepPill .n{
+width:18px; height:18px;
+border-radius:999px;
+display:grid; place-items:center;
+font-weight:900;
+color:#111;
+background: rgba(240,141,52,1);
+}
+.stepPill.done{
+border-color: rgba(51,209,122,.35);
+background: rgba(51,209,122,.08);
+color: rgba(234,240,255,.85);
+}
+.stepPill.done .n{
+background: var(--ok);
+color:#07110B;
+}
+
+.lock{
+display:inline-flex; align-items:center; gap:8px;
+padding:8px 10px;
+border-radius:999px;
+border:1px solid rgba(255,255,255,.10);
+background: rgba(0,0,0,.14);
+color: rgba(234,240,255,.75);
+font-size:12px;
+user-select:none;
+}
+.lock b{ color: rgba(234,240,255,.92); }
+
+.progress{
+display:flex;
+align-items:center;
+gap:10px;
+width:100%;
 }
 .bar{
-height:100%;
-background:#F08D34;
-width:33%;
-transition:0.3s;
+flex:1;
+height:10px;
+border-radius:999px;
+background: rgba(255,255,255,.06);
+border:1px solid rgba(255,255,255,.10);
+overflow:hidden;
+min-width: 180px;
 }
-.success{text-align:center;font-size:18px;line-height:1.35;}
+.bar > div{
+height:100%;
+width:0%;
+background: linear-gradient(90deg, rgba(240,141,52,1), rgba(255,255,255,.30));
+border-radius:999px;
+transition: width .25s ease;
+}
+.small{
+font-size:12px;
+color: var(--muted2);
+}
+
+.card{
+border:1px solid rgba(255,255,255,.12);
+background: rgba(0,0,0,.18);
+border-radius: 18px;
+padding: 16px;
+}
+.card h2{
+margin:0 0 10px;
+font-size:15px;
+letter-spacing:.01em;
+}
+.card .sub{
+margin:0 0 14px;
+font-size:13px;
+color: var(--muted);
+line-height:1.45;
+}
+
+.grid2{
+display:grid;
+grid-template-columns: 1fr 1fr;
+gap:12px;
+}
+@media (max-width: 520px){
+.grid2{ grid-template-columns:1fr; }
+}
+
+label{
+display:block;
+font-size:12px;
+font-weight:800;
+color: rgba(234,240,255,.85);
+margin:0 0 6px;
+}
+.field{
+width:100%;
+border-radius: 14px;
+border:1px solid rgba(255,255,255,.14);
+background: rgba(255,255,255,.05);
+color: var(--text);
+padding: 12px 12px;
+outline:none;
+font-size:14px;
+transition: border-color .12s ease, background .12s ease;
+}
+.field:focus{
+border-color: rgba(240,141,52,.55);
+background: rgba(255,255,255,.06);
+box-shadow: 0 0 0 4px rgba(240,141,52,.10);
+}
+
+.radioRow{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-top:8px;
+}
+.choice{
+flex:1;
+min-width: 160px;
+border-radius: 16px;
+border:1px solid rgba(255,255,255,.12);
+background: rgba(255,255,255,.04);
+padding: 12px 12px;
+display:flex;
+align-items:flex-start;
+gap:10px;
+cursor:pointer;
+transition: border-color .12s ease, background .12s ease;
+user-select:none;
+}
+.choice:hover{
+border-color: rgba(240,141,52,.40);
+background: rgba(240,141,52,.06);
+}
+.choice input{
+margin-top:3px;
+accent-color: var(--phoenix);
+transform: scale(1.1);
+cursor:pointer;
+}
+.choice .t{
+font-weight:900;
+letter-spacing:.01em;
+font-size:13px;
+}
+.choice .d{
+font-size:12px;
+color: var(--muted);
+margin-top:3px;
+line-height:1.35;
+}
+
+.actions{
+display:flex;
+justify-content:space-between;
+gap:10px;
+margin-top:10px;
+flex-wrap:wrap;
+}
+.btnWide{
+min-width: 150px;
+justify-content:center;
+}
+
+.toast{
+display:none;
+margin-top:12px;
+border-radius:16px;
+padding:12px 12px;
+border:1px solid rgba(255,255,255,.12);
+background: rgba(255,255,255,.05);
+color: var(--muted);
+font-size:13px;
+line-height:1.45;
+white-space:pre-line;
+}
+.toast.ok{
+display:block;
+border-color: rgba(51,209,122,.30);
+background: rgba(51,209,122,.08);
+color: rgba(234,240,255,.92);
+}
+.toast.err{
+display:block;
+border-color: rgba(255,77,77,.30);
+background: rgba(255,77,77,.08);
+color: rgba(255,235,235,.95);
+}
+
+.hidden{ display:none !important; }
+
+.spin{
+width:16px; height:16px;
+border-radius:999px;
+border:2px solid rgba(255,255,255,.25);
+border-top-color: rgba(240,141,52,1);
+animation: spin .9s linear infinite;
+}
+@keyframes spin{ to{ transform:rotate(360deg); } }
+
+.successScreen{
+text-align:center;
+padding: 22px 16px;
+}
+.successIcon{
+width:54px; height:54px;
+border-radius: 18px;
+margin: 0 auto 14px;
+display:grid; place-items:center;
+background: rgba(51,209,122,.12);
+border:1px solid rgba(51,209,122,.28);
+font-size: 26px;
+}
+.successTitle{
+margin:0 0 8px;
+font-size:18px;
+font-weight:900;
+letter-spacing:.01em;
+}
+.successText{
+margin:0 auto 10px;
+max-width: 360px;
+color: var(--muted);
+font-size:13px;
+line-height:1.55;
+}
+.thanks{
+margin:0 auto 16px;
+color: rgba(234,240,255,.90);
+font-size:13px;
+font-weight:900;
+}
+
+.foot{
+margin-top:10px;
+text-align:center;
+font-size:12px;
+color: rgba(234,240,255,.45);
+}
 </style>
 </head>
 
 <body>
-<div class="container">
-<img src="assets/logo.png" class="logo" alt="Phoenix Automobile" />
+<div class="wrap">
+<div class="shell">
 
-<div class="card">
-<div class="progress"><div class="bar" id="bar"></div></div>
+<!-- LEFT BRAND -->
+<section class="panel">
+<div class="brand">
+<div class="brandTop">
+<div class="logo" aria-label="Logo Phoenix Automobile">
+<img src="assets/logo.png" alt="Phoenix Automobile"
+onerror="this.style.display='none';">
+</div>
+<div class="brandTitle">
+<div class="name">PHOENIX<br>AUTOMOBILE</div>
+<div class="tag">Vente rapide, sécurisée et au meilleur prix.</div>
+</div>
+</div>
 
-<div id="globalError" class="error"></div>
+<div class="hero">
+<h1>Demande en 60 secondes.</h1>
+<p>
+Remplissez le formulaire, puis nous vous recontactons rapidement avec une proposition claire.
+</p>
+
+<div class="badges">
+<div class="badge"><span class="dot"></span> Estimation gratuite</div>
+<div class="badge"><span class="dot"></span> Acheteurs filtrés</div>
+<div class="badge"><span class="dot"></span> Suivi administratif</div>
+<div class="badge"><span class="dot"></span> Transaction sécurisée</div>
+</div>
+</div>
+</div>
+
+<div class="contactBar">
+<div class="contactInfo">
+<div class="label">Contact direct</div>
+<div class="value">06 63 62 03 97</div>
+<div class="small">contact@phoenix-automobile.com</div>
+</div>
+<div class="ctaRow">
+<a class="btn btnGhost" href="tel:+33663620397">📞 Appeler</a>
+<a class="btn btnPrimary" href="mailto:contact@phoenix-automobile.com">🟧 Email</a>
+</div>
+</div>
+</section>
+
+<!-- RIGHT FORM -->
+<section class="panel">
+<div class="formWrap" id="formArea">
+
+<div class="topRow">
+<div class="steps">
+<div class="stepPill" data-step="1"><span class="n">1</span> Type</div>
+<div class="stepPill" data-step="2"><span class="n">2</span> Véhicule</div>
+<div class="stepPill" data-step="3"><span class="n">3</span> Coordonnées</div>
+</div>
+<div class="lock">🔒 <b>Données</b> envoyées à Phoenix</div>
+</div>
+
+<div class="progress" aria-label="Progression">
+<div class="bar" aria-hidden="true"><div id="barFill"></div></div>
+<div class="small" id="ratio">1/3</div>
+</div>
 
 <!-- STEP 1 -->
-<div id="step1">
-<h1>1) Acheter ou vendre un véhicule ?</h1>
+<div class="card" id="step1">
+<h2>1) Objet de votre demande</h2>
+<p class="sub">Choisissez une option.</p>
 
-<div class="hint">Choisissez une option.</div>
+<div class="radioRow">
+<label class="choice" for="typeAcheter">
+<input type="radio" id="typeAcheter" name="typeDemande" value="Acheter" />
+<div>
+<div class="t">Acheter</div>
+<div class="d">Pour comprendre votre besoin.</div>
+</div>
+</label>
 
-<label><input type="radio" name="type" value="acheter"> Acheter</label>
-<label><input type="radio" name="type" value="vendre"> Vendre</label>
-
-<button type="button" onclick="next1()">Continuer</button>
-<button type="button" class="secondary" onclick="resetAll()">Réinitialiser</button>
+<label class="choice" for="typeVendre">
+<input type="radio" id="typeVendre" name="typeDemande" value="Vendre" />
+<div>
+<div class="t">Vendre</div>
+<div class="d">Pour cadrer votre véhicule.</div>
+</div>
+</label>
 </div>
 
-<!-- STEP 2 -->
-<div id="step2" style="display:none">
-<h1 id="title2"></h1>
-
-<div id="acheter" style="display:none">
-<div class="hint">Informations pour comprendre votre besoin</div>
-<input id="marqueRecherche" placeholder="Marque souhaitée" autocomplete="off">
-<input id="anneeRecherche" placeholder="Tranche d’année souhaitée" autocomplete="off">
-<input id="budget" placeholder="Budget" autocomplete="off">
+<div class="actions">
+<button class="btn btnGhost btnWide btnDanger" type="button" id="resetAll">↺ Réinitialiser</button>
+<button class="btn btnPrimary btnWide" type="button" id="next1">Continuer →</button>
 </div>
 
-<div id="vendre" style="display:none">
-<div class="hint">Informations sur votre véhicule</div>
-<input id="modele" placeholder="Marque et modèle du véhicule" autocomplete="off">
-<input id="annee" placeholder="Année du véhicule" autocomplete="off">
-<input id="prix" placeholder="Tranche de prix souhaitée" autocomplete="off">
+<div class="toast" id="toast1"></div>
 </div>
 
-<button type="button" onclick="next2()">Continuer</button>
-<button type="button" class="secondary" onclick="backTo1()">Retour</button>
+<!-- STEP 2 - ACHETER -->
+<div class="card hidden" id="step2buy">
+<h2>2) Informations pour comprendre votre besoin</h2>
+<p class="sub">Marque, tranche d’année, budget : au moins un champ est requis.</p>
+
+<div class="grid2">
+<div>
+<label for="buyMarque">Marque voulue</label>
+<input class="field" id="buyMarque" autocomplete="off" />
+</div>
+<div>
+<label for="buyTrancheAnnee">Tranche d’année</label>
+<input class="field" id="buyTrancheAnnee" autocomplete="off" />
+</div>
+</div>
+
+<div style="margin-top:12px;">
+<label for="buyBudget">Budget</label>
+<input class="field" id="buyBudget" inputmode="numeric" autocomplete="off" />
+</div>
+
+<div class="actions">
+<button class="btn btnGhost btnWide" type="button" id="back2buy">← Retour</button>
+<button class="btn btnPrimary btnWide" type="button" id="next2buy">Continuer →</button>
+</div>
+
+<div class="toast" id="toast2buy"></div>
+</div>
+
+<!-- STEP 2 - VENDRE -->
+<div class="card hidden" id="step2sell">
+<h2>2) Informations sur votre véhicule</h2>
+<p class="sub">Marque et modèle + année requis. Le prix souhaité est recommandé.</p>
+
+<div class="grid2">
+<div>
+<label for="sellMarqueModele">Marque et modèle</label>
+<input class="field" id="sellMarqueModele" autocomplete="off" />
+</div>
+<div>
+<label for="sellAnnee">Année</label>
+<input class="field" id="sellAnnee" inputmode="numeric" autocomplete="off" />
+</div>
+</div>
+
+<div style="margin-top:12px;">
+<label for="sellPrixSouhaite">Tranche de prix souhaitée</label>
+<input class="field" id="sellPrixSouhaite" autocomplete="off" />
+</div>
+
+<div class="actions">
+<button class="btn btnGhost btnWide" type="button" id="back2sell">← Retour</button>
+<button class="btn btnPrimary btnWide" type="button" id="next2sell">Continuer →</button>
+</div>
+
+<div class="toast" id="toast2sell"></div>
 </div>
 
 <!-- STEP 3 -->
-<div id="step3" style="display:none">
-<h1>3) Informations client</h1>
+<div class="card hidden" id="step3">
+<h2>3) Vos coordonnées</h2>
+<p class="sub">Au moins un des deux champs (téléphone ou email) doit être renseigné.</p>
 
-<input id="nom" placeholder="Nom" autocomplete="family-name">
-<input id="prenom" placeholder="Prénom" autocomplete="given-name">
-<input id="cp" placeholder="Code postal" inputmode="numeric" autocomplete="postal-code">
-<input id="ville" placeholder="Ville" autocomplete="address-level2">
-
-<div class="row">
+<div class="grid2">
 <div>
-<input id="tel" placeholder="Numéro (ex : 06 12 34 56 78)" inputmode="tel" autocomplete="tel">
+<label for="nom">Nom</label>
+<input class="field" id="nom" autocomplete="family-name" />
 </div>
 <div>
-<input id="email" placeholder="Email (optionnel)" inputmode="email" autocomplete="email">
+<label for="prenom">Prénom</label>
+<input class="field" id="prenom" autocomplete="given-name" />
+</div>
+<div>
+<label for="cp">Code postal</label>
+<input class="field" id="cp" inputmode="numeric" autocomplete="postal-code" />
+</div>
+<div>
+<label for="ville">Ville</label>
+<input class="field" id="ville" autocomplete="address-level2" />
 </div>
 </div>
-<div class="hint">Au moins un des deux champs (numéro ou email) doit être renseigné.</div>
 
-<input id="creneau" placeholder="Créneau souhaité pour être rappelé (ex : mardi après-midi)" autocomplete="off">
-
-<button type="button" onclick="send()">Envoyer</button>
-<button type="button" class="secondary" onclick="backTo2()">Retour</button>
+<div class="grid2" style="margin-top:12px;">
+<div>
+<label for="tel">Téléphone (optionnel)</label>
+<input class="field" id="tel" inputmode="tel" placeholder="Ex : 06 12 34 56 78" autocomplete="tel" />
+</div>
+<div>
+<label for="email">Email (optionnel)</label>
+<input class="field" id="email" inputmode="email" placeholder="Ex : nom@mail.com" autocomplete="email" />
+</div>
 </div>
 
-<!-- DONE -->
-<div id="done" style="display:none" class="success">
-✅ Le formulaire a été envoyé.<br><br>
-Phoenix Automobile vous recontactera rapidement.<br>
-<strong>Merci de votre confiance !</strong>
-<br><br>
-<button type="button" onclick="location.reload()">Menu principal</button>
+<div style="margin-top:12px;">
+<label for="creneau">Créneau souhaité pour être rappelé(e)</label>
+<input class="field" id="creneau" placeholder="Ex : mardi après-midi" autocomplete="off" />
 </div>
+
+<div class="actions">
+<button class="btn btnGhost btnWide" type="button" id="back3">← Retour</button>
+<button class="btn btnPrimary btnWide" type="button" id="submitBtn">
+<span id="submitIcon">✅</span> Envoyer
+</button>
+</div>
+
+<div class="toast" id="toast3"></div>
+</div>
+
+<div class="foot">© Phoenix Automobile — Intermédiation entre particuliers.</div>
+</div>
+
+<!-- SUCCESS ONLY -->
+<div class="formWrap hidden" id="successArea">
+<div class="card successScreen">
+<div class="successIcon">✅</div>
+<h3 class="successTitle">Le formulaire a été envoyé.</h3>
+<p class="successText">
+Phoenix Automobile vous recontactera dans les plus brefs délais pour vous proposer un rendez-vous.
+</p>
+<p class="thanks">Merci de votre confiance !</p>
+<button class="btn btnPrimary btnWide" type="button" id="goHome">Retour au menu principal</button>
+</div>
+<div class="foot">© Phoenix Automobile — Intermédiation entre particuliers.</div>
+</div>
+
+</section>
 
 </div>
 </div>
 
 <script>
+// ======= CONFIG =======
 const ENDPOINT = "https://script.google.com/macros/s/AKfycby8XrrhPsyJR_1IKZ53u6K8cc0jPSPyvvAQAElHMYuShJhKaRtiR3ETY8CNy-HAi_VH/exec";
-let data = {};
+const SOURCE_TAG = "phoenix-automobile.com";
 
-function showError(msg){
-const box = document.getElementById("globalError");
-box.style.display = "block";
-box.textContent = msg;
+// ======= STATE =======
+let step = 1;
+
+const pills = document.querySelectorAll(".stepPill");
+const barFill = document.getElementById("barFill");
+const ratio = document.getElementById("ratio");
+
+const formArea = document.getElementById("formArea");
+const successArea = document.getElementById("successArea");
+
+const step1 = document.getElementById("step1");
+const step2buy = document.getElementById("step2buy");
+const step2sell = document.getElementById("step2sell");
+const step3 = document.getElementById("step3");
+
+const toast1 = document.getElementById("toast1");
+const toast2buy = document.getElementById("toast2buy");
+const toast2sell = document.getElementById("toast2sell");
+const toast3 = document.getElementById("toast3");
+
+// Inputs
+const buyMarque = document.getElementById("buyMarque");
+const buyTrancheAnnee = document.getElementById("buyTrancheAnnee");
+const buyBudget = document.getElementById("buyBudget");
+
+const sellMarqueModele = document.getElementById("sellMarqueModele");
+const sellAnnee = document.getElementById("sellAnnee");
+const sellPrixSouhaite = document.getElementById("sellPrixSouhaite");
+
+const nom = document.getElementById("nom");
+const prenom = document.getElementById("prenom");
+const cp = document.getElementById("cp");
+const ville = document.getElementById("ville");
+const tel = document.getElementById("tel");
+const email = document.getElementById("email");
+const creneau = document.getElementById("creneau");
+
+const submitBtn = document.getElementById("submitBtn");
+const submitIcon = document.getElementById("submitIcon");
+
+// ======= HELPERS =======
+function setToast(el, kind, msg){
+el.className = "toast " + (kind === "ok" ? "ok" : "err");
+el.textContent = msg;
 }
-function clearError(){
-const box = document.getElementById("globalError");
-box.style.display = "none";
-box.textContent = "";
+function clearToast(el){
+el.className = "toast";
+el.textContent = "";
 }
-
-function resetAll(){ location.reload(); }
-
-function backTo1(){
-clearError();
-document.getElementById("step2").style.display="none";
-document.getElementById("step1").style.display="block";
-document.getElementById("bar").style.width="33%";
-}
-
-function backTo2(){
-clearError();
-document.getElementById("step3").style.display="none";
-document.getElementById("step2").style.display="block";
-document.getElementById("bar").style.width="66%";
-}
-
-function next1(){
-clearError();
-const picked = document.querySelector('input[name="type"]:checked');
-if(!picked){
-showError("Veuillez choisir une option (acheter ou vendre).");
-return;
-}
-
-data = {};
-data.type = picked.value;
-
-document.getElementById("step1").style.display="none";
-document.getElementById("step2").style.display="block";
-document.getElementById("bar").style.width="66%";
-
-document.getElementById("acheter").style.display = (data.type==="acheter") ? "block" : "none";
-document.getElementById("vendre").style.display = (data.type==="vendre") ? "block" : "none";
-
-document.getElementById("title2").innerText =
-(data.type==="acheter") ? "2) Informations pour comprendre votre besoin" : "2) Informations sur votre véhicule";
-}
-
-function next2(){
-clearError();
-
-if(data.type==="acheter"){
-data.marqueRecherche = (document.getElementById("marqueRecherche").value || "").trim();
-data.anneeRecherche = (document.getElementById("anneeRecherche").value || "").trim();
-data.budget = (document.getElementById("budget").value || "").trim();
-
-// pas de validation “agressive” ici : tu peux rendre obligatoire si tu veux
-} else {
-data.modele = (document.getElementById("modele").value || "").trim();
-data.annee = (document.getElementById("annee").value || "").trim();
-data.prix = (document.getElementById("prix").value || "").trim();
+function clearAllToasts(){
+[toast1, toast2buy, toast2sell, toast3].forEach(clearToast);
 }
 
-document.getElementById("step2").style.display="none";
-document.getElementById("step3").style.display="block";
-document.getElementById("bar").style.width="100%";
+function getType(){
+const r = document.querySelector('input[name="typeDemande"]:checked');
+return r ? r.value : "";
 }
 
-function send(){
-clearError();
-
-data.nom = (document.getElementById("nom").value || "").trim();
-data.prenom = (document.getElementById("prenom").value || "").trim();
-data.cp = (document.getElementById("cp").value || "").trim();
-data.ville = (document.getElementById("ville").value || "").trim();
-data.tel = (document.getElementById("tel").value || "").trim();
-data.email = (document.getElementById("email").value || "").trim();
-data.creneau= (document.getElementById("creneau").value || "").trim();
-
-// Validation : au moins tel ou email
-if(!data.tel && !data.email){
-showError("Veuillez renseigner au moins un numéro ou un email.");
-return;
+function onlyDigits(val){
+return String(val || "").replace(/[^\d]/g, "");
 }
 
-// Validation minimale du reste (tu peux assouplir si besoin)
-if(!data.nom || !data.prenom || !data.cp || !data.ville || !data.creneau){
-showError("Veuillez compléter les informations client (nom, prénom, code postal, ville, créneau).");
-return;
+function showOnlyStep(n){
+// IMPORTANT: ne pas remonter en haut sur mobile
+const y = window.scrollY || 0;
+if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
+
+step = n;
+
+// step cards
+step1.classList.toggle("hidden", step !== 1);
+step3.classList.toggle("hidden", step !== 3);
+
+// step2 depends on type
+const t = getType();
+const showBuy = (t === "Acheter");
+step2buy.classList.toggle("hidden", !(step === 2 && showBuy));
+step2sell.classList.toggle("hidden", !(step === 2 && !showBuy));
+
+// progress
+ratio.textContent = `${step}/3`;
+barFill.style.width = (step/3*100) + "%";
+
+pills.forEach(p => {
+const s = Number(p.dataset.step);
+p.classList.toggle("done", s < step);
+});
+
+clearAllToasts();
+setTimeout(()=>window.scrollTo(0,y),0);
 }
 
-fetch(ENDPOINT, {
-method:"POST",
-headers:{ "Content-Type":"text/plain;charset=utf-8" },
-body: JSON.stringify(data)
-}).catch(()=>{ /* on ne bloque pas l’UX */ });
+function require(val){ return String(val || "").trim().length > 0; }
 
-document.getElementById("step3").style.display="none";
-document.getElementById("done").style.display="block";
+function validateStep1(){
+if (!require(getType())){
+setToast(toast1, "err", "Veuillez sélectionner : Acheter ou Vendre.");
+return false;
 }
+return true;
+}
+
+function validateStep2(){
+const t = getType();
+
+if (t === "Acheter"){
+// au moins 1 champ utile
+if (!require(buyMarque.value) && !require(buyTrancheAnnee.value) && !require(buyBudget.value)){
+setToast(toast2buy, "err", "Veuillez renseigner au moins un champ (marque, tranche d’année ou budget).");
+return false;
+}
+return true;
+}
+
+// Vendre: modèle + année requis
+const m = sellMarqueModele.value.trim();
+const a = onlyDigits(sellAnnee.value.trim());
+
+if (!require(m)) { setToast(toast2sell, "err", "Veuillez renseigner la marque et le modèle."); return false; }
+if (!require(a) || a.length !== 4) { setToast(toast2sell, "err", "Veuillez renseigner une année valide (4 chiffres)."); return false; }
+
+const y = Number(a);
+const now = new Date().getFullYear();
+if (y < 1980 || y > now + 1){
+setToast(toast2sell, "err", "Année incohérente. Veuillez renseigner une année réaliste.");
+return false;
+}
+return true;
+}
+
+function validateStep3(){
+if (!require(nom.value) || !require(prenom.value)) { setToast(toast3, "err", "Veuillez renseigner votre nom et prénom."); return false; }
+const cpx = onlyDigits(cp.value);
+if (!require(cpx) || cpx.length < 4) { setToast(toast3, "err", "Veuillez renseigner un code postal valide."); return false; }
+if (!require(ville.value)) { setToast(toast3, "err", "Veuillez renseigner votre ville."); return false; }
+if (!require(creneau.value)) { setToast(toast3, "err", "Veuillez indiquer un créneau de rappel."); return false; }
+
+// Contact: au moins tel OU email
+if (!require(tel.value) && !require(email.value)){
+setToast(toast3, "err", "Veuillez renseigner au moins un téléphone ou un email.");
+return false;
+}
+
+// Si email rempli: validation simple
+if (require(email.value) && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())){
+setToast(toast3, "err", "Adresse email invalide.");
+return false;
+}
+
+return true;
+}
+
+function buildPayload(){
+const t = getType();
+const base = {
+typeDemande: t,
+nom: nom.value.trim(),
+prenom: prenom.value.trim(),
+cp: onlyDigits(cp.value.trim()),
+ville: ville.value.trim(),
+tel: tel.value.trim(),
+email: email.value.trim(),
+creneau: creneau.value.trim(),
+source: SOURCE_TAG,
+ts: new Date().toISOString()
+};
+
+if (t === "Acheter"){
+return {
+...base,
+buyMarque: buyMarque.value.trim(),
+buyTrancheAnnee: buyTrancheAnnee.value.trim(),
+buyBudget: buyBudget.value.trim(),
+sellMarqueModele: "",
+sellAnnee: "",
+sellPrixSouhaite: ""
+};
+}
+
+return {
+...base,
+buyMarque: "",
+buyTrancheAnnee: "",
+buyBudget: "",
+sellMarqueModele: sellMarqueModele.value.trim(),
+sellAnnee: onlyDigits(sellAnnee.value.trim()),
+sellPrixSouhaite: sellPrixSouhaite.value.trim()
+};
+}
+
+async function send(){
+clearAllToasts();
+submitBtn.disabled = true;
+submitBtn.style.opacity = "0.85";
+submitIcon.innerHTML = '<span class="spin" aria-hidden="true"></span>';
+
+try{
+// no-cors évite les soucis GitHub Pages -> Apps Script
+await fetch(ENDPOINT, {
+method: "POST",
+mode: "no-cors",
+headers: { "Content-Type": "text/plain;charset=utf-8" },
+body: JSON.stringify(buildPayload())
+});
+
+pills.forEach(p => p.classList.add("done"));
+barFill.style.width = "100%";
+ratio.textContent = "3/3 ✅";
+
+formArea.classList.add("hidden");
+successArea.classList.remove("hidden");
+} catch(err){
+setToast(toast3, "err", "Impossible d’envoyer pour le moment. Veuillez réessayer.");
+} finally{
+submitBtn.disabled = false;
+submitBtn.style.opacity = "1";
+submitIcon.textContent = "✅";
+}
+}
+
+function resetAll(){
+document.querySelectorAll('input[name="typeDemande"]').forEach(x => x.checked = false);
+
+buyMarque.value = "";
+buyTrancheAnnee.value = "";
+buyBudget.value = "";
+
+sellMarqueModele.value = "";
+sellAnnee.value = "";
+sellPrixSouhaite.value = "";
+
+nom.value = "";
+prenom.value = "";
+cp.value = "";
+ville.value = "";
+tel.value = "";
+email.value = "";
+creneau.value = "";
+
+pills.forEach(p => p.classList.remove("done"));
+barFill.style.width = "33.333%";
+ratio.textContent = "1/3";
+
+clearAllToasts();
+showOnlyStep(1);
+
+successArea.classList.add("hidden");
+formArea.classList.remove("hidden");
+}
+
+// ======= EVENTS =======
+document.getElementById("next1").addEventListener("click", () => {
+if (!validateStep1()) return;
+showOnlyStep(2);
+});
+
+document.getElementById("back2buy").addEventListener("click", () => showOnlyStep(1));
+document.getElementById("back2sell").addEventListener("click", () => showOnlyStep(1));
+
+document.getElementById("next2buy").addEventListener("click", () => {
+if (!validateStep2()) return;
+showOnlyStep(3);
+});
+document.getElementById("next2sell").addEventListener("click", () => {
+if (!validateStep2()) return;
+showOnlyStep(3);
+});
+
+document.getElementById("back3").addEventListener("click", () => showOnlyStep(2));
+
+submitBtn.addEventListener("click", async () => {
+if (!validateStep1()) { showOnlyStep(1); return; }
+if (!validateStep2()) { showOnlyStep(2); return; }
+if (!validateStep3()) return;
+await send();
+});
+
+document.getElementById("resetAll").addEventListener("click", resetAll);
+document.getElementById("goHome").addEventListener("click", resetAll);
+
+// Default
+barFill.style.width = "33.333%";
+showOnlyStep(1);
 </script>
-
 </body>
 </html>
