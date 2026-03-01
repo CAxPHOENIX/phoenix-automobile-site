@@ -524,6 +524,27 @@ text-align:center;
 font-size:12px;
 color: rgba(234,240,255,.45);
 }
+
+.combo{
+display:flex;
+gap:10px;
+align-items:center;
+}
+.combo .field{ flex:1; }
+
+.dropBtn{
+width:44px;
+height:44px;
+border-radius:14px;
+border:1px solid rgba(255,255,255,.14);
+background: rgba(255,255,255,.05);
+color: rgba(234,240,255,.92);
+font-weight:900;
+cursor:pointer;
+display:grid;
+place-items:center;
+}
+.dropBtn:active{ transform: translateY(1px); }
 </style>
 </head>
 
@@ -662,12 +683,15 @@ color: rgba(234,240,255,.45);
 <div class="grid2">
   <div>
     <label for="sellMarque">Marque</label>
-    <input class="field" id="sellMarque" list="dlMarques" placeholder="Ex : BMW" autocomplete="off" />
-  </div>
+<div class="combo">
+  <input class="field" id="sellMarque" list="dlMarques" placeholder="Ex : BMW" autocomplete="off" />
+  <button class="dropBtn" type="button" data-open="sellMarque">▼</button>
+</div>
   <div>
     <label for="sellModele">Modèle</label>
-    <input class="field" id="sellModele" list="dlModeles" placeholder="Ex : Série 1" autocomplete="off" />
-  </div>
+<div class="combo">
+  <input class="field" id="sellModele" list="dlModeles" placeholder="Ex : Série 1" autocomplete="off" />
+  <button class="dropBtn" type="button" data-open="sellModele" aria-label="Afficher les modèles">▼</button>
 </div>
 
 <div class="grid2" style="margin-top:12px;">
@@ -684,12 +708,14 @@ color: rgba(234,240,255,.45);
 <div class="grid2" style="margin-top:12px;">
   <div>
     <label for="sellCarburant">Carburant</label>
-    <input class="field" id="sellCarburant" list="dlCarburants" placeholder="Ex : Diesel" autocomplete="off" />
-  </div>
-  <div>
+<div class="combo">
+  <input class="field" id="sellCarburant" list="dlCarburants" placeholder="Ex : Diesel" autocomplete="off" />
+  <button class="dropBtn" type="button" data-open="sellCarburant" aria-label="Afficher les carburants">▼</button>
+</div>
     <label for="sellBoite">Boîte</label>
-    <input class="field" id="sellBoite" list="dlBoites" placeholder="Ex : Automatique" autocomplete="off" />
-  </div>
+<div class="combo">
+  <input class="field" id="sellBoite" list="dlBoites" placeholder="Ex : Automatique" autocomplete="off" />
+  <button class="dropBtn" type="button" data-open="sellBoite" aria-label="Afficher les boîtes">▼</button>
 </div>
 
 <div style="margin-top:12px;">
