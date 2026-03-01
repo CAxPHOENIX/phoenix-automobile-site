@@ -1,1238 +1,1370 @@
 <!doctype html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Phoenix Automobile — Formulaire</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Phoenix Automobile — Formulaire</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-<style>
-:root{
---phoenix:#F08D34;
---bg0:#070A0F;
---bg1:#0B1020;
---card: rgba(255,255,255,.06);
---stroke: rgba(255,255,255,.12);
---text:#EAF0FF;
---muted: rgba(234,240,255,.70);
---muted2: rgba(234,240,255,.52);
---ok:#33D17A;
---danger:#FF4D4D;
---shadow: 0 14px 50px rgba(0,0,0,.50);
---radius: 22px;
-}
+  <style>
+    :root{
+      --phoenix:#F08D34;
+      --bg0:#070A0F;
+      --bg1:#0B1020;
+      --card: rgba(255,255,255,.06);
+      --stroke: rgba(255,255,255,.12);
+      --text:#EAF0FF;
+      --muted: rgba(234,240,255,.70);
+      --muted2: rgba(234,240,255,.52);
+      --ok:#33D17A;
+      --danger:#FF4D4D;
+      --shadow: 0 14px 50px rgba(0,0,0,.50);
+      --radius: 22px;
+    }
 
-*{ box-sizing:border-box; }
-html,body{ height:100%; }
-body{
-margin:0;
-font-family: "Manrope", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-color: var(--text);
-background:
-radial-gradient(900px 500px at 20% 10%, rgba(240,141,52,.25), transparent 60%),
-radial-gradient(900px 600px at 85% 20%, rgba(120,120,255,.16), transparent 60%),
-radial-gradient(900px 600px at 60% 95%, rgba(255,255,255,.08), transparent 60%),
-linear-gradient(180deg, var(--bg0), var(--bg1));
-overflow-x:hidden;
-}
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: "Manrope", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(900px 500px at 20% 10%, rgba(240,141,52,.25), transparent 60%),
+        radial-gradient(900px 600px at 85% 20%, rgba(120,120,255,.16), transparent 60%),
+        radial-gradient(900px 600px at 60% 95%, rgba(255,255,255,.08), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      overflow-x:hidden;
+    }
 
-.wrap{
-min-height:100%;
-display:flex;
-align-items:center;
-justify-content:center;
-padding:28px 16px 44px;
-}
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:28px 16px 44px;
+    }
 
-.shell{
-width:min(980px, 100%);
-display:grid;
-grid-template-columns: 1.05fr .95fr;
-gap:18px;
-}
-@media (max-width: 980px){
-.shell{ grid-template-columns:1fr; }
-}
+    .shell{
+      width:min(980px, 100%);
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:18px;
+    }
+    @media (max-width: 980px){
+      .shell{ grid-template-columns:1fr; }
+    }
 
-.panel{
-border: 1px solid var(--stroke);
-background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
-border-radius: var(--radius);
-box-shadow: var(--shadow);
-overflow:hidden;
-position:relative;
-}
-.panel::before{
-content:"";
-position:absolute;
-inset:-2px;
-background:
-radial-gradient(700px 250px at 20% 0%, rgba(240,141,52,.23), transparent 62%),
-radial-gradient(700px 250px at 85% 10%, rgba(255,255,255,.10), transparent 62%);
-pointer-events:none;
-opacity:.9;
-}
-.panel > *{ position:relative; }
+    .panel{
+      border: 1px solid var(--stroke);
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .panel::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(700px 250px at 20% 0%, rgba(240,141,52,.23), transparent 62%),
+        radial-gradient(700px 250px at 85% 10%, rgba(255,255,255,.10), transparent 62%);
+      pointer-events:none;
+      opacity:.9;
+    }
+    .panel > *{ position:relative; }
 
-/* LEFT */
-.brand{
-padding:26px 26px 20px;
-display:flex;
-flex-direction:column;
-gap:14px;
-min-height: 520px;
-}
-.brandTop{
-display:flex;
-align-items:center;
-gap:14px;
-}
-.logo{
-width:50px;
-height:50px;
-border-radius:14px;
-background: rgba(240,141,52,.12);
-border: 1px solid rgba(240,141,52,.35);
-display:grid;
-place-items:center;
-overflow:hidden;
-}
-.logo img{
-width:36px;
-height:36px;
-object-fit:contain;
-display:block;
-filter: drop-shadow(0 8px 14px rgba(0,0,0,.35));
-}
-.brandTitle{ line-height:1.05; }
-.brandTitle .name{
-font-weight:800;
-letter-spacing:.06em;
-font-size:18px;
-text-transform:uppercase;
-}
-.brandTitle .tag{
-margin-top:5px;
-color: var(--muted);
-font-size:13px;
-font-weight:600;
-}
+    /* LEFT */
+    .brand{
+      padding:26px 26px 20px;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      min-height: 520px;
+    }
+    .brandTop{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+    .logo{
+      width:50px;
+      height:50px;
+      border-radius:14px;
+      background: rgba(240,141,52,.12);
+      border: 1px solid rgba(240,141,52,.35);
+      display:grid;
+      place-items:center;
+      overflow:hidden;
+    }
+    .logo img{
+      width:36px;
+      height:36px;
+      object-fit:contain;
+      display:block;
+      filter: drop-shadow(0 8px 14px rgba(0,0,0,.35));
+    }
+    .brandTitle{ line-height:1.05; }
+    .brandTitle .name{
+      font-weight:800;
+      letter-spacing:.06em;
+      font-size:18px;
+      text-transform:uppercase;
+    }
+    .brandTitle .tag{
+      margin-top:5px;
+      color: var(--muted);
+      font-size:13px;
+      font-weight:600;
+    }
 
-.hero{
-margin-top:6px;
-padding:18px 20px;
-border-radius:18px;
-border:1px solid rgba(255,255,255,.10);
-background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
-}
-.hero h1{
-margin:0 0 10px;
-font-size:30px;
-letter-spacing:-.02em;
-line-height:1.06;
-}
-.hero p{
-margin:0;
-color: var(--muted);
-font-size:14px;
-line-height:1.55;
-}
+    .hero{
+      margin-top:6px;
+      padding:18px 20px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.10);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+    }
+    .hero h1{
+      margin:0 0 10px;
+      font-size:30px;
+      letter-spacing:-.02em;
+      line-height:1.06;
+    }
+    .hero p{
+      margin:0;
+      color: var(--muted);
+      font-size:14px;
+      line-height:1.55;
+    }
 
-.badges{
-margin-top:14px;
-display:flex;
-flex-wrap:wrap;
-gap:8px;
-}
-.badge{
-font-size:12px;
-color: var(--muted);
-border:1px solid rgba(255,255,255,.12);
-background: rgba(255,255,255,.04);
-padding:8px 10px;
-border-radius:999px;
-display:flex;
-align-items:center;
-gap:8px;
-user-select:none;
-}
-.dot{
-width:8px;
-height:8px;
-border-radius:999px;
-background: var(--phoenix);
-box-shadow:0 0 0 3px rgba(240,141,52,.14);
-}
+    .badges{
+      margin-top:14px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .badge{
+      font-size:12px;
+      color: var(--muted);
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      padding:8px 10px;
+      border-radius:999px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      user-select:none;
+    }
+    .dot{
+      width:8px;
+      height:8px;
+      border-radius:999px;
+      background: var(--phoenix);
+      box-shadow:0 0 0 3px rgba(240,141,52,.14);
+    }
 
-.contactBar{
-margin-top:auto;
-padding:18px 26px 22px;
-border-top: 1px solid rgba(255,255,255,.10);
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:12px;
-flex-wrap:wrap;
-}
-.contactInfo{
-display:flex;
-flex-direction:column;
-gap:2px;
-min-width: 240px;
-}
-.contactInfo .label{
-color: var(--muted2);
-font-size:12px;
-font-weight:700;
-}
-.contactInfo .value{
-font-size:16px;
-font-weight:900;
-letter-spacing:.02em;
-}
-.ctaRow{
-display:flex;
-gap:10px;
-flex-wrap:wrap;
-}
-.btn{
-appearance:none;
-border:0;
-cursor:pointer;
-font-weight:900;
-letter-spacing:.01em;
-border-radius:14px;
-padding:12px 14px;
-display:inline-flex;
-align-items:center;
-gap:10px;
-transition: transform .12s ease, filter .12s ease, background .12s ease;
-text-decoration:none;
-user-select:none;
-white-space:nowrap;
-}
-.btn:active{ transform: translateY(1px); }
-.btnPrimary{
-background: linear-gradient(180deg, rgba(240,141,52,1), rgba(219,118,33,1));
-color:#111;
-box-shadow: 0 14px 40px rgba(240,141,52,.20);
-}
-.btnGhost{
-background: rgba(255,255,255,.06);
-border:1px solid rgba(255,255,255,.14);
-color: var(--text);
-}
-.btnDanger{
-background: rgba(255,77,77,.10);
-border:1px solid rgba(255,77,77,.25);
-color: rgba(255,215,215,.95);
-}
-.btn:hover{ filter: brightness(1.05); }
+    .contactBar{
+      margin-top:auto;
+      padding:18px 26px 22px;
+      border-top: 1px solid rgba(255,255,255,.10);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .contactInfo{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+      min-width: 240px;
+    }
+    .contactInfo .label{
+      color: var(--muted2);
+      font-size:12px;
+      font-weight:700;
+    }
+    .contactInfo .value{
+      font-size:16px;
+      font-weight:900;
+      letter-spacing:.02em;
+    }
+    .ctaRow{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      appearance:none;
+      border:0;
+      cursor:pointer;
+      font-weight:900;
+      letter-spacing:.01em;
+      border-radius:14px;
+      padding:12px 14px;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      transition: transform .12s ease, filter .12s ease, background .12s ease;
+      text-decoration:none;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .btn:active{ transform: translateY(1px); }
+    .btnPrimary{
+      background: linear-gradient(180deg, rgba(240,141,52,1), rgba(219,118,33,1));
+      color:#111;
+      box-shadow: 0 14px 40px rgba(240,141,52,.20);
+    }
+    .btnGhost{
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.14);
+      color: var(--text);
+    }
+    .btnDanger{
+      background: rgba(255,77,77,.10);
+      border:1px solid rgba(255,77,77,.25);
+      color: rgba(255,215,215,.95);
+    }
+    .btn:hover{ filter: brightness(1.05); }
 
-/* RIGHT */
-.formWrap{
-padding:24px 22px 20px;
-display:flex;
-flex-direction:column;
-gap:14px;
-}
+    /* RIGHT */
+    .formWrap{
+      padding:24px 22px 20px;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
 
-.topRow{
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:10px;
-flex-wrap:wrap;
-}
+    .topRow{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+    }
 
-.steps{
-display:flex;
-align-items:center;
-gap:10px;
-flex-wrap:wrap;
-}
-.stepPill{
-display:flex;
-align-items:center;
-gap:8px;
-border:1px solid rgba(255,255,255,.12);
-background: rgba(255,255,255,.04);
-padding:8px 10px;
-border-radius:999px;
-font-size:12px;
-color: var(--muted);
-user-select:none;
-}
-.stepPill .n{
-width:18px; height:18px;
-border-radius:999px;
-display:grid; place-items:center;
-font-weight:900;
-color:#111;
-background: rgba(240,141,52,1);
-}
-.stepPill.done{
-border-color: rgba(51,209,122,.35);
-background: rgba(51,209,122,.08);
-color: rgba(234,240,255,.85);
-}
-.stepPill.done .n{
-background: var(--ok);
-color:#07110B;
-}
+    .steps{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .stepPill{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      padding:8px 10px;
+      border-radius:999px;
+      font-size:12px;
+      color: var(--muted);
+      user-select:none;
+    }
+    .stepPill .n{
+      width:18px; height:18px;
+      border-radius:999px;
+      display:grid; place-items:center;
+      font-weight:900;
+      color:#111;
+      background: rgba(240,141,52,1);
+    }
+    .stepPill.done{
+      border-color: rgba(51,209,122,.35);
+      background: rgba(51,209,122,.08);
+      color: rgba(234,240,255,.85);
+    }
+    .stepPill.done .n{
+      background: var(--ok);
+      color:#07110B;
+    }
 
-.lock{
-display:inline-flex; align-items:center; gap:8px;
-padding:8px 10px;
-border-radius:999px;
-border:1px solid rgba(255,255,255,.10);
-background: rgba(0,0,0,.14);
-color: rgba(234,240,255,.75);
-font-size:12px;
-user-select:none;
-}
-.lock b{ color: rgba(234,240,255,.92); }
+    .lock{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.14);
+      color: rgba(234,240,255,.75);
+      font-size:12px;
+      user-select:none;
+    }
+    .lock b{ color: rgba(234,240,255,.92); }
 
-.progress{
-display:flex;
-align-items:center;
-gap:10px;
-width:100%;
-}
-.bar{
-flex:1;
-height:10px;
-border-radius:999px;
-background: rgba(255,255,255,.06);
-border:1px solid rgba(255,255,255,.10);
-overflow:hidden;
-min-width: 180px;
-}
-.bar > div{
-height:100%;
-width:0%;
-background: linear-gradient(90deg, rgba(240,141,52,1), rgba(255,255,255,.30));
-border-radius:999px;
-transition: width .25s ease;
-}
-.small{
-font-size:12px;
-color: var(--muted2);
-}
+    .progress{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      width:100%;
+    }
+    .bar{
+      flex:1;
+      height:10px;
+      border-radius:999px;
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      overflow:hidden;
+      min-width: 180px;
+    }
+    .bar > div{
+      height:100%;
+      width:0%;
+      background: linear-gradient(90deg, rgba(240,141,52,1), rgba(255,255,255,.30));
+      border-radius:999px;
+      transition: width .25s ease;
+    }
+    .small{
+      font-size:12px;
+      color: var(--muted2);
+    }
 
-.card{
-border:1px solid rgba(255,255,255,.12);
-background: rgba(0,0,0,.18);
-border-radius: 18px;
-padding: 16px;
-}
-.card h2{
-margin:0 0 10px;
-font-size:15px;
-letter-spacing:.01em;
-}
-.card .sub{
-margin:0 0 14px;
-font-size:13px;
-color: var(--muted);
-line-height:1.45;
-}
+    .card{
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.18);
+      border-radius: 18px;
+      padding: 16px;
+    }
+    .card h2{
+      margin:0 0 10px;
+      font-size:15px;
+      letter-spacing:.01em;
+    }
+    .card .sub{
+      margin:0 0 14px;
+      font-size:13px;
+      color: var(--muted);
+      line-height:1.45;
+    }
 
-.grid2{
-display:grid;
-grid-template-columns: 1fr 1fr;
-gap:12px;
-}
-@media (max-width: 520px){
-.grid2{ grid-template-columns:1fr; }
-}
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+    }
+    @media (max-width: 520px){
+      .grid2{ grid-template-columns:1fr; }
+    }
 
-label{
-display:block;
-font-size:12px;
-font-weight:800;
-color: rgba(234,240,255,.85);
-margin:0 0 6px;
-}
-.field{
-width:100%;
-border-radius: 14px;
-border:1px solid rgba(255,255,255,.14);
-background: rgba(255,255,255,.05);
-color: var(--text);
-padding: 12px 12px;
-outline:none;
-font-size:14px;
-transition: border-color .12s ease, background .12s ease;
-}
-.field:focus{
-border-color: rgba(240,141,52,.55);
-background: rgba(255,255,255,.06);
-box-shadow: 0 0 0 4px rgba(240,141,52,.10);
-}
+    label{
+      display:block;
+      font-size:12px;
+      font-weight:800;
+      color: rgba(234,240,255,.85);
+      margin:0 0 6px;
+    }
+    .field{
+      width:100%;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      padding: 12px 12px;
+      outline:none;
+      font-size:14px;
+      transition: border-color .12s ease, background .12s ease;
+    }
+    .field:focus{
+      border-color: rgba(240,141,52,.55);
+      background: rgba(255,255,255,.06);
+      box-shadow: 0 0 0 4px rgba(240,141,52,.10);
+    }
 
-.radioRow{
-display:flex;
-gap:10px;
-flex-wrap:wrap;
-margin-top:8px;
-}
-.choice{
-flex:1;
-min-width: 160px;
-border-radius: 16px;
-border:1px solid rgba(255,255,255,.12);
-background: rgba(255,255,255,.04);
-padding: 12px 12px;
-display:flex;
-align-items:flex-start;
-gap:10px;
-cursor:pointer;
-transition: border-color .12s ease, background .12s ease;
-user-select:none;
-}
-.choice:hover{
-border-color: rgba(240,141,52,.40);
-background: rgba(240,141,52,.06);
-}
-.choice input{
-margin-top:3px;
-accent-color: var(--phoenix);
-transform: scale(1.1);
-cursor:pointer;
-}
-.choice .t{
-font-weight:900;
-letter-spacing:.01em;
-font-size:13px;
-}
-.choice .d{
-font-size:12px;
-color: var(--muted);
-margin-top:3px;
-line-height:1.35;
-}
+    .radioRow{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:8px;
+    }
+    .choice{
+      flex:1;
+      min-width: 160px;
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      padding: 12px 12px;
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      cursor:pointer;
+      transition: border-color .12s ease, background .12s ease;
+      user-select:none;
+    }
+    .choice:hover{
+      border-color: rgba(240,141,52,.40);
+      background: rgba(240,141,52,.06);
+    }
+    .choice input{
+      margin-top:3px;
+      accent-color: var(--phoenix);
+      transform: scale(1.1);
+      cursor:pointer;
+    }
+    .choice .t{
+      font-weight:900;
+      letter-spacing:.01em;
+      font-size:13px;
+    }
+    .choice .d{
+      font-size:12px;
+      color: var(--muted);
+      margin-top:3px;
+      line-height:1.35;
+    }
 
-.actions{
-display:flex;
-justify-content:space-between;
-gap:10px;
-margin-top:10px;
-flex-wrap:wrap;
-}
-.btnWide{
-min-width: 150px;
-justify-content:center;
-}
+    .actions{
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      margin-top:10px;
+      flex-wrap:wrap;
+    }
+    .btnWide{
+      min-width: 150px;
+      justify-content:center;
+    }
 
-.toast{
-display:none;
-margin-top:12px;
-border-radius:16px;
-padding:12px 12px;
-border:1px solid rgba(255,255,255,.12);
-background: rgba(255,255,255,.05);
-color: var(--muted);
-font-size:13px;
-line-height:1.45;
-white-space:pre-line;
-}
-.toast.ok{
-display:block;
-border-color: rgba(51,209,122,.30);
-background: rgba(51,209,122,.08);
-color: rgba(234,240,255,.92);
-}
-.toast.err{
-display:block;
-border-color: rgba(255,77,77,.30);
-background: rgba(255,77,77,.08);
-color: rgba(255,235,235,.95);
-}
+    .toast{
+      display:none;
+      margin-top:12px;
+      border-radius:16px;
+      padding:12px 12px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      color: var(--muted);
+      font-size:13px;
+      line-height:1.45;
+      white-space:pre-line;
+    }
+    .toast.ok{
+      display:block;
+      border-color: rgba(51,209,122,.30);
+      background: rgba(51,209,122,.08);
+      color: rgba(234,240,255,.92);
+    }
+    .toast.err{
+      display:block;
+      border-color: rgba(255,77,77,.30);
+      background: rgba(255,77,77,.08);
+      color: rgba(255,235,235,.95);
+    }
 
-.hidden{ display:none !important; }
+    .hidden{ display:none !important; }
 
-.spin{
-width:16px; height:16px;
-border-radius:999px;
-border:2px solid rgba(255,255,255,.25);
-border-top-color: rgba(240,141,52,1);
-animation: spin .9s linear infinite;
-}
-@keyframes spin{ to{ transform:rotate(360deg); } }
+    .spin{
+      width:16px; height:16px;
+      border-radius:999px;
+      border:2px solid rgba(255,255,255,.25);
+      border-top-color: rgba(240,141,52,1);
+      animation: spin .9s linear infinite;
+    }
+    @keyframes spin{ to{ transform:rotate(360deg); } }
 
-.successScreen{
-text-align:center;
-padding: 22px 16px;
-}
-.successIcon{
-width:54px; height:54px;
-border-radius: 18px;
-margin: 0 auto 14px;
-display:grid; place-items:center;
-background: rgba(51,209,122,.12);
-border:1px solid rgba(51,209,122,.28);
-font-size: 26px;
-}
-.successTitle{
-margin:0 0 8px;
-font-size:18px;
-font-weight:900;
-letter-spacing:.01em;
-}
-.successText{
-margin:0 auto 10px;
-max-width: 360px;
-color: var(--muted);
-font-size:13px;
-line-height:1.55;
-}
-.thanks{
-margin:0 auto 16px;
-color: rgba(234,240,255,.90);
-font-size:13px;
-font-weight:900;
-}
+    .successScreen{
+      text-align:center;
+      padding: 22px 16px;
+    }
+    .successIcon{
+      width:54px; height:54px;
+      border-radius: 18px;
+      margin: 0 auto 14px;
+      display:grid; place-items:center;
+      background: rgba(51,209,122,.12);
+      border:1px solid rgba(51,209,122,.28);
+      font-size: 26px;
+    }
+    .successTitle{
+      margin:0 0 8px;
+      font-size:18px;
+      font-weight:900;
+      letter-spacing:.01em;
+    }
+    .successText{
+      margin:0 auto 10px;
+      max-width: 360px;
+      color: var(--muted);
+      font-size:13px;
+      line-height:1.55;
+    }
+    .thanks{
+      margin:0 auto 16px;
+      color: rgba(234,240,255,.90);
+      font-size:13px;
+      font-weight:900;
+    }
 
-.checkRow{
-display:flex;
-flex-wrap:wrap;
-gap:10px;
-margin-top:8px;
-}
-.check{
-display:flex;
-align-items:center;
-gap:10px;
-border:1px solid rgba(255,255,255,.12);
-background: rgba(255,255,255,.04);
-padding:10px 12px;
-border-radius:14px;
-user-select:none;
-}
-.check input{
-accent-color: var(--phoenix);
-transform: scale(1.15);
-}
+    .checkRow{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:8px;
+    }
+    .check{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      padding:10px 12px;
+      border-radius:14px;
+      user-select:none;
+    }
+    .check input{
+      accent-color: var(--phoenix);
+      transform: scale(1.15);
+    }
 
-.foot{
-margin-top:10px;
-text-align:center;
-font-size:12px;
-color: rgba(234,240,255,.45);
-}
+    .foot{
+      margin-top:10px;
+      text-align:center;
+      font-size:12px;
+      color: rgba(234,240,255,.45);
+    }
 
-.combo{
-display:flex;
-gap:10px;
-align-items:center;
-}
-.combo .field{ flex:1; }
+    .combo{
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+    .combo .field{ flex:1; }
 
-.dropBtn{
-width:44px;
-height:44px;
-border-radius:14px;
-border:1px solid rgba(255,255,255,.14);
-background: rgba(255,255,255,.05);
-color: rgba(234,240,255,.92);
-font-weight:900;
-cursor:pointer;
-display:grid;
-place-items:center;
-}
-.dropBtn:active{ transform: translateY(1px); }
-</style>
+    .dropBtn{
+      width:44px;
+      height:44px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      color: rgba(234,240,255,.92);
+      font-weight:900;
+      cursor:pointer;
+      display:grid;
+      place-items:center;
+    }
+    .dropBtn:active{ transform: translateY(1px); }
+
+    /* ===== MENU MOBILE SUGGESTIONS (custom, marche partout) ===== */
+    #pickerOverlay{
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.55);
+      z-index: 9998;
+    }
+    #pickerPanel{
+      position: fixed;
+      left: 50%;
+      bottom: 16px;
+      transform: translateX(-50%);
+      width: min(520px, calc(100% - 24px));
+      max-height: 70vh;
+      overflow: hidden;
+      z-index: 9999;
+
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(10,12,18,.92);
+      backdrop-filter: blur(10px);
+      border-radius: 18px;
+      box-shadow: 0 18px 60px rgba(0,0,0,.6);
+    }
+    .pickerHead{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      padding: 12px 12px;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+    }
+    .pickerTitle{
+      font-weight: 900;
+      letter-spacing: .01em;
+      font-size: 14px;
+    }
+    .pickerClose{
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: rgba(234,240,255,.92);
+      font-weight: 900;
+      cursor: pointer;
+    }
+    .pickerBody{
+      padding: 10px;
+      overflow: auto;
+      max-height: calc(70vh - 58px);
+    }
+    .pickerItem{
+      width: 100%;
+      text-align:left;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      cursor: pointer;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .pickerItem:active{
+      transform: translateY(1px);
+    }
+  </style>
 </head>
 
 <body>
-<div class="wrap">
-<div class="shell">
+  <div class="wrap">
+    <div class="shell">
 
-<!-- LEFT BRAND -->
-<section class="panel">
-<div class="brand">
-<div class="brandTop">
-<div class="logo" aria-label="Logo Phoenix Automobile">
-<img src="assets/logo.png" alt="Phoenix Automobile" onerror="this.style.display='none';">
-</div>
-<div class="brandTitle">
-<div class="name">PHOENIX<br>AUTOMOBILE</div>
-<div class="tag">Vente rapide, sécurisée et au meilleur prix.</div>
-</div>
-</div>
+      <!-- LEFT BRAND -->
+      <section class="panel">
+        <div class="brand">
+          <div class="brandTop">
+            <div class="logo" aria-label="Logo Phoenix Automobile">
+              <img src="assets/logo.png" alt="Phoenix Automobile" onerror="this.style.display='none';">
+            </div>
+            <div class="brandTitle">
+              <div class="name">PHOENIX<br>AUTOMOBILE</div>
+              <div class="tag">Vente rapide, sécurisée et au meilleur prix.</div>
+            </div>
+          </div>
 
-<div class="hero">
-<h1>Demande en 60 secondes.</h1>
-<p>Remplissez le formulaire, puis nous vous recontactons rapidement avec une proposition claire.</p>
+          <div class="hero">
+            <h1>Demande en 60 secondes.</h1>
+            <p>Remplissez le formulaire, puis nous vous recontactons rapidement avec une proposition claire.</p>
 
-<div class="badges">
-<div class="badge"><span class="dot"></span> Estimation gratuite</div>
-<div class="badge"><span class="dot"></span> Vendeurs filtrés</div>
-<div class="badge"><span class="dot"></span> Suivi administratif</div>
-<div class="badge"><span class="dot"></span> Transaction sécurisée</div>
-</div>
-</div>
-</div>
+            <div class="badges">
+              <div class="badge"><span class="dot"></span> Estimation gratuite</div>
+              <div class="badge"><span class="dot"></span> Vendeurs filtrés</div>
+              <div class="badge"><span class="dot"></span> Suivi administratif</div>
+              <div class="badge"><span class="dot"></span> Transaction sécurisée</div>
+            </div>
+          </div>
+        </div>
 
-<div class="contactBar">
-<div class="contactInfo">
-<div class="label">Contact direct</div>
-<div class="value">06 63 62 03 97</div>
-<div class="small">contact@phoenix-automobile.com</div>
-</div>
-<div class="ctaRow">
-<a class="btn btnGhost" href="tel:+33663620397">📞 Appeler</a>
-<a class="btn btnPrimary" href="mailto:contact@phoenix-automobile.com">🟧 Email</a>
-</div>
-</div>
-</section>
+        <div class="contactBar">
+          <div class="contactInfo">
+            <div class="label">Contact direct</div>
+            <div class="value">06 63 62 03 97</div>
+            <div class="small">contact@phoenix-automobile.com</div>
+          </div>
+          <div class="ctaRow">
+            <a class="btn btnGhost" href="tel:+33663620397">📞 Appeler</a>
+            <a class="btn btnPrimary" href="mailto:contact@phoenix-automobile.com">🟧 Email</a>
+          </div>
+        </div>
+      </section>
 
-<!-- RIGHT FORM -->
-<section class="panel">
-<div class="formWrap" id="formArea">
+      <!-- RIGHT FORM -->
+      <section class="panel">
+        <div class="formWrap" id="formArea">
 
-<div class="topRow">
-<div class="steps">
-<div class="stepPill" data-step="1"><span class="n">1</span> Type</div>
-<div class="stepPill" data-step="2"><span class="n">2</span> Véhicule</div>
-<div class="stepPill" data-step="3"><span class="n">3</span> Coordonnées</div>
-</div>
-<div class="lock">🔒 <b>Données</b> envoyées à Phoenix Automobile</div>
-</div>
+          <div class="topRow">
+            <div class="steps">
+              <div class="stepPill" data-step="1"><span class="n">1</span> Type</div>
+              <div class="stepPill" data-step="2"><span class="n">2</span> Véhicule</div>
+              <div class="stepPill" data-step="3"><span class="n">3</span> Coordonnées</div>
+            </div>
+            <div class="lock">🔒 <b>Données</b> envoyées à Phoenix Automobile</div>
+          </div>
 
-<div class="progress" aria-label="Progression">
-<div class="bar" aria-hidden="true"><div id="barFill"></div></div>
-<div class="small" id="ratio">1/3</div>
-</div>
+          <div class="progress" aria-label="Progression">
+            <div class="bar" aria-hidden="true"><div id="barFill"></div></div>
+            <div class="small" id="ratio">1/3</div>
+          </div>
 
-<!-- STEP 1 -->
-<div class="card" id="step1">
-<h2>1) Objet de votre demande</h2>
-<p class="sub">Choisissez une option.</p>
+          <!-- STEP 1 -->
+          <div class="card" id="step1">
+            <h2>1) Objet de votre demande</h2>
+            <p class="sub">Choisissez une option.</p>
 
-<div class="radioRow">
-<label class="choice" for="typeAcheter">
-<input type="radio" id="typeAcheter" name="typeDemande" value="Acheter" />
-<div>
-<div class="t">Acheter</div>
-<div class="d">Pour diagnostiquer votre besoin.</div>
-</div>
-</label>
+            <div class="radioRow">
+              <label class="choice" for="typeAcheter">
+                <input type="radio" id="typeAcheter" name="typeDemande" value="Acheter" />
+                <div>
+                  <div class="t">Acheter</div>
+                  <div class="d">Pour diagnostiquer votre besoin.</div>
+                </div>
+              </label>
 
-<label class="choice" for="typeVendre">
-<input type="radio" id="typeVendre" name="typeDemande" value="Vendre" />
-<div>
-<div class="t">Vendre</div>
-<div class="d">Pour détailler votre véhicule.</div>
-</div>
-</label>
-</div>
+              <label class="choice" for="typeVendre">
+                <input type="radio" id="typeVendre" name="typeDemande" value="Vendre" />
+                <div>
+                  <div class="t">Vendre</div>
+                  <div class="d">Pour détailler votre véhicule.</div>
+                </div>
+              </label>
+            </div>
 
-<div class="actions">
-<button class="btn btnGhost btnWide btnDanger" type="button" id="resetAll">↺ Réinitialiser</button>
-<button class="btn btnPrimary btnWide" type="button" id="next1">Continuer →</button>
-</div>
+            <div class="actions">
+              <button class="btn btnGhost btnWide btnDanger" type="button" id="resetAll">↺ Réinitialiser</button>
+              <button class="btn btnPrimary btnWide" type="button" id="next1">Continuer →</button>
+            </div>
 
-<div class="toast" id="toast1"></div>
-</div>
+            <div class="toast" id="toast1"></div>
+          </div>
 
-<!-- STEP 2 - ACHETER -->
-<div class="card hidden" id="step2buy">
-<h2>2) Informations pour diagnostiquer votre besoin</h2>
-<p class="sub">Marque, tranche d’année, budget :</p>
+          <!-- STEP 2 - ACHETER -->
+          <div class="card hidden" id="step2buy">
+            <h2>2) Informations pour diagnostiquer votre besoin</h2>
+            <p class="sub">Marque, tranche d’année, budget :</p>
 
-<div class="grid2">
-  <div>
-    <label for="buyMarque">Marques desirée</label>
-    <input class="field" id="buyMarque" placeholder="Ex : BMW, Peugeot..." autocomplete="off" />
-  </div>
-  <div>
-    <label for="buyTrancheAnnee">Tranche d’année</label>
-    <input class="field" id="buyTrancheAnnee" placeholder="Ex : 2021 - 2023" autocomplete="off" />
-  </div>
-</div>
+            <div class="grid2">
+              <div>
+                <label for="buyMarque">Marque souhaitée</label>
+                <input class="field" id="buyMarque" placeholder="Ex : BMW, Peugeot..." autocomplete="off" />
+              </div>
+              <div>
+                <label for="buyTrancheAnnee">Tranche d’année</label>
+                <input class="field" id="buyTrancheAnnee" placeholder="Ex : 2021 - 2023" autocomplete="off" />
+              </div>
+            </div>
 
-<div style="margin-top:12px;">
-  <label for="buyBudget">Budget</label>
-  <input class="field" id="buyBudget" inputmode="numeric" autocomplete="off" />
-</div>
+            <div style="margin-top:12px;">
+              <label for="buyBudget">Budget</label>
+              <input class="field" id="buyBudget" inputmode="numeric" autocomplete="off" />
+            </div>
 
-<div class="actions">
-  <button class="btn btnGhost btnWide" type="button" id="back2buy">← Retour</button>
-  <button class="btn btnPrimary btnWide" type="button" id="next2buy">Continuer →</button>
-</div>
+            <div class="actions">
+              <button class="btn btnGhost btnWide" type="button" id="back2buy">← Retour</button>
+              <button class="btn btnPrimary btnWide" type="button" id="next2buy">Continuer →</button>
+            </div>
 
-<div class="toast" id="toast2buy"></div>
-</div>
+            <div class="toast" id="toast2buy"></div>
+          </div>
 
-<!-- STEP 2 - VENDRE -->
-<div class="card hidden" id="step2sell">
-  <h2>2) Informations sur votre véhicule</h2>
-  <p class="sub">Marque + modèle + année requis. Le reste est recommandé.</p>
+          <!-- STEP 2 - VENDRE -->
+          <div class="card hidden" id="step2sell">
+            <h2>2) Informations sur votre véhicule</h2>
+            <p class="sub">Marque + modèle + année requis. Le reste est recommandé.</p>
 
-  <!-- Suggestions -->
-  <datalist id="dlMarques"></datalist>
-  <datalist id="dlModeles"></datalist>
-  <datalist id="dlCarburants"></datalist>
-  <datalist id="dlBoites"></datalist>
+            <!-- Datalists (utiles PC quand tu tapes) -->
+            <datalist id="dlMarques"></datalist>
+            <datalist id="dlModeles"></datalist>
+            <datalist id="dlCarburants"></datalist>
+            <datalist id="dlBoites"></datalist>
 
-  <div class="grid2">
-    <div>
-      <label for="sellMarque">Marque</label>
-      <div class="combo">
-        <input class="field" id="sellMarque" list="dlMarques" placeholder="Ex : BMW" autocomplete="off" />
-        <button class="dropBtn" type="button" data-open="sellMarque" aria-label="Afficher les marques">▼</button>
-      </div>
+            <div class="grid2">
+              <div>
+                <label for="sellMarque">Marque</label>
+                <div class="combo">
+                  <input class="field" id="sellMarque" list="dlMarques" placeholder="Ex : BMW" autocomplete="off" />
+                  <button class="dropBtn" type="button" data-open="sellMarque" aria-label="Afficher les marques">▼</button>
+                </div>
+              </div>
+
+              <div>
+                <label for="sellModele">Modèle</label>
+                <div class="combo">
+                  <input class="field" id="sellModele" list="dlModeles" placeholder="Ex : Série 1" autocomplete="off" />
+                  <button class="dropBtn" type="button" data-open="sellModele" aria-label="Afficher les modèles">▼</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid2" style="margin-top:12px;">
+              <div>
+                <label for="sellAnnee">Année</label>
+                <input class="field" id="sellAnnee" inputmode="numeric" placeholder="Ex : 2018" autocomplete="off" />
+              </div>
+              <div>
+                <label for="sellKm">Kilométrage</label>
+                <input class="field" id="sellKm" inputmode="numeric" placeholder="Ex : 125000" autocomplete="off" />
+              </div>
+            </div>
+
+            <div class="grid2" style="margin-top:12px;">
+              <div>
+                <label for="sellCarburant">Carburant</label>
+                <div class="combo">
+                  <input class="field" id="sellCarburant" list="dlCarburants" placeholder="Ex : Diesel" autocomplete="off" />
+                  <button class="dropBtn" type="button" data-open="sellCarburant" aria-label="Afficher les carburants">▼</button>
+                </div>
+              </div>
+
+              <div>
+                <label for="sellBoite">Boîte</label>
+                <div class="combo">
+                  <input class="field" id="sellBoite" list="dlBoites" placeholder="Ex : Automatique" autocomplete="off" />
+                  <button class="dropBtn" type="button" data-open="sellBoite" aria-label="Afficher les boîtes">▼</button>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top:12px;">
+              <label>État</label>
+              <div class="checkRow" id="etatRow">
+                <label class="check"><input type="checkbox" name="sellEtat" value="Très bon état"> Très bon état</label>
+                <label class="check"><input type="checkbox" name="sellEtat" value="Bon état"> Bon état</label>
+                <label class="check"><input type="checkbox" name="sellEtat" value="Correct"> Correct</label>
+                <label class="check"><input type="checkbox" name="sellEtat" value="À prévoir"> À prévoir</label>
+              </div>
+            </div>
+
+            <div style="margin-top:12px;">
+              <label for="sellPrixSouhaite">Tranche de prix souhaitée</label>
+              <input class="field" id="sellPrixSouhaite" placeholder="Ex : 12 000 €" autocomplete="off" />
+            </div>
+
+            <div class="actions">
+              <button class="btn btnGhost btnWide" type="button" id="back2sell">← Retour</button>
+              <button class="btn btnPrimary btnWide" type="button" id="next2sell">Continuer →</button>
+            </div>
+
+            <div class="toast" id="toast2sell"></div>
+          </div>
+
+          <!-- STEP 3 -->
+          <div class="card hidden" id="step3">
+            <h2>3) Vos coordonnées</h2>
+            <p class="sub">Au moins un des deux champs (téléphone ou email) doit être renseigné.</p>
+
+            <div class="grid2">
+              <div>
+                <label for="nom">Nom</label>
+                <input class="field" id="nom" autocomplete="family-name" />
+              </div>
+              <div>
+                <label for="prenom">Prénom</label>
+                <input class="field" id="prenom" autocomplete="given-name" />
+              </div>
+              <div>
+                <label for="cp">Code postal</label>
+                <input class="field" id="cp" inputmode="numeric" autocomplete="postal-code" />
+              </div>
+              <div>
+                <label for="ville">Ville</label>
+                <input class="field" id="ville" autocomplete="address-level2" />
+              </div>
+            </div>
+
+            <div class="grid2" style="margin-top:12px;">
+              <div>
+                <label for="tel">Téléphone</label>
+                <input class="field" id="tel" inputmode="tel" placeholder="Ex : 06 12 34 56 78" autocomplete="tel" />
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input class="field" id="email" inputmode="email" placeholder="Ex : nom@mail.com" autocomplete="email" />
+              </div>
+            </div>
+
+            <div style="margin-top:12px;">
+              <label for="creneau">Créneau souhaité pour être rappelé(e)</label>
+              <input class="field" id="creneau" placeholder="Ex : mardi après-midi" autocomplete="off" />
+            </div>
+
+            <div class="actions">
+              <button class="btn btnGhost btnWide" type="button" id="back3">← Retour</button>
+              <button class="btn btnPrimary btnWide" type="button" id="submitBtn">
+                <span id="submitIcon">✅</span> Envoyer
+              </button>
+            </div>
+
+            <div class="toast" id="toast3"></div>
+          </div>
+
+          <div class="foot">© Phoenix Automobile — Intermédiaire entre professionnel et particuliers.</div>
+        </div>
+
+        <!-- SUCCESS ONLY -->
+        <div class="formWrap hidden" id="successArea">
+          <div class="card successScreen">
+            <div class="successIcon">✅</div>
+            <h3 class="successTitle">Le formulaire a été envoyé.</h3>
+            <p class="successText">
+              Phoenix Automobile vous recontactera dans les plus brefs délais pour vous proposer un rendez-vous.
+            </p>
+            <p class="thanks">Merci de votre confiance !</p>
+            <button class="btn btnPrimary btnWide" type="button" id="goHome">Retour au menu principal</button>
+          </div>
+          <div class="foot">© Phoenix Automobile — Intermédiaire entre professionnel et particuliers.</div>
+        </div>
+
+      </section>
+
     </div>
-
-    <div>
-      <label for="sellModele">Modèle</label>
-      <div class="combo">
-        <input class="field" id="sellModele" list="dlModeles" placeholder="Ex : Série 1" autocomplete="off" />
-        <button class="dropBtn" type="button" data-open="sellModele" aria-label="Afficher les modèles">▼</button>
-      </div>
-    </div>
   </div>
 
-  <div class="grid2" style="margin-top:12px;">
-    <div>
-      <label for="sellAnnee">Année</label>
-      <input class="field" id="sellAnnee" inputmode="numeric" placeholder="Ex : 2018" autocomplete="off" />
+  <!-- MENU MOBILE POUR LES SUGGESTIONS (custom) -->
+  <div id="pickerOverlay" class="hidden" aria-hidden="true"></div>
+  <div id="pickerPanel" class="hidden" role="dialog" aria-modal="true" aria-label="Sélection">
+    <div class="pickerHead">
+      <div class="pickerTitle" id="pickerTitle">Sélection</div>
+      <button type="button" class="pickerClose" id="pickerClose">✕</button>
     </div>
-    <div>
-      <label for="sellKm">Kilométrage</label>
-      <input class="field" id="sellKm" inputmode="numeric" placeholder="Ex : 125000" autocomplete="off" />
-    </div>
+    <div class="pickerBody" id="pickerBody"></div>
   </div>
 
-  <div class="grid2" style="margin-top:12px;">
-    <div>
-      <label for="sellCarburant">Carburant</label>
-      <div class="combo">
-        <input class="field" id="sellCarburant" list="dlCarburants" placeholder="Ex : Diesel" autocomplete="off" />
-        <button class="dropBtn" type="button" data-open="sellCarburant" aria-label="Afficher les carburants">▼</button>
-      </div>
-    </div>
+  <script>
+    // ======= CONFIG =======
+    const ENDPOINT = "https://script.google.com/macros/s/AKfycby8XrrhPsyJR_1IKZ53u6K8cc0jPSPyvvAQAElHMYuShJhKaRtiR3ETY8CNy-HAi_VH/exec";
+    const SOURCE_TAG = "phoenix-automobile.com";
 
-    <div>
-      <label for="sellBoite">Boîte</label>
-      <div class="combo">
-        <input class="field" id="sellBoite" list="dlBoites" placeholder="Ex : Automatique" autocomplete="off" />
-        <button class="dropBtn" type="button" data-open="sellBoite" aria-label="Afficher les boîtes">▼</button>
-      </div>
-    </div>
-  </div>
-
-  <div style="margin-top:12px;">
-    <label>État</label>
-    <div class="checkRow" id="etatRow">
-      <label class="check"><input type="checkbox" name="sellEtat" value="Très bon état"> Très bon état</label>
-      <label class="check"><input type="checkbox" name="sellEtat" value="Bon état"> Bon état</label>
-      <label class="check"><input type="checkbox" name="sellEtat" value="Correct"> Correct</label>
-      <label class="check"><input type="checkbox" name="sellEtat" value="À prévoir"> À prévoir</label>
-    </div>
-  </div>
-
-  <div style="margin-top:12px;">
-    <label for="sellPrixSouhaite">Tranche de prix souhaitée</label>
-    <input class="field" id="sellPrixSouhaite" placeholder="Ex : 12 000 €" autocomplete="off" />
-  </div>
-
-  <div class="actions">
-    <button class="btn btnGhost btnWide" type="button" id="back2sell">← Retour</button>
-    <button class="btn btnPrimary btnWide" type="button" id="next2sell">Continuer →</button>
-  </div>
-
-  <div class="toast" id="toast2sell"></div>
-</div>
-
-<!-- STEP 3 -->
-<div class="card hidden" id="step3">
-<h2>3) Vos coordonnées</h2>
-<p class="sub">Au moins un des deux champs (téléphone ou email) doit être renseigné.</p>
-
-<div class="grid2">
-<div>
-<label for="nom">Nom</label>
-<input class="field" id="nom" autocomplete="family-name" />
-</div>
-<div>
-<label for="prenom">Prénom</label>
-<input class="field" id="prenom" autocomplete="given-name" />
-</div>
-<div>
-<label for="cp">Code postal</label>
-<input class="field" id="cp" inputmode="numeric" autocomplete="postal-code" />
-</div>
-<div>
-<label for="ville">Ville</label>
-<input class="field" id="ville" autocomplete="address-level2" />
-</div>
-</div>
-
-<div class="grid2" style="margin-top:12px;">
-<div>
-<label for="tel">Téléphone</label>
-<input class="field" id="tel" inputmode="tel" placeholder="Ex : 06 12 34 56 78" autocomplete="tel" />
-</div>
-<div>
-<label for="email">Email</label>
-<input class="field" id="email" inputmode="email" placeholder="Ex : nom@mail.com" autocomplete="email" />
-</div>
-</div>
-
-<div style="margin-top:12px;">
-<label for="creneau">Créneau souhaité pour être rappelé(e)</label>
-<input class="field" id="creneau" placeholder="Ex : mardi après-midi" autocomplete="off" />
-</div>
-
-<div class="actions">
-<button class="btn btnGhost btnWide" type="button" id="back3">← Retour</button>
-<button class="btn btnPrimary btnWide" type="button" id="submitBtn">
-<span id="submitIcon">✅</span> Envoyer
-</button>
-</div>
-
-<div class="toast" id="toast3"></div>
-</div>
-
-<div class="foot">© Phoenix Automobile — Intermédiaire entre professionnel et particuliers.</div>
-</div>
-
-<!-- SUCCESS ONLY -->
-<div class="formWrap hidden" id="successArea">
-<div class="card successScreen">
-<div class="successIcon">✅</div>
-<h3 class="successTitle">Le formulaire a été envoyé.</h3>
-<p class="successText">
-Phoenix Automobile vous recontactera dans les plus brefs délais pour vous proposer un rendez-vous.
-</p>
-<p class="thanks">Merci de votre confiance !</p>
-<button class="btn btnPrimary btnWide" type="button" id="goHome">Retour au menu principal</button>
-</div>
-<div class="foot">© Phoenix Automobile — Intermédiaire entre professionnel et particuliers.</div>
-</div>
-
-</section>
-
-</div>
-</div>
-
-<script>
-// ======= CONFIG =======
-const ENDPOINT = "https://script.google.com/macros/s/AKfycby8XrrhPsyJR_1IKZ53u6K8cc0jPSPyvvAQAElHMYuShJhKaRtiR3ETY8CNy-HAi_VH/exec";
-const SOURCE_TAG = "phoenix-automobile.com";
-
-// ======= SUGGESTIONS (tu peux compléter la liste quand tu veux) =======
-const BRAND_MODELS = {
-"Peugeot": ["208","2008","308","3008","5008","508","Partner","Rifter"],
-"Renault": ["Clio","Captur","Megane","Scenic","Kadjar","Arkana","Twingo","Kangoo"],
-"Citroën": ["C3","C4","C5 Aircross","Berlingo","DS3"],
-"Volkswagen": ["Polo","Golf","Tiguan","T-Roc","Passat","Touran"],
-"Audi": ["A1","A3","A4","A5","Q2","Q3","Q5"],
-"BMW": ["Série 1","Série 2","Série 3","Série 4","X1","X3","X5"],
-"Mercedes-Benz": ["Classe A","Classe C","Classe E","GLA","GLC"],
-"Toyota": ["Yaris","Corolla","C-HR","RAV4"],
-"Nissan": ["Juke","Qashqai","Micra","X-Trail"],
-"Ford": ["Fiesta","Focus","Puma","Kuga"],
-"Opel": ["Corsa","Astra","Mokka"],
-"Hyundai": ["i10","i20","i30","Tucson","Kona"],
-"Kia": ["Picanto","Rio","Ceed","Sportage","Stonic"]
-};
-
-const CARBURANTS = ["Essence","Diesel","Hybride","Hybride rechargeable","Électrique","GPL","E85"];
-const BOITES = ["Manuelle","Automatique","Semi-automatique"];
-
-// ======= STATE =======
-let step = 1;
-
-const pills = document.querySelectorAll(".stepPill");
-const barFill = document.getElementById("barFill");
-const ratio = document.getElementById("ratio");
-
-const formArea = document.getElementById("formArea");
-const successArea = document.getElementById("successArea");
-
-const step1 = document.getElementById("step1");
-const step2buy = document.getElementById("step2buy");
-const step2sell = document.getElementById("step2sell");
-const step3 = document.getElementById("step3");
-
-const toast1 = document.getElementById("toast1");
-const toast2buy = document.getElementById("toast2buy");
-const toast2sell = document.getElementById("toast2sell");
-const toast3 = document.getElementById("toast3");
-
-// Inputs
-const buyMarque = document.getElementById("buyMarque");
-const buyTrancheAnnee = document.getElementById("buyTrancheAnnee");
-const buyBudget = document.getElementById("buyBudget");
-
-const sellMarque = document.getElementById("sellMarque");
-const sellModele = document.getElementById("sellModele");
-const sellAnnee = document.getElementById("sellAnnee");
-const sellKm = document.getElementById("sellKm");
-const sellCarburant = document.getElementById("sellCarburant");
-const sellBoite = document.getElementById("sellBoite");
-const sellPrixSouhaite = document.getElementById("sellPrixSouhaite");
-
-const nom = document.getElementById("nom");
-const prenom = document.getElementById("prenom");
-const cp = document.getElementById("cp");
-const ville = document.getElementById("ville");
-const tel = document.getElementById("tel");
-const email = document.getElementById("email");
-const creneau = document.getElementById("creneau");
-
-const submitBtn = document.getElementById("submitBtn");
-const submitIcon = document.getElementById("submitIcon");
-
-// Datalists
-const dlMarques = document.getElementById("dlMarques");
-const dlModeles = document.getElementById("dlModeles");
-const dlCarburants = document.getElementById("dlCarburants");
-const dlBoites = document.getElementById("dlBoites");
-
-// ======= HELPERS =======
-function setToast(el, kind, msg){
-  el.className = "toast " + (kind === "ok" ? "ok" : "err");
-  el.textContent = msg;
-}
-function clearToast(el){
-  el.className = "toast";
-  el.textContent = "";
-}
-function clearAllToasts(){
-  [toast1, toast2buy, toast2sell, toast3].forEach(clearToast);
-}
-
-function getType(){
-  const r = document.querySelector('input[name="typeDemande"]:checked');
-  return r ? r.value : "";
-}
-
-function onlyDigits(val){
-  return String(val || "").replace(/[^\d]/g, "");
-}
-
-function require(val){ return String(val || "").trim().length > 0; }
-
-function getSellEtat(){
-  const arr = Array.from(document.querySelectorAll('input[name="sellEtat"]:checked')).map(x => x.value);
-  return arr.join(", ");
-}
-
-// ======= SUGGESTIONS BUILD =======
-function fillDatalist(dl, items){
-  dl.innerHTML = items.map(x => `<option value="${String(x).replace(/"/g,'&quot;')}"></option>`).join("");
-}
-
-function normalizeBrand(s){
-  return String(s || "").trim().toLowerCase();
-}
-
-function findBrandKey(input){
-  const n = normalizeBrand(input);
-  const keys = Object.keys(BRAND_MODELS);
-  for (const k of keys){
-    if (normalizeBrand(k) === n) return k;
-  }
-  return "";
-}
-
-function updateModelsForBrand(){
-  const brandKey = findBrandKey(sellMarque.value);
-  const models = brandKey ? BRAND_MODELS[brandKey] : [];
-  fillDatalist(dlModeles, models);
-
-  // Si la marque change, on ne force pas le modèle (le client peut écrire librement),
-  // mais on vide le modèle si l’utilisateur veut repartir propre.
-  // (Tu peux commenter la ligne suivante si tu préfères ne pas vider.)
-  // sellModele.value = "";
-}
-
-// Init suggestions
-fillDatalist(dlMarques, Object.keys(BRAND_MODELS));
-fillDatalist(dlCarburants, CARBURANTS);
-fillDatalist(dlBoites, BOITES);
-fillDatalist(dlModeles, []);
-
-// Update models when brand changes
-sellMarque.addEventListener("input", updateModelsForBrand);
-sellMarque.addEventListener("change", updateModelsForBrand);
-
-// ======= UI =======
-function showOnlyStep(n){
-  const y = window.scrollY || 0;
-  if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
-
-  step = n;
-
-  step1.classList.toggle("hidden", step !== 1);
-  step3.classList.toggle("hidden", step !== 3);
-
-  const t = getType();
-  const showBuy = (t === "Acheter");
-  step2buy.classList.toggle("hidden", !(step === 2 && showBuy));
-  step2sell.classList.toggle("hidden", !(step === 2 && !showBuy));
-
-  ratio.textContent = `${step}/3`;
-  barFill.style.width = (step/3*100) + "%";
-
-  pills.forEach(p => {
-    const s = Number(p.dataset.step);
-    p.classList.toggle("done", s < step);
-  });
-
-  clearAllToasts();
-  setTimeout(()=>window.scrollTo(0,y),0);
-}
-
-// ======= VALIDATION =======
-function validateStep1(){
-  if (!require(getType())){
-    setToast(toast1, "err", "Veuillez sélectionner : Acheter ou Vendre.");
-    return false;
-  }
-  return true;
-}
-
-function validateStep2(){
-  const t = getType();
-
-  if (t === "Acheter"){
-    if (!require(buyMarque.value) && !require(buyTrancheAnnee.value) && !require(buyBudget.value)){
-      setToast(toast2buy, "err", "Veuillez renseigner au moins un champ (marque, tranche d’année ou budget).");
-      return false;
-    }
-    return true;
-  }
-
-  // Vendre: marque + modèle + année requis
-  const mar = sellMarque.value.trim();
-  const mod = sellModele.value.trim();
-  const a = onlyDigits(sellAnnee.value.trim());
-
-  if (!require(mar)) { setToast(toast2sell, "err", "Veuillez renseigner la marque."); return false; }
-  if (!require(mod)) { setToast(toast2sell, "err", "Veuillez renseigner le modèle."); return false; }
-  if (!require(a) || a.length !== 4) { setToast(toast2sell, "err", "Veuillez renseigner une année valide (4 chiffres)."); return false; }
-
-  const y = Number(a);
-  const now = new Date().getFullYear();
-  if (y < 1980 || y > now + 1){
-    setToast(toast2sell, "err", "Année incohérente. Veuillez renseigner une année réaliste.");
-    return false;
-  }
-
-  // Km optionnel mais si rempli: digits
-  const km = onlyDigits(sellKm.value.trim());
-  if (require(sellKm.value) && !require(km)){
-    setToast(toast2sell, "err", "Kilométrage invalide.");
-    return false;
-  }
-
-  return true;
-}
-
-function validateStep3(){
-  if (!require(nom.value) || !require(prenom.value)) { setToast(toast3, "err", "Veuillez renseigner votre nom et prénom."); return false; }
-  const cpx = onlyDigits(cp.value);
-  if (!require(cpx) || cpx.length < 4) { setToast(toast3, "err", "Veuillez renseigner un code postal valide."); return false; }
-  if (!require(ville.value)) { setToast(toast3, "err", "Veuillez renseigner votre ville."); return false; }
-  if (!require(creneau.value)) { setToast(toast3, "err", "Veuillez indiquer un créneau de rappel."); return false; }
-
-  if (!require(tel.value) && !require(email.value)){
-    setToast(toast3, "err", "Veuillez renseigner au moins un téléphone ou un email.");
-    return false;
-  }
-
-  if (require(email.value) && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())){
-    setToast(toast3, "err", "Adresse email invalide.");
-    return false;
-  }
-
-  return true;
-}
-
-// ======= PAYLOAD =======
-function buildPayload(){
-  const t = getType();
-  const base = {
-    typeDemande: t,
-    nom: nom.value.trim(),
-    prenom: prenom.value.trim(),
-    cp: onlyDigits(cp.value.trim()),
-    ville: ville.value.trim(),
-    tel: tel.value.trim(),
-    email: email.value.trim(),
-    creneau: creneau.value.trim(),
-    source: SOURCE_TAG,
-    ts: new Date().toISOString()
-  };
-
-  if (t === "Acheter"){
-    return {
-      ...base,
-      buyMarque: buyMarque.value.trim(),
-      buyTrancheAnnee: buyTrancheAnnee.value.trim(),
-      buyBudget: buyBudget.value.trim(),
-
-      sellMarque: "",
-      sellModele: "",
-      sellAnnee: "",
-      sellKm: "",
-      sellCarburant: "",
-      sellBoite: "",
-      sellEtat: "",
-      sellPrixSouhaite: ""
+    // ======= SUGGESTIONS (tu peux compléter la liste quand tu veux) =======
+    const BRAND_MODELS = {
+      "Peugeot": ["208","2008","308","3008","5008","508","Partner","Rifter"],
+      "Renault": ["Clio","Captur","Megane","Scenic","Kadjar","Arkana","Twingo","Kangoo"],
+      "Citroën": ["C3","C4","C5 Aircross","Berlingo","DS3"],
+      "Volkswagen": ["Polo","Golf","Tiguan","T-Roc","Passat","Touran"],
+      "Audi": ["A1","A3","A4","A5","Q2","Q3","Q5"],
+      "BMW": ["Série 1","Série 2","Série 3","Série 4","X1","X3","X5"],
+      "Mercedes-Benz": ["Classe A","Classe C","Classe E","GLA","GLC"],
+      "Toyota": ["Yaris","Corolla","C-HR","RAV4"],
+      "Nissan": ["Juke","Qashqai","Micra","X-Trail"],
+      "Ford": ["Fiesta","Focus","Puma","Kuga"],
+      "Opel": ["Corsa","Astra","Mokka"],
+      "Hyundai": ["i10","i20","i30","Tucson","Kona"],
+      "Kia": ["Picanto","Rio","Ceed","Sportage","Stonic"]
     };
-  }
 
-  return {
-    ...base,
-    buyMarque: "",
-    buyTrancheAnnee: "",
-    buyBudget: "",
+    const CARBURANTS = ["Essence","Diesel","Hybride","Hybride rechargeable","Électrique","GPL","E85"];
+    const BOITES = ["Manuelle","Automatique","Semi-automatique"];
 
-    sellMarque: sellMarque.value.trim(),
-    sellModele: sellModele.value.trim(),
-    sellAnnee: onlyDigits(sellAnnee.value.trim()),
-    sellKm: onlyDigits(sellKm.value.trim()),
-    sellCarburant: sellCarburant.value.trim(),
-    sellBoite: sellBoite.value.trim(),
-    sellEtat: getSellEtat(),
-    sellPrixSouhaite: sellPrixSouhaite.value.trim()
-  };
-}
+    // ======= STATE =======
+    let step = 1;
 
-async function send(){
-  clearAllToasts();
-  submitBtn.disabled = true;
-  submitBtn.style.opacity = "0.85";
-  submitIcon.innerHTML = '<span class="spin" aria-hidden="true"></span>';
+    const pills = document.querySelectorAll(".stepPill");
+    const barFill = document.getElementById("barFill");
+    const ratio = document.getElementById("ratio");
 
-  try{
-    await fetch(ENDPOINT, {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "text/plain;charset=utf-8" },
-      body: JSON.stringify(buildPayload())
+    const formArea = document.getElementById("formArea");
+    const successArea = document.getElementById("successArea");
+
+    const step1 = document.getElementById("step1");
+    const step2buy = document.getElementById("step2buy");
+    const step2sell = document.getElementById("step2sell");
+    const step3 = document.getElementById("step3");
+
+    const toast1 = document.getElementById("toast1");
+    const toast2buy = document.getElementById("toast2buy");
+    const toast2sell = document.getElementById("toast2sell");
+    const toast3 = document.getElementById("toast3");
+
+    // Inputs
+    const buyMarque = document.getElementById("buyMarque");
+    const buyTrancheAnnee = document.getElementById("buyTrancheAnnee");
+    const buyBudget = document.getElementById("buyBudget");
+
+    const sellMarque = document.getElementById("sellMarque");
+    const sellModele = document.getElementById("sellModele");
+    const sellAnnee = document.getElementById("sellAnnee");
+    const sellKm = document.getElementById("sellKm");
+    const sellCarburant = document.getElementById("sellCarburant");
+    const sellBoite = document.getElementById("sellBoite");
+    const sellPrixSouhaite = document.getElementById("sellPrixSouhaite");
+
+    const nom = document.getElementById("nom");
+    const prenom = document.getElementById("prenom");
+    const cp = document.getElementById("cp");
+    const ville = document.getElementById("ville");
+    const tel = document.getElementById("tel");
+    const email = document.getElementById("email");
+    const creneau = document.getElementById("creneau");
+
+    const submitBtn = document.getElementById("submitBtn");
+    const submitIcon = document.getElementById("submitIcon");
+
+    // Datalists
+    const dlMarques = document.getElementById("dlMarques");
+    const dlModeles = document.getElementById("dlModeles");
+    const dlCarburants = document.getElementById("dlCarburants");
+    const dlBoites = document.getElementById("dlBoites");
+
+    // ======= HELPERS =======
+    function setToast(el, kind, msg){
+      el.className = "toast " + (kind === "ok" ? "ok" : "err");
+      el.textContent = msg;
+    }
+    function clearToast(el){
+      el.className = "toast";
+      el.textContent = "";
+    }
+    function clearAllToasts(){
+      [toast1, toast2buy, toast2sell, toast3].forEach(clearToast);
+    }
+
+    function getType(){
+      const r = document.querySelector('input[name="typeDemande"]:checked');
+      return r ? r.value : "";
+    }
+
+    function onlyDigits(val){
+      return String(val || "").replace(/[^\d]/g, "");
+    }
+
+    function require(val){ return String(val || "").trim().length > 0; }
+
+    function getSellEtat(){
+      const arr = Array.from(document.querySelectorAll('input[name="sellEtat"]:checked')).map(x => x.value);
+      return arr.join(", ");
+    }
+
+    // ======= SUGGESTIONS BUILD =======
+    function fillDatalist(dl, items){
+      dl.innerHTML = items.map(x => `<option value="${String(x).replace(/"/g,'&quot;')}"></option>`).join("");
+    }
+
+    function normalizeBrand(s){
+      return String(s || "").trim().toLowerCase();
+    }
+
+    function findBrandKey(input){
+      const n = normalizeBrand(input);
+      const keys = Object.keys(BRAND_MODELS);
+      for (const k of keys){
+        if (normalizeBrand(k) === n) return k;
+      }
+      return "";
+    }
+
+    function updateModelsForBrand(){
+      const brandKey = findBrandKey(sellMarque.value);
+      const models = brandKey ? BRAND_MODELS[brandKey] : [];
+      fillDatalist(dlModeles, models);
+    }
+
+    // Init suggestions
+    fillDatalist(dlMarques, Object.keys(BRAND_MODELS));
+    fillDatalist(dlCarburants, CARBURANTS);
+    fillDatalist(dlBoites, BOITES);
+    fillDatalist(dlModeles, []);
+
+    // Update models when brand changes
+    sellMarque.addEventListener("input", updateModelsForBrand);
+    sellMarque.addEventListener("change", updateModelsForBrand);
+
+    // ======= UI =======
+    function showOnlyStep(n){
+      const y = window.scrollY || 0;
+      if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
+
+      step = n;
+
+      step1.classList.toggle("hidden", step !== 1);
+      step3.classList.toggle("hidden", step !== 3);
+
+      const t = getType();
+      const showBuy = (t === "Acheter");
+      step2buy.classList.toggle("hidden", !(step === 2 && showBuy));
+      step2sell.classList.toggle("hidden", !(step === 2 && !showBuy));
+
+      ratio.textContent = `${step}/3`;
+      barFill.style.width = (step/3*100) + "%";
+
+      pills.forEach(p => {
+        const s = Number(p.dataset.step);
+        p.classList.toggle("done", s < step);
+      });
+
+      clearAllToasts();
+      setTimeout(()=>window.scrollTo(0,y),0);
+    }
+
+    // ======= VALIDATION =======
+    function validateStep1(){
+      if (!require(getType())){
+        setToast(toast1, "err", "Veuillez sélectionner : Acheter ou Vendre.");
+        return false;
+      }
+      return true;
+    }
+
+    function validateStep2(){
+      const t = getType();
+
+      if (t === "Acheter"){
+        if (!require(buyMarque.value) && !require(buyTrancheAnnee.value) && !require(buyBudget.value)){
+          setToast(toast2buy, "err", "Veuillez renseigner au moins un champ (marque, tranche d’année ou budget).");
+          return false;
+        }
+        return true;
+      }
+
+      // Vendre: marque + modèle + année requis
+      const mar = sellMarque.value.trim();
+      const mod = sellModele.value.trim();
+      const a = onlyDigits(sellAnnee.value.trim());
+
+      if (!require(mar)) { setToast(toast2sell, "err", "Veuillez renseigner la marque."); return false; }
+      if (!require(mod)) { setToast(toast2sell, "err", "Veuillez renseigner le modèle."); return false; }
+      if (!require(a) || a.length !== 4) { setToast(toast2sell, "err", "Veuillez renseigner une année valide (4 chiffres)."); return false; }
+
+      const y = Number(a);
+      const now = new Date().getFullYear();
+      if (y < 1980 || y > now + 1){
+        setToast(toast2sell, "err", "Année incohérente. Veuillez renseigner une année réaliste.");
+        return false;
+      }
+
+      // Km optionnel mais si rempli: digits
+      const km = onlyDigits(sellKm.value.trim());
+      if (require(sellKm.value) && !require(km)){
+        setToast(toast2sell, "err", "Kilométrage invalide.");
+        return false;
+      }
+
+      return true;
+    }
+
+    function validateStep3(){
+      if (!require(nom.value) || !require(prenom.value)) { setToast(toast3, "err", "Veuillez renseigner votre nom et prénom."); return false; }
+      const cpx = onlyDigits(cp.value);
+      if (!require(cpx) || cpx.length < 4) { setToast(toast3, "err", "Veuillez renseigner un code postal valide."); return false; }
+      if (!require(ville.value)) { setToast(toast3, "err", "Veuillez renseigner votre ville."); return false; }
+      if (!require(creneau.value)) { setToast(toast3, "err", "Veuillez indiquer un créneau de rappel."); return false; }
+
+      if (!require(tel.value) && !require(email.value)){
+        setToast(toast3, "err", "Veuillez renseigner au moins un téléphone ou un email.");
+        return false;
+      }
+
+      if (require(email.value) && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())){
+        setToast(toast3, "err", "Adresse email invalide.");
+        return false;
+      }
+
+      return true;
+    }
+
+    // ======= PAYLOAD =======
+    function buildPayload(){
+      const t = getType();
+      const base = {
+        typeDemande: t,
+        nom: nom.value.trim(),
+        prenom: prenom.value.trim(),
+        cp: onlyDigits(cp.value.trim()),
+        ville: ville.value.trim(),
+        tel: tel.value.trim(),
+        email: email.value.trim(),
+        creneau: creneau.value.trim(),
+        source: SOURCE_TAG,
+        ts: new Date().toISOString()
+      };
+
+      if (t === "Acheter"){
+        return {
+          ...base,
+          buyMarque: buyMarque.value.trim(),
+          buyTrancheAnnee: buyTrancheAnnee.value.trim(),
+          buyBudget: buyBudget.value.trim(),
+
+          sellMarque: "",
+          sellModele: "",
+          sellAnnee: "",
+          sellKm: "",
+          sellCarburant: "",
+          sellBoite: "",
+          sellEtat: "",
+          sellPrixSouhaite: ""
+        };
+      }
+
+      return {
+        ...base,
+        buyMarque: "",
+        buyTrancheAnnee: "",
+        buyBudget: "",
+
+        sellMarque: sellMarque.value.trim(),
+        sellModele: sellModele.value.trim(),
+        sellAnnee: onlyDigits(sellAnnee.value.trim()),
+        sellKm: onlyDigits(sellKm.value.trim()),
+        sellCarburant: sellCarburant.value.trim(),
+        sellBoite: sellBoite.value.trim(),
+        sellEtat: getSellEtat(),
+        sellPrixSouhaite: sellPrixSouhaite.value.trim()
+      };
+    }
+
+    async function send(){
+      clearAllToasts();
+      submitBtn.disabled = true;
+      submitBtn.style.opacity = "0.85";
+      submitIcon.innerHTML = '<span class="spin" aria-hidden="true"></span>';
+
+      try{
+        await fetch(ENDPOINT, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify(buildPayload())
+        });
+
+        pills.forEach(p => p.classList.add("done"));
+        barFill.style.width = "100%";
+        ratio.textContent = "3/3 ✅";
+
+        formArea.classList.add("hidden");
+        successArea.classList.remove("hidden");
+      } catch(err){
+        setToast(toast3, "err", "Impossible d’envoyer pour le moment. Veuillez réessayer.");
+      } finally{
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = "1";
+        submitIcon.textContent = "✅";
+      }
+    }
+
+    function resetAll(){
+      document.querySelectorAll('input[name="typeDemande"]').forEach(x => x.checked = false);
+
+      buyMarque.value = "";
+      buyTrancheAnnee.value = "";
+      buyBudget.value = "";
+
+      sellMarque.value = "";
+      sellModele.value = "";
+      sellAnnee.value = "";
+      sellKm.value = "";
+      sellCarburant.value = "";
+      sellBoite.value = "";
+      sellPrixSouhaite.value = "";
+      document.querySelectorAll('input[name="sellEtat"]').forEach(x => x.checked = false);
+
+      nom.value = "";
+      prenom.value = "";
+      cp.value = "";
+      ville.value = "";
+      tel.value = "";
+      email.value = "";
+      creneau.value = "";
+
+      pills.forEach(p => p.classList.remove("done"));
+      barFill.style.width = "33.333%";
+      ratio.textContent = "1/3";
+
+      clearAllToasts();
+      fillDatalist(dlModeles, []);
+      showOnlyStep(1);
+
+      successArea.classList.add("hidden");
+      formArea.classList.remove("hidden");
+    }
+
+    // ======= EVENTS =======
+    document.getElementById("next1").addEventListener("click", () => {
+      if (!validateStep1()) return;
+      showOnlyStep(2);
     });
 
-    pills.forEach(p => p.classList.add("done"));
-    barFill.style.width = "100%";
-    ratio.textContent = "3/3 ✅";
+    document.getElementById("back2buy").addEventListener("click", () => showOnlyStep(1));
+    document.getElementById("back2sell").addEventListener("click", () => showOnlyStep(1));
 
-    formArea.classList.add("hidden");
-    successArea.classList.remove("hidden");
-  } catch(err){
-    setToast(toast3, "err", "Impossible d’envoyer pour le moment. Veuillez réessayer.");
-  } finally{
-    submitBtn.disabled = false;
-    submitBtn.style.opacity = "1";
-    submitIcon.textContent = "✅";
-  }
-}
+    document.getElementById("next2buy").addEventListener("click", () => {
+      if (!validateStep2()) return;
+      showOnlyStep(3);
+    });
+    document.getElementById("next2sell").addEventListener("click", () => {
+      if (!validateStep2()) return;
+      showOnlyStep(3);
+    });
 
-function resetAll(){
-  document.querySelectorAll('input[name="typeDemande"]').forEach(x => x.checked = false);
+    document.getElementById("back3").addEventListener("click", () => showOnlyStep(2));
 
-  buyMarque.value = "";
-  buyTrancheAnnee.value = "";
-  buyBudget.value = "";
+    submitBtn.addEventListener("click", async () => {
+      if (!validateStep1()) { showOnlyStep(1); return; }
+      if (!validateStep2()) { showOnlyStep(2); return; }
+      if (!validateStep3()) return;
+      await send();
+    });
 
-  sellMarque.value = "";
-  sellModele.value = "";
-  sellAnnee.value = "";
-  sellKm.value = "";
-  sellCarburant.value = "";
-  sellBoite.value = "";
-  sellPrixSouhaite.value = "";
-  document.querySelectorAll('input[name="sellEtat"]').forEach(x => x.checked = false);
+    document.getElementById("resetAll").addEventListener("click", resetAll);
+    document.getElementById("goHome").addEventListener("click", resetAll);
 
-  nom.value = "";
-  prenom.value = "";
-  cp.value = "";
-  ville.value = "";
-  tel.value = "";
-  email.value = "";
-  creneau.value = "";
+    // ===== MENU MOBILE SUGGESTIONS (custom, le ▼ marche sur mobile) =====
+    const pickerOverlay = document.getElementById("pickerOverlay");
+    const pickerPanel   = document.getElementById("pickerPanel");
+    const pickerBody    = document.getElementById("pickerBody");
+    const pickerTitle   = document.getElementById("pickerTitle");
+    const pickerClose   = document.getElementById("pickerClose");
 
-  pills.forEach(p => p.classList.remove("done"));
-  barFill.style.width = "33.333%";
-  ratio.textContent = "1/3";
+    let currentTargetInputId = "";
 
-  clearAllToasts();
-  fillDatalist(dlModeles, []);
-  showOnlyStep(1);
+    function openPicker(title, inputId, items){
+      currentTargetInputId = inputId;
 
-  successArea.classList.add("hidden");
-  formArea.classList.remove("hidden");
-}
+      pickerTitle.textContent = title;
+      pickerBody.innerHTML = items.map(x => {
+        const safe = String(x).replace(/</g,"&lt;").replace(/>/g,"&gt;");
+        return `<button type="button" class="pickerItem" data-value="${safe}">${safe}</button>`;
+      }).join("");
 
-// ======= EVENTS =======
-document.getElementById("next1").addEventListener("click", () => {
-  if (!validateStep1()) return;
-  showOnlyStep(2);
-});
+      pickerOverlay.classList.remove("hidden");
+      pickerPanel.classList.remove("hidden");
+      pickerOverlay.setAttribute("aria-hidden", "false");
+    }
 
-document.getElementById("back2buy").addEventListener("click", () => showOnlyStep(1));
-document.getElementById("back2sell").addEventListener("click", () => showOnlyStep(1));
+    function closePicker(){
+      pickerOverlay.classList.add("hidden");
+      pickerPanel.classList.add("hidden");
+      pickerOverlay.setAttribute("aria-hidden", "true");
+      currentTargetInputId = "";
+    }
 
-document.getElementById("next2buy").addEventListener("click", () => {
-  if (!validateStep2()) return;
-  showOnlyStep(3);
-});
-document.getElementById("next2sell").addEventListener("click", () => {
-  if (!validateStep2()) return;
-  showOnlyStep(3);
-});
+    pickerOverlay.addEventListener("click", closePicker);
+    pickerClose.addEventListener("click", closePicker);
 
-document.getElementById("back3").addEventListener("click", () => showOnlyStep(2));
+    pickerBody.addEventListener("click", (e) => {
+      const btn = e.target.closest(".pickerItem");
+      if (!btn) return;
 
-submitBtn.addEventListener("click", async () => {
-  if (!validateStep1()) { showOnlyStep(1); return; }
-  if (!validateStep2()) { showOnlyStep(2); return; }
-  if (!validateStep3()) return;
-  await send();
-});
+      const val = btn.getAttribute("data-value") || "";
+      const input = document.getElementById(currentTargetInputId);
 
-document.getElementById("resetAll").addEventListener("click", resetAll);
-document.getElementById("goHome").addEventListener("click", resetAll);
+      if (input){
+        input.value = val;
 
+        // si on vient de choisir une marque, on met à jour les modèles
+        if (currentTargetInputId === "sellMarque"){
+          updateModelsForBrand();
+        }
+      }
+      closePicker();
+    });
 
-/* ======= AJOUT ICI ======= */
-function openDatalist(id){
-  const el = document.getElementById(id);
-  if (!el) return;
+    // Quand on clique sur ▼
+    document.querySelectorAll('[data-open]').forEach(btn => {
+      btn.addEventListener("click", () => {
+        const id = btn.getAttribute("data-open");
 
-  el.focus();
+        if (id === "sellMarque"){
+          openPicker("Choisir une marque", "sellMarque", Object.keys(BRAND_MODELS));
+          return;
+        }
+        if (id === "sellModele"){
+          const brandKey = findBrandKey(sellMarque.value);
+          const models = brandKey ? BRAND_MODELS[brandKey] : [];
 
-  if (typeof el.showPicker === "function"){
-    try { el.showPicker(); } catch(e) {}
-  }
+          if (!brandKey){
+            openPicker("Choisir une marque d’abord", "sellMarque", Object.keys(BRAND_MODELS));
+          } else {
+            openPicker("Choisir un modèle", "sellModele", models);
+          }
+          return;
+        }
+        if (id === "sellCarburant"){
+          openPicker("Choisir un carburant", "sellCarburant", CARBURANTS);
+          return;
+        }
+        if (id === "sellBoite"){
+          openPicker("Choisir une boîte", "sellBoite", BOITES);
+          return;
+        }
 
-  try {
-    const v = el.value;
-    el.value = v + " ";
-    el.value = v;
-    el.dispatchEvent(new Event("input", { bubbles:true }));
-  } catch(e) {}
-}
+        // fallback (si un jour tu ajoutes un autre data-open)
+        const input = document.getElementById(id);
+        if (input) input.focus();
+      });
+    });
 
-document.querySelectorAll('[data-open]').forEach(btn => {
-  btn.addEventListener("click", () => openDatalist(btn.getAttribute("data-open")));
-});
-/* ======= FIN AJOUT ======= */
-
-
-// Default
-barFill.style.width = "33.333%";
-showOnlyStep(1);
-</script>
+    // Default
+    barFill.style.width = "33.333%";
+    showOnlyStep(1);
+  </script>
 </body>
 </html>
