@@ -1194,6 +1194,33 @@ submitBtn.addEventListener("click", async () => {
 
 document.getElementById("resetAll").addEventListener("click", resetAll);
 document.getElementById("goHome").addEventListener("click", resetAll);
+document.getElementById("goHome").addEventListener("click", resetAll);
+
+
+/* ======= AJOUT ICI ======= */
+function openDatalist(id){
+  const el = document.getElementById(id);
+  if (!el) return;
+
+  el.focus();
+
+  if (typeof el.showPicker === "function"){
+    try { el.showPicker(); } catch(e) {}
+  }
+
+  try {
+    const v = el.value;
+    el.value = v + " ";
+    el.value = v;
+    el.dispatchEvent(new Event("input", { bubbles:true }));
+  } catch(e) {}
+}
+
+document.querySelectorAll('[data-open]').forEach(btn => {
+  btn.addEventListener("click", () => openDatalist(btn.getAttribute("data-open")));
+});
+/* ======= FIN AJOUT ======= */
+
 
 // Default
 barFill.style.width = "33.333%";
