@@ -671,74 +671,83 @@ place-items:center;
 
 <!-- STEP 2 - VENDRE -->
 <div class="card hidden" id="step2sell">
-<h2>2) Informations sur votre véhicule</h2>
-<p class="sub">Marque + modèle + année requis. Le reste est recommandé.</p>
+  <h2>2) Informations sur votre véhicule</h2>
+  <p class="sub">Marque + modèle + année requis. Le reste est recommandé.</p>
 
-<!-- Suggestions -->
-<datalist id="dlMarques"></datalist>
-<datalist id="dlModeles"></datalist>
-<datalist id="dlCarburants"></datalist>
-<datalist id="dlBoites"></datalist>
+  <!-- Suggestions -->
+  <datalist id="dlMarques"></datalist>
+  <datalist id="dlModeles"></datalist>
+  <datalist id="dlCarburants"></datalist>
+  <datalist id="dlBoites"></datalist>
 
-<div class="grid2">
-  <div>
-    <label for="sellMarque">Marque</label>
-<div class="combo">
-  <input class="field" id="sellMarque" list="dlMarques" placeholder="Ex : BMW" autocomplete="off" />
-  <button class="dropBtn" type="button" data-open="sellMarque">▼</button>
-</div>
-  <div>
-    <label for="sellModele">Modèle</label>
-<div class="combo">
-  <input class="field" id="sellModele" list="dlModeles" placeholder="Ex : Série 1" autocomplete="off" />
-  <button class="dropBtn" type="button" data-open="sellModele" aria-label="Afficher les modèles">▼</button>
-</div>
+  <div class="grid2">
+    <div>
+      <label for="sellMarque">Marque</label>
+      <div class="combo">
+        <input class="field" id="sellMarque" list="dlMarques" placeholder="Ex : BMW" autocomplete="off" />
+        <button class="dropBtn" type="button" data-open="sellMarque" aria-label="Afficher les marques">▼</button>
+      </div>
+    </div>
 
-<div class="grid2" style="margin-top:12px;">
-  <div>
-    <label for="sellAnnee">Année</label>
-    <input class="field" id="sellAnnee" inputmode="numeric" placeholder="Ex : 2018" autocomplete="off" />
+    <div>
+      <label for="sellModele">Modèle</label>
+      <div class="combo">
+        <input class="field" id="sellModele" list="dlModeles" placeholder="Ex : Série 1" autocomplete="off" />
+        <button class="dropBtn" type="button" data-open="sellModele" aria-label="Afficher les modèles">▼</button>
+      </div>
+    </div>
   </div>
-  <div>
-    <label for="sellKm">Kilométrage</label>
-    <input class="field" id="sellKm" inputmode="numeric" placeholder="Ex : 125000" autocomplete="off" />
+
+  <div class="grid2" style="margin-top:12px;">
+    <div>
+      <label for="sellAnnee">Année</label>
+      <input class="field" id="sellAnnee" inputmode="numeric" placeholder="Ex : 2018" autocomplete="off" />
+    </div>
+    <div>
+      <label for="sellKm">Kilométrage</label>
+      <input class="field" id="sellKm" inputmode="numeric" placeholder="Ex : 125000" autocomplete="off" />
+    </div>
   </div>
-</div>
 
-<div class="grid2" style="margin-top:12px;">
-  <div>
-    <label for="sellCarburant">Carburant</label>
-<div class="combo">
-  <input class="field" id="sellCarburant" list="dlCarburants" placeholder="Ex : Diesel" autocomplete="off" />
-  <button class="dropBtn" type="button" data-open="sellCarburant" aria-label="Afficher les carburants">▼</button>
-</div>
-    <label for="sellBoite">Boîte</label>
-<div class="combo">
-  <input class="field" id="sellBoite" list="dlBoites" placeholder="Ex : Automatique" autocomplete="off" />
-  <button class="dropBtn" type="button" data-open="sellBoite" aria-label="Afficher les boîtes">▼</button>
-</div>
+  <div class="grid2" style="margin-top:12px;">
+    <div>
+      <label for="sellCarburant">Carburant</label>
+      <div class="combo">
+        <input class="field" id="sellCarburant" list="dlCarburants" placeholder="Ex : Diesel" autocomplete="off" />
+        <button class="dropBtn" type="button" data-open="sellCarburant" aria-label="Afficher les carburants">▼</button>
+      </div>
+    </div>
 
-<div style="margin-top:12px;">
-  <label>État</label>
-  <div class="checkRow" id="etatRow">
-    <label class="check"><input type="checkbox" name="sellEtat" value="Très bon état"> Très bon état</label>
-    <label class="check"><input type="checkbox" name="sellEtat" value="Bon état"> Bon état</label>
-    <label class="check"><input type="checkbox" name="sellEtat" value="Correct"> Correct</label>
-    <label class="check"><input type="checkbox" name="sellEtat" value="À prévoir"> À prévoir</label>
+    <div>
+      <label for="sellBoite">Boîte</label>
+      <div class="combo">
+        <input class="field" id="sellBoite" list="dlBoites" placeholder="Ex : Automatique" autocomplete="off" />
+        <button class="dropBtn" type="button" data-open="sellBoite" aria-label="Afficher les boîtes">▼</button>
+      </div>
+    </div>
   </div>
-</div>
 
-<div style="margin-top:12px;">
-  <label for="sellPrixSouhaite">Tranche de prix souhaitée</label>
-  <input class="field" id="sellPrixSouhaite" placeholder="Ex : 12 000 €" autocomplete="off" />
-</div>
+  <div style="margin-top:12px;">
+    <label>État</label>
+    <div class="checkRow" id="etatRow">
+      <label class="check"><input type="checkbox" name="sellEtat" value="Très bon état"> Très bon état</label>
+      <label class="check"><input type="checkbox" name="sellEtat" value="Bon état"> Bon état</label>
+      <label class="check"><input type="checkbox" name="sellEtat" value="Correct"> Correct</label>
+      <label class="check"><input type="checkbox" name="sellEtat" value="À prévoir"> À prévoir</label>
+    </div>
+  </div>
 
-<div class="actions">
-<button class="btn btnGhost btnWide" type="button" id="back2sell">← Retour</button>
-<button class="btn btnPrimary btnWide" type="button" id="next2sell">Continuer →</button>
-</div>
+  <div style="margin-top:12px;">
+    <label for="sellPrixSouhaite">Tranche de prix souhaitée</label>
+    <input class="field" id="sellPrixSouhaite" placeholder="Ex : 12 000 €" autocomplete="off" />
+  </div>
 
-<div class="toast" id="toast2sell"></div>
+  <div class="actions">
+    <button class="btn btnGhost btnWide" type="button" id="back2sell">← Retour</button>
+    <button class="btn btnPrimary btnWide" type="button" id="next2sell">Continuer →</button>
+  </div>
+
+  <div class="toast" id="toast2sell"></div>
 </div>
 
 <!-- STEP 3 -->
