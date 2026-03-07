@@ -47,8 +47,45 @@
     }
     .panel>*{position:relative}
     .pageWrap{padding:24px 22px 20px;display:flex;flex-direction:column;gap:14px;min-height:640px}
-    .topBack{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap}
-    .brandLine{font-size:13px;font-weight:800;color:var(--muted);text-align:center}
+    .topBack{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .brandLine{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      font-size:13px;
+      font-weight:800;
+      color:var(--muted);
+      text-align:center;
+    }
+
+    .brandLogo{
+      width:22px;
+      height:22px;
+      object-fit:contain;
+      display:block;
+      filter: drop-shadow(0 0 8px rgba(240,141,52,.18));
+    }
+
+    .heroCard{
+      text-align:center;
+    }
+
+    .heroCard h1{
+      margin:0 0 10px;
+    }
+
+    .heroCard .sub{
+      margin:0 auto;
+      max-width:560px;
+    }
     .btn{
       appearance:none;border:0;cursor:pointer;font-weight:900;letter-spacing:.01em;border-radius:14px;
       padding:12px 14px;display:inline-flex;align-items:center;justify-content:center;gap:10px;
@@ -113,10 +150,13 @@
     <section class="panel">
       <div class="pageWrap" id="formArea">
         <div class="topBack">
-          <div class="brandLine">PHOENIX AUTOMOBILE</div>
+          <div class="brandLine">
+            <img src="https://phoenix-automobile.com/assets/logo.png" alt="Logo Phoenix Automobile" class="brandLogo">
+            <span>PHOENIX AUTOMOBILE</span>
+          </div>
         </div>
 
-        <div class="card">
+        <div class="card heroCard">
           <h1>Formulaire</h1>
           <p class="sub">Remplissez le formulaire pour vendre un véhicule ou rechercher une voiture.</p>
         </div>
