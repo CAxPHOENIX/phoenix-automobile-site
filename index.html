@@ -48,13 +48,7 @@
     }
 
     .shell{
-      width:min(980px, 100%);
-      display:grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap:18px;
-    }
-    @media (max-width: 980px){
-      .shell{ grid-template-columns:1fr; }
+      width:min(760px, 100%);
     }
 
     .panel{
@@ -77,111 +71,88 @@
     }
     .panel > *{ position:relative; }
 
-    /* LEFT */
-    .brand{
-      padding:26px 26px 20px;
+    .pageWrap{
+      padding:24px 22px 20px;
       display:flex;
       flex-direction:column;
       gap:14px;
-      min-height: 520px;
+      min-height: 640px;
     }
-    .brandTop{
+
+    .homeScreen{
+      min-height: 100%;
       display:flex;
-      align-items:center;
-      gap:14px;
+      flex-direction:column;
+      justify-content:center;
+      gap:18px;
+      padding: 18px 6px;
     }
-    .logo{
-      width:50px;
-      height:50px;
-      border-radius:14px;
+
+    .homeHero{
+      text-align:center;
+      padding: 6px 8px 0;
+    }
+
+    .homeLogo{
+      width:84px;
+      height:84px;
+      border-radius:20px;
       background: rgba(240,141,52,.12);
       border: 1px solid rgba(240,141,52,.35);
       display:grid;
       place-items:center;
       overflow:hidden;
+      margin:0 auto 16px;
     }
-    .logo img{
-      width:36px;
-      height:36px;
+    .homeLogo img{
+      width:62px;
+      height:62px;
       object-fit:contain;
       display:block;
       filter: drop-shadow(0 8px 14px rgba(0,0,0,.35));
     }
-    .brandTitle{ line-height:1.05; }
-    .brandTitle .name{
+
+    .homeName{
+      line-height:1.05;
+      margin:0 0 8px;
       font-weight:800;
       letter-spacing:.06em;
-      font-size:18px;
+      font-size:28px;
       text-transform:uppercase;
     }
-    .brandTitle .tag{
-      margin-top:5px;
-      color: var(--muted);
-      font-size:13px;
-      font-weight:600;
-    }
 
-    .hero{
-      margin-top:6px;
-      padding:18px 20px;
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,.10);
-      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
-    }
-    .hero h1{
-      margin:0 0 10px;
-      font-size:30px;
-      letter-spacing:-.02em;
-      line-height:1.06;
-    }
-    .hero p{
+    .homeTag{
       margin:0;
       color: var(--muted);
       font-size:14px;
+      font-weight:600;
       line-height:1.55;
     }
 
-    .badges{
-      margin-top:14px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-    }
-    .badge{
-      font-size:12px;
-      color: var(--muted);
+    .homeCard{
       border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      padding:8px 10px;
-      border-radius:999px;
-      display:flex;
-      align-items:center;
-      gap:8px;
-      user-select:none;
-    }
-    .dot{
-      width:8px;
-      height:8px;
-      border-radius:999px;
-      background: var(--phoenix);
-      box-shadow:0 0 0 3px rgba(240,141,52,.14);
+      background: rgba(0,0,0,.18);
+      border-radius: 18px;
+      padding: 18px 16px;
     }
 
-    .contactBar{
-      margin-top:auto;
-      padding:18px 26px 22px;
-      border-top: 1px solid rgba(255,255,255,.10);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
+    .homeCard h2{
+      margin:0 0 10px;
+      font-size:16px;
+      letter-spacing:.01em;
     }
+
+    .homeCard p{
+      margin:0;
+      color: var(--muted);
+      font-size:13px;
+      line-height:1.5;
+    }
+
     .contactInfo{
       display:flex;
       flex-direction:column;
-      gap:2px;
-      min-width: 240px;
+      gap:4px;
     }
     .contactInfo .label{
       color: var(--muted2);
@@ -189,15 +160,18 @@
       font-weight:700;
     }
     .contactInfo .value{
-      font-size:16px;
+      font-size:18px;
       font-weight:900;
       letter-spacing:.02em;
     }
+
     .ctaRow{
       display:flex;
       gap:10px;
       flex-wrap:wrap;
+      margin-top:12px;
     }
+
     .btn{
       appearance:none;
       border:0;
@@ -208,6 +182,7 @@
       padding:12px 14px;
       display:inline-flex;
       align-items:center;
+      justify-content:center;
       gap:10px;
       transition: transform .12s ease, filter .12s ease, background .12s ease;
       text-decoration:none;
@@ -232,12 +207,8 @@
     }
     .btn:hover{ filter: brightness(1.05); }
 
-    /* RIGHT */
-    .formWrap{
-      padding:24px 22px 20px;
-      display:flex;
-      flex-direction:column;
-      gap:14px;
+    .btnWide{
+      min-width: 150px;
     }
 
     .topRow{
@@ -423,10 +394,6 @@
       margin-top:10px;
       flex-wrap:wrap;
     }
-    .btnWide{
-      min-width: 150px;
-      justify-content:center;
-    }
 
     .toast{
       display:none;
@@ -546,7 +513,6 @@
     }
     .dropBtn:active{ transform: translateY(1px); }
 
-    /* ===== MENU MOBILE SUGGESTIONS (custom, marche partout) ===== */
     #pickerOverlay{
       position: fixed;
       inset: 0;
@@ -562,7 +528,6 @@
       max-height: 70vh;
       overflow: hidden;
       z-index: 9999;
-
       border: 1px solid rgba(255,255,255,.14);
       background: rgba(10,12,18,.92);
       backdrop-filter: blur(10px);
@@ -618,49 +583,48 @@
 <body>
   <div class="wrap">
     <div class="shell">
-
-      <!-- LEFT BRAND -->
       <section class="panel">
-        <div class="brand">
-          <div class="brandTop">
-            <div class="logo" aria-label="Logo Phoenix Automobile">
-              <img src="assets/logo.png" alt="Phoenix Automobile" onerror="this.style.display='none';">
-            </div>
-            <div class="brandTitle">
-              <div class="name">PHOENIX<br>AUTOMOBILE</div>
-              <div class="tag">Vente rapide, sécurisée et au meilleur prix.</div>
-            </div>
-          </div>
 
-          <div class="hero">
-            <h1>Demande en 60 secondes.</h1>
-            <p>Remplissez le formulaire, puis nous vous recontactons rapidement avec une proposition claire.</p>
+        <!-- PAGE D'ACCUEIL -->
+        <div class="pageWrap" id="homeArea">
+          <div class="homeScreen">
 
-            <div class="badges">
-              <div class="badge"><span class="dot"></span> Estimation gratuite</div>
-              <div class="badge"><span class="dot"></span> Vendeurs filtrés</div>
-              <div class="badge"><span class="dot"></span> Suivi administratif</div>
-              <div class="badge"><span class="dot"></span> Transaction sécurisée</div>
+            <div class="homeHero">
+              <div class="homeLogo" aria-label="Logo Phoenix Automobile">
+                <img src="assets/logo.png" alt="Phoenix Automobile" onerror="this.style.display='none';">
+              </div>
+              <h1 class="homeName">PHOENIX<br>AUTOMOBILE</h1>
+              <p class="homeTag">Vente rapide, sécurisée et au meilleur prix.</p>
             </div>
+
+            <div class="homeCard">
+              <div class="contactInfo">
+                <div class="label">Mon contact</div>
+                <div class="value">06 63 62 03 97</div>
+                <div class="small">contact@phoenix-automobile.com</div>
+              </div>
+
+              <div class="ctaRow">
+                <a class="btn btnGhost btnWide" href="tel:+33663620397">📞 Appeler</a>
+                <a class="btn btnGhost btnWide" href="mailto:contact@phoenix-automobile.com">🟧 Email</a>
+              </div>
+            </div>
+
+            <div class="homeCard">
+              <h2>Formulaire à remplir</h2>
+              <p>Remplissez le formulaire pour que je vous recontacte rapidement.</p>
+
+              <div class="ctaRow">
+                <button class="btn btnPrimary btnWide" type="button" id="startForm">Remplir le formulaire</button>
+              </div>
+            </div>
+
+            <div class="foot">© Phoenix Automobile — Intermédiaire entre professionnel et particuliers.</div>
           </div>
         </div>
 
-        <div class="contactBar">
-          <div class="contactInfo">
-            <div class="label">Contact direct</div>
-            <div class="value">06 63 62 03 97</div>
-            <div class="small">contact@phoenix-automobile.com</div>
-          </div>
-          <div class="ctaRow">
-            <a class="btn btnGhost" href="tel:+33663620397">📞 Appeler</a>
-            <a class="btn btnPrimary" href="mailto:contact@phoenix-automobile.com">🟧 Email</a>
-          </div>
-        </div>
-      </section>
-
-      <!-- RIGHT FORM -->
-      <section class="panel">
-        <div class="formWrap" id="formArea">
+        <!-- FORMULAIRE -->
+        <div class="pageWrap hidden" id="formArea">
 
           <div class="topRow">
             <div class="steps">
@@ -741,7 +705,6 @@
             <h2>2) Informations sur votre véhicule</h2>
             <p class="sub">Marque + modèle + année requis. Le reste est recommandé.</p>
 
-            <!-- Datalists (utiles PC quand tu tapes) -->
             <datalist id="dlMarques"></datalist>
             <datalist id="dlModeles"></datalist>
             <datalist id="dlCarburants"></datalist>
@@ -871,7 +834,7 @@
         </div>
 
         <!-- SUCCESS ONLY -->
-        <div class="formWrap hidden" id="successArea">
+        <div class="pageWrap hidden" id="successArea">
           <div class="card successScreen">
             <div class="successIcon">✅</div>
             <h3 class="successTitle">Le formulaire a été envoyé.</h3>
@@ -885,11 +848,10 @@
         </div>
 
       </section>
-
     </div>
   </div>
 
-  <!-- MENU MOBILE POUR LES SUGGESTIONS (custom) -->
+  <!-- MENU MOBILE POUR LES SUGGESTIONS -->
   <div id="pickerOverlay" class="hidden" aria-hidden="true"></div>
   <div id="pickerPanel" class="hidden" role="dialog" aria-modal="true" aria-label="Sélection">
     <div class="pickerHead">
@@ -900,11 +862,9 @@
   </div>
 
   <script>
-    // ======= CONFIG =======
     const ENDPOINT = "https://script.google.com/macros/s/AKfycby8XrrhPsyJR_1IKZ53u6K8cc0jPSPyvvAQAElHMYuShJhKaRtiR3ETY8CNy-HAi_VH/exec";
     const SOURCE_TAG = "phoenix-automobile.com";
 
-    // ======= SUGGESTIONS (tu peux compléter la liste quand tu veux) =======
     const BRAND_MODELS = {
       "Peugeot": ["208","2008","308","3008","5008","508","Partner","Rifter"],
       "Renault": ["Clio","Captur","Megane","Scenic","Kadjar","Arkana","Twingo","Kangoo"],
@@ -924,15 +884,15 @@
     const CARBURANTS = ["Essence","Diesel","Hybride","Hybride rechargeable","Électrique","GPL","E85"];
     const BOITES = ["Manuelle","Automatique","Semi-automatique"];
 
-    // ======= STATE =======
     let step = 1;
+
+    const homeArea = document.getElementById("homeArea");
+    const formArea = document.getElementById("formArea");
+    const successArea = document.getElementById("successArea");
 
     const pills = document.querySelectorAll(".stepPill");
     const barFill = document.getElementById("barFill");
     const ratio = document.getElementById("ratio");
-
-    const formArea = document.getElementById("formArea");
-    const successArea = document.getElementById("successArea");
 
     const step1 = document.getElementById("step1");
     const step2buy = document.getElementById("step2buy");
@@ -944,7 +904,6 @@
     const toast2sell = document.getElementById("toast2sell");
     const toast3 = document.getElementById("toast3");
 
-    // Inputs
     const buyMarque = document.getElementById("buyMarque");
     const buyTrancheAnnee = document.getElementById("buyTrancheAnnee");
     const buyBudget = document.getElementById("buyBudget");
@@ -968,21 +927,21 @@
     const submitBtn = document.getElementById("submitBtn");
     const submitIcon = document.getElementById("submitIcon");
 
-    // Datalists
     const dlMarques = document.getElementById("dlMarques");
     const dlModeles = document.getElementById("dlModeles");
     const dlCarburants = document.getElementById("dlCarburants");
     const dlBoites = document.getElementById("dlBoites");
 
-    // ======= HELPERS =======
     function setToast(el, kind, msg){
       el.className = "toast " + (kind === "ok" ? "ok" : "err");
       el.textContent = msg;
     }
+
     function clearToast(el){
       el.className = "toast";
       el.textContent = "";
     }
+
     function clearAllToasts(){
       [toast1, toast2buy, toast2sell, toast3].forEach(clearToast);
     }
@@ -996,14 +955,15 @@
       return String(val || "").replace(/[^\d]/g, "");
     }
 
-    function require(val){ return String(val || "").trim().length > 0; }
+    function require(val){
+      return String(val || "").trim().length > 0;
+    }
 
     function getSellEtat(){
       const arr = Array.from(document.querySelectorAll('input[name="sellEtat"]:checked')).map(x => x.value);
       return arr.join(", ");
     }
 
-    // ======= SUGGESTIONS BUILD =======
     function fillDatalist(dl, items){
       dl.innerHTML = items.map(x => `<option value="${String(x).replace(/"/g,'&quot;')}"></option>`).join("");
     }
@@ -1027,17 +987,14 @@
       fillDatalist(dlModeles, models);
     }
 
-    // Init suggestions
     fillDatalist(dlMarques, Object.keys(BRAND_MODELS));
     fillDatalist(dlCarburants, CARBURANTS);
     fillDatalist(dlBoites, BOITES);
     fillDatalist(dlModeles, []);
 
-    // Update models when brand changes
     sellMarque.addEventListener("input", updateModelsForBrand);
     sellMarque.addEventListener("change", updateModelsForBrand);
 
-    // ======= UI =======
     function showOnlyStep(n){
       const y = window.scrollY || 0;
       if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
@@ -1064,7 +1021,6 @@
       setTimeout(()=>window.scrollTo(0,y),0);
     }
 
-    // ======= VALIDATION =======
     function validateStep1(){
       if (!require(getType())){
         setToast(toast1, "err", "Veuillez sélectionner : Acheter ou Vendre.");
@@ -1084,7 +1040,6 @@
         return true;
       }
 
-      // Vendre: marque + modèle + année requis
       const mar = sellMarque.value.trim();
       const mod = sellModele.value.trim();
       const a = onlyDigits(sellAnnee.value.trim());
@@ -1100,7 +1055,6 @@
         return false;
       }
 
-      // Km optionnel mais si rempli: digits
       const km = onlyDigits(sellKm.value.trim());
       if (require(sellKm.value) && !require(km)){
         setToast(toast2sell, "err", "Kilométrage invalide.");
@@ -1130,7 +1084,6 @@
       return true;
     }
 
-    // ======= PAYLOAD =======
     function buildPayload(){
       const t = getType();
       const base = {
@@ -1152,7 +1105,6 @@
           buyMarque: buyMarque.value.trim(),
           buyTrancheAnnee: buyTrancheAnnee.value.trim(),
           buyBudget: buyBudget.value.trim(),
-
           sellMarque: "",
           sellModele: "",
           sellAnnee: "",
@@ -1169,7 +1121,6 @@
         buyMarque: "",
         buyTrancheAnnee: "",
         buyBudget: "",
-
         sellMarque: sellMarque.value.trim(),
         sellModele: sellModele.value.trim(),
         sellAnnee: onlyDigits(sellAnnee.value.trim()),
@@ -1201,6 +1152,7 @@
 
         formArea.classList.add("hidden");
         successArea.classList.remove("hidden");
+        window.scrollTo({ top: 0, behavior: "smooth" });
       } catch(err){
         setToast(toast3, "err", "Impossible d’envoyer pour le moment. Veuillez réessayer.");
       } finally{
@@ -1208,6 +1160,14 @@
         submitBtn.style.opacity = "1";
         submitIcon.textContent = "✅";
       }
+    }
+
+    function openForm(){
+      homeArea.classList.add("hidden");
+      successArea.classList.add("hidden");
+      formArea.classList.remove("hidden");
+      showOnlyStep(1);
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
     function resetAll(){
@@ -1243,10 +1203,14 @@
       showOnlyStep(1);
 
       successArea.classList.add("hidden");
-      formArea.classList.remove("hidden");
+      formArea.classList.add("hidden");
+      homeArea.classList.remove("hidden");
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
-    // ======= EVENTS =======
+    document.getElementById("startForm").addEventListener("click", openForm);
+
     document.getElementById("next1").addEventListener("click", () => {
       if (!validateStep1()) return;
       showOnlyStep(2);
@@ -1259,6 +1223,7 @@
       if (!validateStep2()) return;
       showOnlyStep(3);
     });
+
     document.getElementById("next2sell").addEventListener("click", () => {
       if (!validateStep2()) return;
       showOnlyStep(3);
@@ -1276,7 +1241,6 @@
     document.getElementById("resetAll").addEventListener("click", resetAll);
     document.getElementById("goHome").addEventListener("click", resetAll);
 
-    // ===== MENU MOBILE SUGGESTIONS (custom, le ▼ marche sur mobile) =====
     const pickerOverlay = document.getElementById("pickerOverlay");
     const pickerPanel   = document.getElementById("pickerPanel");
     const pickerBody    = document.getElementById("pickerBody");
@@ -1319,7 +1283,6 @@
       if (input){
         input.value = val;
 
-        // si on vient de choisir une marque, on met à jour les modèles
         if (currentTargetInputId === "sellMarque"){
           updateModelsForBrand();
         }
@@ -1327,7 +1290,6 @@
       closePicker();
     });
 
-    // Quand on clique sur ▼
     document.querySelectorAll('[data-open]').forEach(btn => {
       btn.addEventListener("click", () => {
         const id = btn.getAttribute("data-open");
@@ -1356,13 +1318,11 @@
           return;
         }
 
-        // fallback (si un jour tu ajoutes un autre data-open)
         const input = document.getElementById(id);
         if (input) input.focus();
       });
     });
 
-    // Default
     barFill.style.width = "33.333%";
     showOnlyStep(1);
   </script>
