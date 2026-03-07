@@ -3,14 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-
   <title>Phoenix Automobile | Vente et recherche de véhicules à Saint-Brieuc</title>
   <meta name="description" content="Phoenix Automobile vous accompagne pour vendre ou trouver un véhicule à Saint-Brieuc, Plérin et dans les Côtes-d’Armor. Vente rapide, sécurisée et au meilleur prix." />
   <meta name="robots" content="index,follow" />
-  <meta name="author" content="Phoenix Automobile" />
-  <meta name="theme-color" content="#F08D34" />
-
   <link rel="canonical" href="https://phoenix-automobile.com/" />
+  <meta name="theme-color" content="#F08D34" />
 
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="fr_FR" />
@@ -20,70 +17,29 @@
   <meta property="og:url" content="https://phoenix-automobile.com/" />
   <meta property="og:image" content="https://phoenix-automobile.com/assets/logo.png" />
 
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Phoenix Automobile | Vente et recherche de véhicules à Saint-Brieuc" />
-  <meta name="twitter:description" content="Vente rapide, sécurisée et au meilleur prix. Accompagnement pour vendre ou acheter un véhicule à Saint-Brieuc, Plérin et dans les Côtes-d’Armor." />
-  <meta name="twitter:image" content="https://phoenix-automobile.com/assets/logo.png" />
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "AutoDealer",
-    "name": "Phoenix Automobile",
-    "url": "https://phoenix-automobile.com/",
-    "logo": "https://phoenix-automobile.com/assets/logo.png",
-    "image": "https://phoenix-automobile.com/assets/logo.png",
-    "telephone": "+33663620397",
-    "email": "contact@phoenix-automobile.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Saint-Brieuc",
-      "addressRegion": "Bretagne",
-      "postalCode": "22000",
-      "addressCountry": "FR"
-    },
-    "areaServed": [
-      "Saint-Brieuc",
-      "Plérin",
-      "Côtes-d’Armor",
-      "Bretagne"
-    ],
-    "description": "Phoenix Automobile accompagne les particuliers dans la vente et la recherche de véhicules avec une approche rapide, sécurisée et claire.",
-    "sameAs": [
-      "https://phoenix-automobile.com/"
-    ]
-  }
-  </script>
 
   <style>
     :root{
       --phoenix:#F08D34;
       --bg0:#070A0F;
       --bg1:#0B1020;
-      --card: rgba(255,255,255,.06);
-      --stroke: rgba(255,255,255,.12);
+      --stroke:rgba(255,255,255,.12);
       --text:#EAF0FF;
-      --muted: rgba(234,240,255,.70);
-      --muted2: rgba(234,240,255,.52);
-      --ok:#33D17A;
-      --danger:#FF4D4D;
-      --shadow: 0 14px 50px rgba(0,0,0,.50);
-      --radius: 22px;
-      --container: 1080px;
+      --muted:rgba(234,240,255,.72);
+      --muted2:rgba(234,240,255,.52);
+      --shadow:0 14px 50px rgba(0,0,0,.50);
+      --radius:22px;
+      --container:1120px;
     }
-
-    *{ box-sizing:border-box; }
-    html{ scroll-behavior:smooth; }
-    html,body{ min-height:100%; }
-
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family: "Manrope", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color: var(--text);
+      font-family:"Manrope",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
       background:
         radial-gradient(900px 500px at 20% 10%, rgba(240,141,52,.25), transparent 60%),
         radial-gradient(900px 600px at 85% 20%, rgba(120,120,255,.16), transparent 60%),
@@ -91,796 +47,151 @@
         linear-gradient(180deg, var(--bg0), var(--bg1));
       overflow-x:hidden;
     }
-
-    a{ color:inherit; text-decoration:none; }
-    img{ max-width:100%; display:block; }
-
-    .container{
-      width:min(var(--container), calc(100% - 32px));
-      margin:0 auto;
-    }
-
-    .hidden{ display:none !important; }
-
-    .btn{
-      appearance:none;
-      border:0;
-      cursor:pointer;
-      font-weight:900;
-      letter-spacing:.01em;
-      border-radius:14px;
-      padding:12px 16px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      transition: transform .12s ease, filter .12s ease, background .12s ease, border-color .12s ease;
-      text-decoration:none;
-      user-select:none;
-      white-space:nowrap;
-    }
-    .btn:active{ transform: translateY(1px); }
-    .btn:hover{ filter: brightness(1.05); }
-
-    .btnPrimary{
-      background: linear-gradient(180deg, rgba(240,141,52,1), rgba(219,118,33,1));
-      color:#111;
-      box-shadow: 0 14px 40px rgba(240,141,52,.20);
-    }
-    .btnGhost{
-      background: rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.14);
-      color: var(--text);
-    }
-    .btnDanger{
-      background: rgba(255,77,77,.10);
-      border:1px solid rgba(255,77,77,.25);
-      color: rgba(255,215,215,.95);
-    }
-    .btnWide{
-      min-width: 160px;
-    }
-
-    .siteHeader{
-      position:sticky;
-      top:0;
-      z-index:50;
-      backdrop-filter: blur(12px);
-      background: rgba(7,10,15,.72);
-      border-bottom:1px solid rgba(255,255,255,.08);
-    }
-    .siteHeaderInner{
-      min-height:74px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      flex-wrap:wrap;
-      padding:14px 0;
-    }
-    .brandMini{
-      display:flex;
-      align-items:center;
-      gap:12px;
-    }
-    .brandMiniLogo{
-      width:46px;
-      height:46px;
-      border-radius:14px;
-      background: rgba(240,141,52,.12);
-      border:1px solid rgba(240,141,52,.35);
-      display:grid;
-      place-items:center;
-      overflow:hidden;
-      flex:0 0 auto;
-    }
-    .brandMiniLogo img{
-      width:32px;
-      height:32px;
-      object-fit:contain;
-      filter: drop-shadow(0 8px 14px rgba(0,0,0,.35));
-    }
-    .brandMiniText{
-      line-height:1.05;
-    }
-    .brandMiniText strong{
-      display:block;
-      font-size:14px;
-      letter-spacing:.06em;
-      text-transform:uppercase;
-    }
-    .brandMiniText span{
-      display:block;
-      color:var(--muted);
-      font-size:12px;
-      margin-top:4px;
-    }
-
-    .nav{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-    .nav a{
-      font-size:13px;
-      font-weight:800;
-      color:var(--muted);
-      padding:10px 12px;
-      border-radius:12px;
-      border:1px solid transparent;
-    }
-    .nav a:hover{
-      color:var(--text);
-      border-color:rgba(255,255,255,.10);
-      background:rgba(255,255,255,.04);
-    }
-
-    .hero{
-      padding:56px 0 28px;
-    }
-    .heroGrid{
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap:20px;
-    }
-    @media (max-width: 920px){
-      .heroGrid{ grid-template-columns:1fr; }
-    }
-
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{width:min(var(--container), calc(100% - 32px));margin:0 auto}
     .panel{
-      border: 1px solid var(--stroke);
-      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow:hidden;
+      border:1px solid var(--stroke);
+      background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
       position:relative;
+      overflow:hidden;
     }
+    .panel>*{position:relative}
     .panel::before{
       content:"";
-      position:absolute;
-      inset:-2px;
+      position:absolute; inset:-2px;
       background:
         radial-gradient(700px 250px at 20% 0%, rgba(240,141,52,.23), transparent 62%),
         radial-gradient(700px 250px at 85% 10%, rgba(255,255,255,.10), transparent 62%);
       pointer-events:none;
       opacity:.9;
     }
-    .panel > *{ position:relative; }
-
-    .heroCard{
-      padding:28px;
+    .btn{
+      appearance:none;border:0;cursor:pointer;text-decoration:none;
+      font-weight:900;letter-spacing:.01em;border-radius:14px;
+      padding:12px 16px;display:inline-flex;align-items:center;justify-content:center;
+      gap:10px;transition:.15s ease;white-space:nowrap
     }
-
-    .heroBrand{
-      display:flex;
-      align-items:center;
-      gap:16px;
-      margin-bottom:18px;
+    .btn:hover{filter:brightness(1.05)}
+    .btnPrimary{
+      background:linear-gradient(180deg, rgba(240,141,52,1), rgba(219,118,33,1));
+      color:#111;box-shadow:0 14px 40px rgba(240,141,52,.20)
     }
+    .btnGhost{
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.14);
+      color:var(--text)
+    }
+    .siteHeader{
+      position:sticky;top:0;z-index:50;
+      background:rgba(7,10,15,.74);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(255,255,255,.08)
+    }
+    .siteHeaderInner{
+      min-height:74px;display:flex;align-items:center;justify-content:space-between;
+      gap:16px;flex-wrap:wrap;padding:14px 0
+    }
+    .brandMini{display:flex;align-items:center;gap:12px}
+    .brandMiniLogo{
+      width:46px;height:46px;border-radius:14px;overflow:hidden;
+      background:rgba(240,141,52,.12);border:1px solid rgba(240,141,52,.35);
+      display:grid;place-items:center
+    }
+    .brandMiniLogo img{width:32px;height:32px;object-fit:contain}
+    .brandMiniText strong{
+      display:block;font-size:14px;letter-spacing:.06em;text-transform:uppercase
+    }
+    .brandMiniText span{display:block;color:var(--muted);font-size:12px;margin-top:4px}
+    .nav{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    .nav a{
+      font-size:13px;font-weight:800;color:var(--muted);
+      padding:10px 12px;border-radius:12px
+    }
+    .nav a:hover{background:rgba(255,255,255,.04);color:var(--text)}
+    .hero{padding:54px 0 28px}
+    .heroGrid{display:grid;grid-template-columns:1.15fr .85fr;gap:20px}
+    @media (max-width:920px){.heroGrid{grid-template-columns:1fr}}
+    .heroCard{padding:28px}
+    .heroBrand{display:flex;align-items:center;gap:16px;margin-bottom:18px}
     .heroLogo{
-      width:72px;
-      height:72px;
-      border-radius:18px;
-      background: rgba(240,141,52,.12);
-      border:1px solid rgba(240,141,52,.35);
-      display:grid;
-      place-items:center;
-      overflow:hidden;
-      flex:0 0 auto;
+      width:72px;height:72px;border-radius:18px;overflow:hidden;
+      background:rgba(240,141,52,.12);border:1px solid rgba(240,141,52,.35);
+      display:grid;place-items:center
     }
-    .heroLogo img{
-      width:50px;
-      height:50px;
-      object-fit:contain;
-      filter: drop-shadow(0 8px 14px rgba(0,0,0,.35));
-    }
+    .heroLogo img{width:50px;height:50px;object-fit:contain}
     .heroBrandText .name{
-      font-weight:800;
-      letter-spacing:.06em;
-      font-size:22px;
-      line-height:1.05;
-      text-transform:uppercase;
+      font-weight:800;letter-spacing:.06em;font-size:22px;line-height:1.05;text-transform:uppercase
     }
-    .heroBrandText .tag{
-      margin-top:6px;
-      color:var(--muted);
-      font-size:13px;
-      font-weight:600;
-    }
-
+    .heroBrandText .tag{margin-top:6px;color:var(--muted);font-size:13px;font-weight:600}
     .eyebrow{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      padding:8px 10px;
-      border-radius:999px;
-      font-size:12px;
-      color:var(--muted);
-      user-select:none;
-      margin-bottom:14px;
+      display:inline-flex;align-items:center;gap:8px;padding:8px 10px;
+      border-radius:999px;border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);font-size:12px;color:var(--muted);margin-bottom:14px
     }
     .dot{
-      width:8px;
-      height:8px;
-      border-radius:999px;
-      background: var(--phoenix);
-      box-shadow:0 0 0 3px rgba(240,141,52,.14);
+      width:8px;height:8px;border-radius:999px;background:var(--phoenix);
+      box-shadow:0 0 0 3px rgba(240,141,52,.14)
     }
-
-    h1{
-      margin:0 0 12px;
-      font-size:clamp(30px, 5vw, 50px);
-      line-height:1.04;
-      letter-spacing:-.03em;
-    }
-
-    .lead{
-      margin:0;
-      color:var(--muted);
-      font-size:15px;
-      line-height:1.65;
-      max-width: 62ch;
-    }
-
-    .heroCtas{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-top:22px;
-    }
-
-    .heroBadges{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top:18px;
-    }
+    h1{margin:0 0 12px;font-size:clamp(30px,5vw,50px);line-height:1.04;letter-spacing:-.03em}
+    .lead{margin:0;color:var(--muted);font-size:15px;line-height:1.65;max-width:62ch}
+    .heroCtas{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+    .heroBadges{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
     .badge{
-      font-size:12px;
-      color: var(--muted);
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      padding:8px 10px;
-      border-radius:999px;
-      display:flex;
-      align-items:center;
-      gap:8px;
-      user-select:none;
+      font-size:12px;color:var(--muted);border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);padding:8px 10px;border-radius:999px;
+      display:flex;align-items:center;gap:8px
     }
-
-    .contactBox{
-      padding:24px;
-      display:flex;
-      flex-direction:column;
-      gap:16px;
-      justify-content:center;
-      min-height:100%;
-    }
-    .contactBox h2{
-      margin:0;
-      font-size:20px;
-      letter-spacing:-.01em;
-    }
-    .contactBox p{
-      margin:0;
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.6;
-    }
+    .contactBox{padding:24px;display:flex;flex-direction:column;gap:16px;justify-content:center}
+    .contactBox h2{margin:0;font-size:20px}
+    .contactBox p{margin:0;color:var(--muted);font-size:14px;line-height:1.6}
     .contactLine{
-      display:flex;
-      flex-direction:column;
-      gap:4px;
-      padding:14px 14px;
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
+      display:flex;flex-direction:column;gap:4px;padding:14px;border-radius:16px;
+      border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.04)
     }
-    .contactLine .label{
-      color:var(--muted2);
-      font-size:12px;
-      font-weight:800;
-    }
-    .contactLine .value{
-      font-size:18px;
-      font-weight:900;
-      letter-spacing:.02em;
-    }
-
-    .section{
-      padding:22px 0 6px;
-    }
-
-    .sectionHead{
-      margin-bottom:18px;
-    }
-    .sectionHead h2{
-      margin:0 0 8px;
-      font-size:28px;
-      letter-spacing:-.02em;
-    }
-    .sectionHead p{
-      margin:0;
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.6;
-      max-width:70ch;
-    }
-
-    .cards3{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:16px;
-    }
-    @media (max-width: 920px){
-      .cards3{ grid-template-columns:1fr; }
-    }
-
+    .contactLine .label{color:var(--muted2);font-size:12px;font-weight:800}
+    .contactLine .value{font-size:18px;font-weight:900;letter-spacing:.02em}
+    .section{padding:22px 0 6px}
+    .sectionHead{margin-bottom:18px}
+    .sectionHead h2{margin:0 0 8px;font-size:28px;letter-spacing:-.02em}
+    .sectionHead p{margin:0;color:var(--muted);font-size:14px;line-height:1.6;max-width:70ch}
+    .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    @media (max-width:920px){.cards3{grid-template-columns:1fr}}
     .serviceCard{
-      padding:20px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.18);
-      border-radius:18px;
+      padding:20px;border:1px solid rgba(255,255,255,.12);
+      background:rgba(0,0,0,.18);border-radius:18px
     }
-    .serviceCard h3{
-      margin:0 0 10px;
-      font-size:18px;
-    }
-    .serviceCard p{
-      margin:0;
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.6;
-    }
-
-    .localBlock{
-      padding:24px;
-    }
-    .localBlock h2{
-      margin:0 0 10px;
-      font-size:26px;
-      letter-spacing:-.02em;
-    }
-    .localBlock p{
-      margin:0;
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.7;
-    }
-
+    .serviceCard h3{margin:0 0 10px;font-size:18px}
+    .serviceCard p{margin:0;color:var(--muted);font-size:14px;line-height:1.6}
+    .localBlock{padding:24px}
+    .localBlock h2{margin:0 0 10px;font-size:26px;letter-spacing:-.02em}
+    .localBlock p{margin:0;color:var(--muted);font-size:14px;line-height:1.7}
     .ctaBand{
-      margin:28px 0 12px;
-      padding:22px;
-      border-radius:20px;
+      margin:28px 0 12px;padding:22px;border-radius:20px;
       border:1px solid rgba(240,141,52,.22);
-      background: linear-gradient(180deg, rgba(240,141,52,.12), rgba(255,255,255,.04));
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      flex-wrap:wrap;
+      background:linear-gradient(180deg, rgba(240,141,52,.12), rgba(255,255,255,.04));
+      display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap
     }
-    .ctaBand h2{
-      margin:0 0 6px;
-      font-size:24px;
-      letter-spacing:-.02em;
-    }
-    .ctaBand p{
-      margin:0;
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.6;
-      max-width:60ch;
-    }
-
-    .faq{
-      display:grid;
-      gap:12px;
-      margin-top:12px;
-    }
+    .ctaBand h2{margin:0 0 6px;font-size:24px;letter-spacing:-.02em}
+    .ctaBand p{margin:0;color:var(--muted);font-size:14px;line-height:1.6;max-width:60ch}
+    .faq{display:grid;gap:12px;margin-top:12px}
     .faqItem{
       border:1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.18);
-      border-radius:18px;
-      padding:18px;
+      background:rgba(0,0,0,.18);border-radius:18px;padding:18px
     }
-    .faqItem h3{
-      margin:0 0 8px;
-      font-size:17px;
-    }
-    .faqItem p{
-      margin:0;
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.65;
-    }
-
-    .pageWrap{
-      width:min(860px, calc(100% - 32px));
-      margin:34px auto 44px;
-      padding:24px 22px 20px;
-      display:flex;
-      flex-direction:column;
-      gap:14px;
-      min-height:640px;
-    }
-
-    .topRow{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-
-    .steps{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-    .stepPill{
-      display:flex;
-      align-items:center;
-      gap:8px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      padding:8px 10px;
-      border-radius:999px;
-      font-size:12px;
-      color: var(--muted);
-      user-select:none;
-    }
-    .stepPill .n{
-      width:18px; height:18px;
-      border-radius:999px;
-      display:grid; place-items:center;
-      font-weight:900;
-      color:#111;
-      background: rgba(240,141,52,1);
-    }
-    .stepPill.done{
-      border-color: rgba(51,209,122,.35);
-      background: rgba(51,209,122,.08);
-      color: rgba(234,240,255,.85);
-    }
-    .stepPill.done .n{
-      background: var(--ok);
-      color:#07110B;
-    }
-
-    .lock{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:8px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.14);
-      color: rgba(234,240,255,.75);
-      font-size:12px;
-      user-select:none;
-    }
-    .lock b{ color: rgba(234,240,255,.92); }
-
-    .progress{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      width:100%;
-    }
-    .bar{
-      flex:1;
-      height:10px;
-      border-radius:999px;
-      background: rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.10);
-      overflow:hidden;
-      min-width: 180px;
-    }
-    .bar > div{
-      height:100%;
-      width:0%;
-      background: linear-gradient(90deg, rgba(240,141,52,1), rgba(255,255,255,.30));
-      border-radius:999px;
-      transition: width .25s ease;
-    }
-    .small{
-      font-size:12px;
-      color: var(--muted2);
-    }
-
-    .card{
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.18);
-      border-radius:18px;
-      padding:16px;
-    }
-    .card h2{
-      margin:0 0 10px;
-      font-size:15px;
-      letter-spacing:.01em;
-    }
-    .card .sub{
-      margin:0 0 14px;
-      font-size:13px;
-      color: var(--muted);
-      line-height:1.45;
-    }
-
-    .grid2{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:12px;
-    }
-    @media (max-width: 520px){
-      .grid2{ grid-template-columns:1fr; }
-    }
-
-    label{
-      display:block;
-      font-size:12px;
-      font-weight:800;
-      color: rgba(234,240,255,.85);
-      margin:0 0 6px;
-    }
-    .field{
-      width:100%;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.05);
-      color: var(--text);
-      padding:12px 12px;
-      outline:none;
-      font-size:14px;
-      transition: border-color .12s ease, background .12s ease;
-    }
-    .field:focus{
-      border-color: rgba(240,141,52,.55);
-      background: rgba(255,255,255,.06);
-      box-shadow: 0 0 0 4px rgba(240,141,52,.10);
-    }
-
-    .radioRow{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:8px;
-    }
-    .choice{
-      flex:1;
-      min-width:160px;
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      padding:12px 12px;
-      display:flex;
-      align-items:flex-start;
-      gap:10px;
-      cursor:pointer;
-      transition: border-color .12s ease, background .12s ease;
-      user-select:none;
-    }
-    .choice:hover{
-      border-color: rgba(240,141,52,.40);
-      background: rgba(240,141,52,.06);
-    }
-    .choice input{
-      margin-top:3px;
-      accent-color: var(--phoenix);
-      transform: scale(1.1);
-      cursor:pointer;
-    }
-    .choice .t{
-      font-weight:900;
-      letter-spacing:.01em;
-      font-size:13px;
-    }
-    .choice .d{
-      font-size:12px;
-      color: var(--muted);
-      margin-top:3px;
-      line-height:1.35;
-    }
-
-    .actions{
-      display:flex;
-      justify-content:space-between;
-      gap:10px;
-      margin-top:10px;
-      flex-wrap:wrap;
-    }
-
-    .toast{
-      display:none;
-      margin-top:12px;
-      border-radius:16px;
-      padding:12px 12px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.05);
-      color: var(--muted);
-      font-size:13px;
-      line-height:1.45;
-      white-space:pre-line;
-    }
-    .toast.ok{
-      display:block;
-      border-color: rgba(51,209,122,.30);
-      background: rgba(51,209,122,.08);
-      color: rgba(234,240,255,.92);
-    }
-    .toast.err{
-      display:block;
-      border-color: rgba(255,77,77,.30);
-      background: rgba(255,77,77,.08);
-      color: rgba(255,235,235,.95);
-    }
-
-    .spin{
-      width:16px; height:16px;
-      border-radius:999px;
-      border:2px solid rgba(255,255,255,.25);
-      border-top-color: rgba(240,141,52,1);
-      animation: spin .9s linear infinite;
-    }
-    @keyframes spin{ to{ transform:rotate(360deg); } }
-
-    .successScreen{
-      text-align:center;
-      padding:22px 16px;
-    }
-    .successIcon{
-      width:54px; height:54px;
-      border-radius:18px;
-      margin:0 auto 14px;
-      display:grid; place-items:center;
-      background: rgba(51,209,122,.12);
-      border:1px solid rgba(51,209,122,.28);
-      font-size:26px;
-    }
-    .successTitle{
-      margin:0 0 8px;
-      font-size:18px;
-      font-weight:900;
-      letter-spacing:.01em;
-    }
-    .successText{
-      margin:0 auto 10px;
-      max-width:360px;
-      color: var(--muted);
-      font-size:13px;
-      line-height:1.55;
-    }
-    .thanks{
-      margin:0 auto 16px;
-      color: rgba(234,240,255,.90);
-      font-size:13px;
-      font-weight:900;
-    }
-
-    .checkRow{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top:8px;
-    }
-    .check{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      padding:10px 12px;
-      border-radius:14px;
-      user-select:none;
-    }
-    .check input{
-      accent-color: var(--phoenix);
-      transform: scale(1.15);
-    }
-
-    .foot{
-      margin-top:10px;
-      text-align:center;
-      font-size:12px;
-      color: rgba(234,240,255,.45);
-    }
-
-    .combo{
-      display:flex;
-      gap:10px;
-      align-items:center;
-    }
-    .combo .field{ flex:1; }
-
-    .dropBtn{
-      width:44px;
-      height:44px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.05);
-      color: rgba(234,240,255,.92);
-      font-weight:900;
-      cursor:pointer;
-      display:grid;
-      place-items:center;
-    }
-    .dropBtn:active{ transform: translateY(1px); }
-
-    #pickerOverlay{
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,.55);
-      z-index: 9998;
-    }
-    #pickerPanel{
-      position: fixed;
-      left: 50%;
-      bottom: 16px;
-      transform: translateX(-50%);
-      width: min(520px, calc(100% - 24px));
-      max-height: 70vh;
-      overflow: hidden;
-      z-index: 9999;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(10,12,18,.92);
-      backdrop-filter: blur(10px);
-      border-radius: 18px;
-      box-shadow: 0 18px 60px rgba(0,0,0,.6);
-    }
-    .pickerHead{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-      padding:12px 12px;
-      border-bottom: 1px solid rgba(255,255,255,.10);
-    }
-    .pickerTitle{
-      font-weight:900;
-      letter-spacing:.01em;
-      font-size:14px;
-    }
-    .pickerClose{
-      width:40px;
-      height:40px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      color: rgba(234,240,255,.92);
-      font-weight:900;
-      cursor:pointer;
-    }
-    .pickerBody{
-      padding:10px;
-      overflow:auto;
-      max-height: calc(70vh - 58px);
-    }
-    .pickerItem{
-      width:100%;
-      text-align:left;
-      padding:12px 12px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      color: var(--text);
-      cursor: pointer;
-      font-weight:800;
-      margin-bottom:8px;
-    }
-    .pickerItem:active{
-      transform: translateY(1px);
-    }
+    .faqItem h3{margin:0 0 8px;font-size:17px}
+    .faqItem p{margin:0;color:var(--muted);font-size:14px;line-height:1.65}
+    .foot{margin-top:10px;text-align:center;font-size:12px;color:rgba(234,240,255,.45)}
   </style>
 </head>
-
 <body>
-  <header class="siteHeader" id="top">
+  <header class="siteHeader">
     <div class="container siteHeaderInner">
-      <a href="#top" class="brandMini" aria-label="Phoenix Automobile accueil">
+      <a href="/" class="brandMini" aria-label="Phoenix Automobile accueil">
         <div class="brandMiniLogo">
-          <img src="assets/logo.png" alt="Phoenix Automobile" onerror="this.style.display='none';">
+          <img src="assets/logo.png" alt="Phoenix Automobile">
         </div>
         <div class="brandMiniText">
           <strong>PHOENIX AUTOMOBILE</strong>
@@ -889,23 +200,23 @@
       </a>
 
       <nav class="nav" aria-label="Navigation principale">
-        <a href="#services">Services</a>
-        <a href="#zone">Zone</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact">Contact</a>
-        <button class="btn btnPrimary" type="button" id="startFormTop">Remplir le formulaire</button>
+        <a href="/">Accueil</a>
+        <a href="/vendre-vehicule.html">Vendre</a>
+        <a href="/recherche-vehicule.html">Acheter</a>
+        <a href="/contact.html">Contact</a>
+        <a class="btn btnPrimary" href="/contact.html">Remplir le formulaire</a>
       </nav>
     </div>
   </header>
 
-  <main id="homeArea">
+  <main>
     <section class="hero">
       <div class="container heroGrid">
         <div class="panel">
           <div class="heroCard">
             <div class="heroBrand">
-              <div class="heroLogo" aria-label="Logo Phoenix Automobile">
-                <img src="assets/logo.png" alt="Phoenix Automobile" onerror="this.style.display='none';">
+              <div class="heroLogo">
+                <img src="assets/logo.png" alt="Phoenix Automobile">
               </div>
               <div class="heroBrandText">
                 <div class="name">PHOENIX<br>AUTOMOBILE</div>
@@ -918,13 +229,13 @@
             <h1>Vendre ou trouver un véhicule à Saint-Brieuc avec un accompagnement clair.</h1>
 
             <p class="lead">
-              Phoenix Automobile accompagne les particuliers qui veulent vendre rapidement leur véhicule ou être aidés dans leur recherche automobile à Saint-Brieuc, Plérin et dans les Côtes-d’Armor. L’objectif est simple : aller vite, rester propre administrativement, et éviter les galères inutiles.
+              Phoenix Automobile accompagne les particuliers qui veulent vendre rapidement leur véhicule ou être aidés dans leur recherche automobile à Saint-Brieuc, Plérin et dans les Côtes-d’Armor.
             </p>
 
             <div class="heroCtas">
-              <button class="btn btnPrimary btnWide" type="button" id="startFormHero">Remplir le formulaire</button>
-              <a class="btn btnGhost btnWide" href="tel:+33663620397">📞 Appeler</a>
-              <a class="btn btnGhost btnWide" href="mailto:contact@phoenix-automobile.com">🟧 Email</a>
+              <a class="btn btnPrimary" href="/contact.html">Remplir le formulaire</a>
+              <a class="btn btnGhost" href="tel:+33663620397">📞 Appeler</a>
+              <a class="btn btnGhost" href="mailto:contact@phoenix-automobile.com">🟧 Email</a>
             </div>
 
             <div class="heroBadges">
@@ -936,7 +247,7 @@
           </div>
         </div>
 
-        <aside class="panel" id="contact">
+        <aside class="panel">
           <div class="contactBox">
             <h2>Mon contact</h2>
             <p>Pour une demande rapide, vous pouvez appeler directement ou remplir le formulaire pour être recontacté.</p>
@@ -957,838 +268,98 @@
             </div>
 
             <div class="heroCtas" style="margin-top:4px;">
-              <button class="btn btnPrimary btnWide" type="button" id="startFormAside">Demander un rappel</button>
+              <a class="btn btnPrimary" href="/contact.html">Demander un rappel</a>
             </div>
           </div>
         </aside>
       </div>
     </section>
 
-    <section class="section" id="services">
+    <section class="section">
       <div class="container">
         <div class="sectionHead">
           <h2>Services proposés</h2>
-          <p>
-            Le site ne doit pas juste être joli. Il doit aussi dire clairement à Google et aux visiteurs ce que tu fais réellement. Voilà donc les services mis en avant, sans poudre de perlimpinpin.
-          </p>
+          <p>Phoenix Automobile met en avant trois axes clairs : vendre, rechercher, accompagner.</p>
         </div>
 
         <div class="cards3">
           <article class="serviceCard">
             <h3>Vendre son véhicule</h3>
-            <p>
-              Accompagnement pour présenter un véhicule, qualifier les informations importantes, filtrer les demandes et avancer vers une vente plus rapide avec un cadre plus clair.
-            </p>
+            <p>Accompagnement pour présenter un véhicule, qualifier les informations importantes et avancer vers une vente plus rapide.</p>
           </article>
 
           <article class="serviceCard">
             <h3>Recherche personnalisée</h3>
-            <p>
-              Aide à la recherche d’un véhicule selon la marque, l’année, le budget et le besoin réel. Le but est d’éviter les annonces douteuses et les choix bancals.
-            </p>
+            <p>Aide à la recherche d’un véhicule selon la marque, l’année, le budget et le besoin réel.</p>
           </article>
 
           <article class="serviceCard">
             <h3>Suivi administratif</h3>
-            <p>
-              Accompagnement sur la partie organisation, échanges et préparation du dossier pour rendre la transaction plus simple, plus lisible et plus sécurisée.
-            </p>
+            <p>Accompagnement sur la partie organisation et préparation du dossier pour rendre la transaction plus simple.</p>
           </article>
         </div>
 
         <div class="ctaBand">
           <div>
-            <h2>Remplir le formulaire</h2>
-            <p>
-              Le formulaire permet de cadrer la demande dès le départ pour gagner du temps et être recontacté avec une proposition claire.
-            </p>
+            <h2>Deux besoins principaux</h2>
+            <p>Tu peux orienter les visiteurs directement vers la page qui colle à leur intention.</p>
           </div>
-          <button class="btn btnPrimary btnWide" type="button" id="startFormBand">Accéder au formulaire</button>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn btnGhost" href="/vendre-vehicule.html">Vendre un véhicule</a>
+            <a class="btn btnPrimary" href="/recherche-vehicule.html">Rechercher un véhicule</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="zone">
+    <section class="section">
       <div class="container">
         <div class="panel">
           <div class="localBlock">
             <h2>Phoenix Automobile à Saint-Brieuc, Plérin et dans les Côtes-d’Armor</h2>
             <p>
-              Phoenix Automobile s’adresse en priorité aux particuliers situés autour de Saint-Brieuc, Plérin et plus largement dans les Côtes-d’Armor. Cette présence locale est importante : elle permet de mieux comprendre les attentes des vendeurs et des acheteurs de la zone, de fluidifier les échanges et de proposer un accompagnement plus concret. Pour le référencement naturel, c’est aussi vital : Google comprend mieux un site quand l’activité, la zone géographique et les services sont exprimés clairement au lieu de rester dans un brouillard marketing bien fumeux.
+              Phoenix Automobile s’adresse en priorité aux particuliers situés autour de Saint-Brieuc, Plérin et plus largement dans les Côtes-d’Armor. Cette présence locale aide autant les visiteurs que Google à comprendre l’activité, la zone desservie et les services proposés.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="faq">
+    <section class="section">
       <div class="container">
         <div class="sectionHead">
           <h2>Questions fréquentes</h2>
-          <p>
-            Une FAQ sert aux visiteurs, mais aussi à Google pour mieux comprendre le sujet de la page. C’est bête comme une clé de 12, mais efficace.
-          </p>
+          <p>Une FAQ propre aide aussi le référencement. Le SEO adore quand on arrête de parler dans le vague.</p>
         </div>
 
         <div class="faq">
           <article class="faqItem">
             <h3>Comment vendre sa voiture rapidement à Saint-Brieuc ?</h3>
-            <p>
-              La première étape consiste à fournir des informations claires sur le véhicule : marque, modèle, année, kilométrage, état général et prix souhaité. Le formulaire Phoenix Automobile permet justement de cadrer cette demande dès le départ pour accélérer la prise de contact.
-            </p>
+            <p>La première étape consiste à transmettre des informations claires sur le véhicule via le formulaire de contact.</p>
           </article>
 
           <article class="faqItem">
             <h3>Phoenix Automobile peut-il aider à rechercher un véhicule ?</h3>
-            <p>
-              Oui. Le service permet de transmettre un besoin avec une marque souhaitée, une tranche d’année ou un budget afin d’orienter la recherche de manière plus cohérente et éviter les recherches au hasard.
-            </p>
+            <p>Oui, selon la marque souhaitée, la tranche d’année ou le budget indiqué dans le formulaire.</p>
           </article>
 
           <article class="faqItem">
             <h3>Dans quelle zone intervient Phoenix Automobile ?</h3>
-            <p>
-              L’activité vise principalement Saint-Brieuc, Plérin et les Côtes-d’Armor, avec une logique d’accompagnement local et de contact rapide selon les demandes.
-            </p>
+            <p>L’activité vise principalement Saint-Brieuc, Plérin et les Côtes-d’Armor.</p>
           </article>
         </div>
-      </div>
-    </section>
 
-    <section class="section" style="padding-bottom:44px;">
-      <div class="container">
         <div class="ctaBand">
           <div>
             <h2>Prêt à avancer ?</h2>
-            <p>
-              Que ce soit pour vendre un véhicule ou en trouver un, le plus simple est de remplir le formulaire pour être recontacté proprement.
-            </p>
+            <p>Le plus simple est de remplir le formulaire pour être recontacté proprement.</p>
           </div>
-          <button class="btn btnPrimary btnWide" type="button" id="startFormBottom">Remplir le formulaire</button>
+          <a class="btn btnPrimary" href="/contact.html">Remplir le formulaire</a>
         </div>
 
         <div class="foot">© Phoenix Automobile — Intermédiaire entre professionnel et particuliers.</div>
       </div>
     </section>
   </main>
-
-  <!-- FORMULAIRE -->
-  <section class="panel pageWrap hidden" id="formArea" aria-label="Formulaire Phoenix Automobile">
-    <div class="topRow">
-      <div class="steps">
-        <div class="stepPill" data-step="1"><span class="n">1</span> Type</div>
-        <div class="stepPill" data-step="2"><span class="n">2</span> Véhicule</div>
-        <div class="stepPill" data-step="3"><span class="n">3</span> Coordonnées</div>
-      </div>
-      <div class="lock">🔒 <b>Données</b> envoyées à Phoenix Automobile</div>
-    </div>
-
-    <div class="progress" aria-label="Progression">
-      <div class="bar" aria-hidden="true"><div id="barFill"></div></div>
-      <div class="small" id="ratio">1/3</div>
-    </div>
-
-    <!-- STEP 1 -->
-    <div class="card" id="step1">
-      <h2>1) Objet de votre demande</h2>
-      <p class="sub">Choisissez une option.</p>
-
-      <div class="radioRow">
-        <label class="choice" for="typeAcheter">
-          <input type="radio" id="typeAcheter" name="typeDemande" value="Acheter" />
-          <div>
-            <div class="t">Acheter</div>
-            <div class="d">Pour diagnostiquer votre besoin.</div>
-          </div>
-        </label>
-
-        <label class="choice" for="typeVendre">
-          <input type="radio" id="typeVendre" name="typeDemande" value="Vendre" />
-          <div>
-            <div class="t">Vendre</div>
-            <div class="d">Pour détailler votre véhicule.</div>
-          </div>
-        </label>
-      </div>
-
-      <div class="actions">
-        <button class="btn btnGhost btnWide" type="button" id="backHome1">← Retour à l’accueil</button>
-        <div style="display:flex; gap:10px; flex-wrap:wrap;">
-          <button class="btn btnGhost btnWide btnDanger" type="button" id="resetAll">↺ Réinitialiser</button>
-          <button class="btn btnPrimary btnWide" type="button" id="next1">Continuer →</button>
-        </div>
-      </div>
-
-      <div class="toast" id="toast1"></div>
-    </div>
-
-    <!-- STEP 2 - ACHETER -->
-    <div class="card hidden" id="step2buy">
-      <h2>2) Informations pour diagnostiquer votre besoin</h2>
-      <p class="sub">Marque, tranche d’année, budget :</p>
-
-      <div class="grid2">
-        <div>
-          <label for="buyMarque">Marque souhaitée</label>
-          <input class="field" id="buyMarque" placeholder="Ex : BMW, Peugeot..." autocomplete="off" />
-        </div>
-        <div>
-          <label for="buyTrancheAnnee">Tranche d’année</label>
-          <input class="field" id="buyTrancheAnnee" placeholder="Ex : 2021 - 2023" autocomplete="off" />
-        </div>
-      </div>
-
-      <div style="margin-top:12px;">
-        <label for="buyBudget">Budget</label>
-        <input class="field" id="buyBudget" inputmode="numeric" autocomplete="off" />
-      </div>
-
-      <div class="actions">
-        <button class="btn btnGhost btnWide" type="button" id="back2buy">← Retour</button>
-        <button class="btn btnPrimary btnWide" type="button" id="next2buy">Continuer →</button>
-      </div>
-
-      <div class="toast" id="toast2buy"></div>
-    </div>
-
-    <!-- STEP 2 - VENDRE -->
-    <div class="card hidden" id="step2sell">
-      <h2>2) Informations sur votre véhicule</h2>
-      <p class="sub">Marque + modèle + année requis. Le reste est recommandé.</p>
-
-      <datalist id="dlMarques"></datalist>
-      <datalist id="dlModeles"></datalist>
-      <datalist id="dlCarburants"></datalist>
-      <datalist id="dlBoites"></datalist>
-
-      <div class="grid2">
-        <div>
-          <label for="sellMarque">Marque</label>
-          <div class="combo">
-            <input class="field" id="sellMarque" list="dlMarques" placeholder="Ex : BMW" autocomplete="off" />
-            <button class="dropBtn" type="button" data-open="sellMarque" aria-label="Afficher les marques">▼</button>
-          </div>
-        </div>
-
-        <div>
-          <label for="sellModele">Modèle</label>
-          <div class="combo">
-            <input class="field" id="sellModele" list="dlModeles" placeholder="Ex : Série 1" autocomplete="off" />
-            <button class="dropBtn" type="button" data-open="sellModele" aria-label="Afficher les modèles">▼</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="grid2" style="margin-top:12px;">
-        <div>
-          <label for="sellAnnee">Année</label>
-          <input class="field" id="sellAnnee" inputmode="numeric" placeholder="Ex : 2018" autocomplete="off" />
-        </div>
-        <div>
-          <label for="sellKm">Kilométrage</label>
-          <input class="field" id="sellKm" inputmode="numeric" placeholder="Ex : 125000" autocomplete="off" />
-        </div>
-      </div>
-
-      <div class="grid2" style="margin-top:12px;">
-        <div>
-          <label for="sellCarburant">Carburant</label>
-          <div class="combo">
-            <input class="field" id="sellCarburant" list="dlCarburants" placeholder="Ex : Diesel" autocomplete="off" />
-            <button class="dropBtn" type="button" data-open="sellCarburant" aria-label="Afficher les carburants">▼</button>
-          </div>
-        </div>
-
-        <div>
-          <label for="sellBoite">Boîte</label>
-          <div class="combo">
-            <input class="field" id="sellBoite" list="dlBoites" placeholder="Ex : Automatique" autocomplete="off" />
-            <button class="dropBtn" type="button" data-open="sellBoite" aria-label="Afficher les boîtes">▼</button>
-          </div>
-        </div>
-      </div>
-
-      <div style="margin-top:12px;">
-        <label>État</label>
-        <div class="checkRow" id="etatRow">
-          <label class="check"><input type="checkbox" name="sellEtat" value="Très bon état"> Très bon état</label>
-          <label class="check"><input type="checkbox" name="sellEtat" value="Bon état"> Bon état</label>
-          <label class="check"><input type="checkbox" name="sellEtat" value="Correct"> Correct</label>
-          <label class="check"><input type="checkbox" name="sellEtat" value="À prévoir"> À prévoir</label>
-        </div>
-      </div>
-
-      <div style="margin-top:12px;">
-        <label for="sellPrixSouhaite">Prix de vente souhaité</label>
-        <input class="field" id="sellPrixSouhaite" placeholder="Ex : 12 000 €" autocomplete="off" />
-      </div>
-
-      <div class="actions">
-        <button class="btn btnGhost btnWide" type="button" id="back2sell">← Retour</button>
-        <button class="btn btnPrimary btnWide" type="button" id="next2sell">Continuer →</button>
-      </div>
-
-      <div class="toast" id="toast2sell"></div>
-    </div>
-
-    <!-- STEP 3 -->
-    <div class="card hidden" id="step3">
-      <h2>3) Vos coordonnées</h2>
-      <p class="sub">Au moins un des deux champs (téléphone ou email) doit être renseigné.</p>
-
-      <div class="grid2">
-        <div>
-          <label for="nom">Nom</label>
-          <input class="field" id="nom" autocomplete="family-name" />
-        </div>
-        <div>
-          <label for="prenom">Prénom</label>
-          <input class="field" id="prenom" autocomplete="given-name" />
-        </div>
-        <div>
-          <label for="cp">Code postal</label>
-          <input class="field" id="cp" inputmode="numeric" autocomplete="postal-code" />
-        </div>
-        <div>
-          <label for="ville">Ville</label>
-          <input class="field" id="ville" autocomplete="address-level2" />
-        </div>
-      </div>
-
-      <div class="grid2" style="margin-top:12px;">
-        <div>
-          <label for="tel">Téléphone</label>
-          <input class="field" id="tel" inputmode="tel" placeholder="Ex : 06 12 34 56 78" autocomplete="tel" />
-        </div>
-        <div>
-          <label for="email">Email</label>
-          <input class="field" id="email" inputmode="email" placeholder="Ex : nom@mail.com" autocomplete="email" />
-        </div>
-      </div>
-
-      <div style="margin-top:12px;">
-        <label for="creneau">Créneau souhaité pour être rappelé(e)</label>
-        <input class="field" id="creneau" placeholder="Ex : mardi après-midi" autocomplete="off" />
-      </div>
-
-      <div class="actions">
-        <button class="btn btnGhost btnWide" type="button" id="back3">← Retour</button>
-        <button class="btn btnPrimary btnWide" type="button" id="submitBtn">
-          <span id="submitIcon">✅</span> Envoyer
-        </button>
-      </div>
-
-      <div class="toast" id="toast3"></div>
-    </div>
-
-    <div class="foot">© Phoenix Automobile — Intermédiaire entre professionnel et particuliers.</div>
-  </section>
-
-  <!-- SUCCESS -->
-  <section class="panel pageWrap hidden" id="successArea">
-    <div class="card successScreen">
-      <div class="successIcon">✅</div>
-      <h3 class="successTitle">Le formulaire a été envoyé.</h3>
-      <p class="successText">
-        Phoenix Automobile vous recontactera dans les plus brefs délais pour vous proposer un rendez-vous.
-      </p>
-      <p class="thanks">Merci de votre confiance !</p>
-      <button class="btn btnPrimary btnWide" type="button" id="goHome">Retour au menu principal</button>
-    </div>
-    <div class="foot">© Phoenix Automobile — Intermédiaire entre professionnel et particuliers.</div>
-  </section>
-
-  <!-- PICKER MOBILE -->
-  <div id="pickerOverlay" class="hidden" aria-hidden="true"></div>
-  <div id="pickerPanel" class="hidden" role="dialog" aria-modal="true" aria-label="Sélection">
-    <div class="pickerHead">
-      <div class="pickerTitle" id="pickerTitle">Sélection</div>
-      <button type="button" class="pickerClose" id="pickerClose">✕</button>
-    </div>
-    <div class="pickerBody" id="pickerBody"></div>
-  </div>
-
-  <script>
-    const ENDPOINT = "https://script.google.com/macros/s/AKfycby8XrrhPsyJR_1IKZ53u6K8cc0jPSPyvvAQAElHMYuShJhKaRtiR3ETY8CNy-HAi_VH/exec";
-    const SOURCE_TAG = "phoenix-automobile.com";
-
-    const BRAND_MODELS = {
-      "Peugeot": ["208","2008","308","3008","5008","508","Partner","Rifter"],
-      "Renault": ["Clio","Captur","Megane","Scenic","Kadjar","Arkana","Twingo","Kangoo"],
-      "Citroën": ["C3","C4","C5 Aircross","Berlingo","DS3"],
-      "Volkswagen": ["Polo","Golf","Tiguan","T-Roc","Passat","Touran"],
-      "Audi": ["A1","A3","A4","A5","Q2","Q3","Q5"],
-      "BMW": ["Série 1","Série 2","Série 3","Série 4","X1","X3","X5"],
-      "Mercedes-Benz": ["Classe A","Classe C","Classe E","GLA","GLC"],
-      "Toyota": ["Yaris","Corolla","C-HR","RAV4"],
-      "Nissan": ["Juke","Qashqai","Micra","X-Trail"],
-      "Ford": ["Fiesta","Focus","Puma","Kuga"],
-      "Opel": ["Corsa","Astra","Mokka"],
-      "Hyundai": ["i10","i20","i30","Tucson","Kona"],
-      "Kia": ["Picanto","Rio","Ceed","Sportage","Stonic"]
-    };
-
-    const CARBURANTS = ["Essence","Diesel","Hybride","Hybride rechargeable","Électrique","GPL","E85"];
-    const BOITES = ["Manuelle","Automatique","Semi-automatique"];
-
-    let step = 1;
-
-    const homeArea = document.getElementById("homeArea");
-    const formArea = document.getElementById("formArea");
-    const successArea = document.getElementById("successArea");
-
-    const pills = document.querySelectorAll(".stepPill");
-    const barFill = document.getElementById("barFill");
-    const ratio = document.getElementById("ratio");
-
-    const step1 = document.getElementById("step1");
-    const step2buy = document.getElementById("step2buy");
-    const step2sell = document.getElementById("step2sell");
-    const step3 = document.getElementById("step3");
-
-    const toast1 = document.getElementById("toast1");
-    const toast2buy = document.getElementById("toast2buy");
-    const toast2sell = document.getElementById("toast2sell");
-    const toast3 = document.getElementById("toast3");
-
-    const buyMarque = document.getElementById("buyMarque");
-    const buyTrancheAnnee = document.getElementById("buyTrancheAnnee");
-    const buyBudget = document.getElementById("buyBudget");
-
-    const sellMarque = document.getElementById("sellMarque");
-    const sellModele = document.getElementById("sellModele");
-    const sellAnnee = document.getElementById("sellAnnee");
-    const sellKm = document.getElementById("sellKm");
-    const sellCarburant = document.getElementById("sellCarburant");
-    const sellBoite = document.getElementById("sellBoite");
-    const sellPrixSouhaite = document.getElementById("sellPrixSouhaite");
-
-    const nom = document.getElementById("nom");
-    const prenom = document.getElementById("prenom");
-    const cp = document.getElementById("cp");
-    const ville = document.getElementById("ville");
-    const tel = document.getElementById("tel");
-    const email = document.getElementById("email");
-    const creneau = document.getElementById("creneau");
-
-    const submitBtn = document.getElementById("submitBtn");
-    const submitIcon = document.getElementById("submitIcon");
-
-    const dlMarques = document.getElementById("dlMarques");
-    const dlModeles = document.getElementById("dlModeles");
-    const dlCarburants = document.getElementById("dlCarburants");
-    const dlBoites = document.getElementById("dlBoites");
-
-    function setToast(el, kind, msg){
-      el.className = "toast " + (kind === "ok" ? "ok" : "err");
-      el.textContent = msg;
-    }
-
-    function clearToast(el){
-      el.className = "toast";
-      el.textContent = "";
-    }
-
-    function clearAllToasts(){
-      [toast1, toast2buy, toast2sell, toast3].forEach(clearToast);
-    }
-
-    function getType(){
-      const r = document.querySelector('input[name="typeDemande"]:checked');
-      return r ? r.value : "";
-    }
-
-    function onlyDigits(val){
-      return String(val || "").replace(/[^\d]/g, "");
-    }
-
-    function require(val){
-      return String(val || "").trim().length > 0;
-    }
-
-    function getSellEtat(){
-      const arr = Array.from(document.querySelectorAll('input[name="sellEtat"]:checked')).map(x => x.value);
-      return arr.join(", ");
-    }
-
-    function fillDatalist(dl, items){
-      dl.innerHTML = items.map(x => `<option value="${String(x).replace(/"/g,'&quot;')}"></option>`).join("");
-    }
-
-    function normalizeBrand(s){
-      return String(s || "").trim().toLowerCase();
-    }
-
-    function findBrandKey(input){
-      const n = normalizeBrand(input);
-      const keys = Object.keys(BRAND_MODELS);
-      for (const k of keys){
-        if (normalizeBrand(k) === n) return k;
-      }
-      return "";
-    }
-
-    function updateModelsForBrand(){
-      const brandKey = findBrandKey(sellMarque.value);
-      const models = brandKey ? BRAND_MODELS[brandKey] : [];
-      fillDatalist(dlModeles, models);
-    }
-
-    fillDatalist(dlMarques, Object.keys(BRAND_MODELS));
-    fillDatalist(dlCarburants, CARBURANTS);
-    fillDatalist(dlBoites, BOITES);
-    fillDatalist(dlModeles, []);
-
-    sellMarque.addEventListener("input", updateModelsForBrand);
-    sellMarque.addEventListener("change", updateModelsForBrand);
-
-    function showOnlyStep(n){
-      const y = window.scrollY || 0;
-      if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
-
-      step = n;
-
-      step1.classList.toggle("hidden", step !== 1);
-      step3.classList.toggle("hidden", step !== 3);
-
-      const t = getType();
-      const showBuy = (t === "Acheter");
-      step2buy.classList.toggle("hidden", !(step === 2 && showBuy));
-      step2sell.classList.toggle("hidden", !(step === 2 && !showBuy));
-
-      ratio.textContent = `${step}/3`;
-      barFill.style.width = (step / 3 * 100) + "%";
-
-      pills.forEach(p => {
-        const s = Number(p.dataset.step);
-        p.classList.toggle("done", s < step);
-      });
-
-      clearAllToasts();
-      setTimeout(() => window.scrollTo(0, y), 0);
-    }
-
-    function validateStep1(){
-      if (!require(getType())){
-        setToast(toast1, "err", "Veuillez sélectionner : Acheter ou Vendre.");
-        return false;
-      }
-      return true;
-    }
-
-    function validateStep2(){
-      const t = getType();
-
-      if (t === "Acheter"){
-        if (!require(buyMarque.value) && !require(buyTrancheAnnee.value) && !require(buyBudget.value)){
-          setToast(toast2buy, "err", "Veuillez renseigner au moins un champ (marque, tranche d’année ou budget).");
-          return false;
-        }
-        return true;
-      }
-
-      const mar = sellMarque.value.trim();
-      const mod = sellModele.value.trim();
-      const a = onlyDigits(sellAnnee.value.trim());
-
-      if (!require(mar)) { setToast(toast2sell, "err", "Veuillez renseigner la marque."); return false; }
-      if (!require(mod)) { setToast(toast2sell, "err", "Veuillez renseigner le modèle."); return false; }
-      if (!require(a) || a.length !== 4) { setToast(toast2sell, "err", "Veuillez renseigner une année valide (4 chiffres)."); return false; }
-
-      const y = Number(a);
-      const now = new Date().getFullYear();
-      if (y < 1980 || y > now + 1){
-        setToast(toast2sell, "err", "Année incohérente. Veuillez renseigner une année réaliste.");
-        return false;
-      }
-
-      const km = onlyDigits(sellKm.value.trim());
-      if (require(sellKm.value) && !require(km)){
-        setToast(toast2sell, "err", "Kilométrage invalide.");
-        return false;
-      }
-
-      return true;
-    }
-
-    function validateStep3(){
-      if (!require(nom.value) || !require(prenom.value)) { setToast(toast3, "err", "Veuillez renseigner votre nom et prénom."); return false; }
-      const cpx = onlyDigits(cp.value);
-      if (!require(cpx) || cpx.length < 4) { setToast(toast3, "err", "Veuillez renseigner un code postal valide."); return false; }
-      if (!require(ville.value)) { setToast(toast3, "err", "Veuillez renseigner votre ville."); return false; }
-      if (!require(creneau.value)) { setToast(toast3, "err", "Veuillez indiquer un créneau de rappel."); return false; }
-
-      if (!require(tel.value) && !require(email.value)){
-        setToast(toast3, "err", "Veuillez renseigner au moins un téléphone ou un email.");
-        return false;
-      }
-
-      if (require(email.value) && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())){
-        setToast(toast3, "err", "Adresse email invalide.");
-        return false;
-      }
-
-      return true;
-    }
-
-    function buildPayload(){
-      const t = getType();
-      const base = {
-        typeDemande: t,
-        nom: nom.value.trim(),
-        prenom: prenom.value.trim(),
-        cp: onlyDigits(cp.value.trim()),
-        ville: ville.value.trim(),
-        tel: tel.value.trim(),
-        email: email.value.trim(),
-        creneau: creneau.value.trim(),
-        source: SOURCE_TAG,
-        ts: new Date().toISOString()
-      };
-
-      if (t === "Acheter"){
-        return {
-          ...base,
-          buyMarque: buyMarque.value.trim(),
-          buyTrancheAnnee: buyTrancheAnnee.value.trim(),
-          buyBudget: buyBudget.value.trim(),
-          sellMarque: "",
-          sellModele: "",
-          sellAnnee: "",
-          sellKm: "",
-          sellCarburant: "",
-          sellBoite: "",
-          sellEtat: "",
-          sellPrixSouhaite: ""
-        };
-      }
-
-      return {
-        ...base,
-        buyMarque: "",
-        buyTrancheAnnee: "",
-        buyBudget: "",
-        sellMarque: sellMarque.value.trim(),
-        sellModele: sellModele.value.trim(),
-        sellAnnee: onlyDigits(sellAnnee.value.trim()),
-        sellKm: onlyDigits(sellKm.value.trim()),
-        sellCarburant: sellCarburant.value.trim(),
-        sellBoite: sellBoite.value.trim(),
-        sellEtat: getSellEtat(),
-        sellPrixSouhaite: sellPrixSouhaite.value.trim()
-      };
-    }
-
-    async function send(){
-      clearAllToasts();
-      submitBtn.disabled = true;
-      submitBtn.style.opacity = "0.85";
-      submitIcon.innerHTML = '<span class="spin" aria-hidden="true"></span>';
-
-      try{
-        await fetch(ENDPOINT, {
-          method: "POST",
-          mode: "no-cors",
-          headers: { "Content-Type": "text/plain;charset=utf-8" },
-          body: JSON.stringify(buildPayload())
-        });
-
-        pills.forEach(p => p.classList.add("done"));
-        barFill.style.width = "100%";
-        ratio.textContent = "3/3 ✅";
-
-        formArea.classList.add("hidden");
-        successArea.classList.remove("hidden");
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      } catch(err){
-        setToast(toast3, "err", "Impossible d’envoyer pour le moment. Veuillez réessayer.");
-      } finally{
-        submitBtn.disabled = false;
-        submitBtn.style.opacity = "1";
-        submitIcon.textContent = "✅";
-      }
-    }
-
-    function openForm(){
-      homeArea.classList.add("hidden");
-      successArea.classList.add("hidden");
-      formArea.classList.remove("hidden");
-      showOnlyStep(1);
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-
-    function goHome(){
-      formArea.classList.add("hidden");
-      successArea.classList.add("hidden");
-      homeArea.classList.remove("hidden");
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-
-    function resetAll(){
-      document.querySelectorAll('input[name="typeDemande"]').forEach(x => x.checked = false);
-
-      buyMarque.value = "";
-      buyTrancheAnnee.value = "";
-      buyBudget.value = "";
-
-      sellMarque.value = "";
-      sellModele.value = "";
-      sellAnnee.value = "";
-      sellKm.value = "";
-      sellCarburant.value = "";
-      sellBoite.value = "";
-      sellPrixSouhaite.value = "";
-      document.querySelectorAll('input[name="sellEtat"]').forEach(x => x.checked = false);
-
-      nom.value = "";
-      prenom.value = "";
-      cp.value = "";
-      ville.value = "";
-      tel.value = "";
-      email.value = "";
-      creneau.value = "";
-
-      pills.forEach(p => p.classList.remove("done"));
-      barFill.style.width = "33.333%";
-      ratio.textContent = "1/3";
-
-      clearAllToasts();
-      fillDatalist(dlModeles, []);
-      showOnlyStep(1);
-      goHome();
-    }
-
-    [
-      "startFormTop",
-      "startFormHero",
-      "startFormAside",
-      "startFormBand",
-      "startFormBottom"
-    ].forEach(id => {
-      const el = document.getElementById(id);
-      if (el) el.addEventListener("click", openForm);
-    });
-
-    document.getElementById("backHome1").addEventListener("click", goHome);
-
-    document.getElementById("next1").addEventListener("click", () => {
-      if (!validateStep1()) return;
-      showOnlyStep(2);
-    });
-
-    document.getElementById("back2buy").addEventListener("click", () => showOnlyStep(1));
-    document.getElementById("back2sell").addEventListener("click", () => showOnlyStep(1));
-
-    document.getElementById("next2buy").addEventListener("click", () => {
-      if (!validateStep2()) return;
-      showOnlyStep(3);
-    });
-
-    document.getElementById("next2sell").addEventListener("click", () => {
-      if (!validateStep2()) return;
-      showOnlyStep(3);
-    });
-
-    document.getElementById("back3").addEventListener("click", () => showOnlyStep(2));
-
-    submitBtn.addEventListener("click", async () => {
-      if (!validateStep1()) { showOnlyStep(1); return; }
-      if (!validateStep2()) { showOnlyStep(2); return; }
-      if (!validateStep3()) return;
-      await send();
-    });
-
-    document.getElementById("resetAll").addEventListener("click", resetAll);
-    document.getElementById("goHome").addEventListener("click", resetAll);
-
-    const pickerOverlay = document.getElementById("pickerOverlay");
-    const pickerPanel   = document.getElementById("pickerPanel");
-    const pickerBody    = document.getElementById("pickerBody");
-    const pickerTitle   = document.getElementById("pickerTitle");
-    const pickerClose   = document.getElementById("pickerClose");
-
-    let currentTargetInputId = "";
-
-    function openPicker(title, inputId, items){
-      currentTargetInputId = inputId;
-
-      pickerTitle.textContent = title;
-      pickerBody.innerHTML = items.map(x => {
-        const safeText = String(x).replace(/</g, "&lt;").replace(/>/g, "&gt;");
-        const safeAttr = String(x)
-          .replace(/&/g, "&amp;")
-          .replace(/"/g, "&quot;")
-          .replace(/</g, "&lt;")
-          .replace(/>/g, "&gt;");
-        return `<button type="button" class="pickerItem" data-value="${safeAttr}">${safeText}</button>`;
-      }).join("");
-
-      pickerOverlay.classList.remove("hidden");
-      pickerPanel.classList.remove("hidden");
-      pickerOverlay.setAttribute("aria-hidden", "false");
-    }
-
-    function closePicker(){
-      pickerOverlay.classList.add("hidden");
-      pickerPanel.classList.add("hidden");
-      pickerOverlay.setAttribute("aria-hidden", "true");
-      currentTargetInputId = "";
-    }
-
-    pickerOverlay.addEventListener("click", closePicker);
-    pickerClose.addEventListener("click", closePicker);
-
-    pickerBody.addEventListener("click", (e) => {
-      const btn = e.target.closest(".pickerItem");
-      if (!btn) return;
-
-      const val = btn.getAttribute("data-value") || "";
-      const input = document.getElementById(currentTargetInputId);
-
-      if (input){
-        input.value = val;
-        if (currentTargetInputId === "sellMarque"){
-          updateModelsForBrand();
-        }
-      }
-      closePicker();
-    });
-
-    document.querySelectorAll('[data-open]').forEach(btn => {
-      btn.addEventListener("click", () => {
-        const id = btn.getAttribute("data-open");
-
-        if (id === "sellMarque"){
-          openPicker("Choisir une marque", "sellMarque", Object.keys(BRAND_MODELS));
-          return;
-        }
-        if (id === "sellModele"){
-          const brandKey = findBrandKey(sellMarque.value);
-          const models = brandKey ? BRAND_MODELS[brandKey] : [];
-
-          if (!brandKey){
-            openPicker("Choisir une marque d’abord", "sellMarque", Object.keys(BRAND_MODELS));
-          } else {
-            openPicker("Choisir un modèle", "sellModele", models);
-          }
-          return;
-        }
-        if (id === "sellCarburant"){
-          openPicker("Choisir un carburant", "sellCarburant", CARBURANTS);
-          return;
-        }
-        if (id === "sellBoite"){
-          openPicker("Choisir une boîte", "sellBoite", BOITES);
-          return;
-        }
-
-        const input = document.getElementById(id);
-        if (input) input.focus();
-      });
-    });
-
-    barFill.style.width = "33.333%";
-    showOnlyStep(1);
-  </script>
 </body>
 </html>
