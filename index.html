@@ -34,6 +34,7 @@
       --radius:22px;
       --container:1120px;
     }
+
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
@@ -47,9 +48,15 @@
         linear-gradient(180deg, var(--bg0), var(--bg1));
       overflow-x:hidden;
     }
+
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block}
-    .container{width:min(var(--container), calc(100% - 32px));margin:0 auto}
+
+    .container{
+      width:min(var(--container), calc(100% - 32px));
+      margin:0 auto;
+    }
+
     .panel{
       border:1px solid var(--stroke);
       background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
@@ -58,132 +65,349 @@
       position:relative;
       overflow:hidden;
     }
+
     .panel>*{position:relative}
+
     .panel::before{
       content:"";
-      position:absolute; inset:-2px;
+      position:absolute;
+      inset:-2px;
       background:
         radial-gradient(700px 250px at 20% 0%, rgba(240,141,52,.23), transparent 62%),
         radial-gradient(700px 250px at 85% 10%, rgba(255,255,255,.10), transparent 62%);
       pointer-events:none;
       opacity:.9;
     }
+
     .btn{
-      appearance:none;border:0;cursor:pointer;text-decoration:none;
-      font-weight:900;letter-spacing:.01em;border-radius:14px;
-      padding:12px 16px;display:inline-flex;align-items:center;justify-content:center;
-      gap:10px;transition:.15s ease;white-space:nowrap
+      appearance:none;
+      border:0;
+      cursor:pointer;
+      text-decoration:none;
+      font-weight:900;
+      letter-spacing:.01em;
+      border-radius:14px;
+      padding:12px 16px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      transition:.15s ease;
+      white-space:nowrap;
     }
+
     .btn:hover{filter:brightness(1.05)}
+
     .btnPrimary{
       background:linear-gradient(180deg, rgba(240,141,52,1), rgba(219,118,33,1));
-      color:#111;box-shadow:0 14px 40px rgba(240,141,52,.20)
+      color:#111;
+      box-shadow:0 14px 40px rgba(240,141,52,.20);
     }
+
     .btnGhost{
       background:rgba(255,255,255,.06);
       border:1px solid rgba(255,255,255,.14);
-      color:var(--text)
+      color:var(--text);
     }
+
     .siteHeader{
-      position:sticky;top:0;z-index:50;
+      position:sticky;
+      top:0;
+      z-index:50;
       background:rgba(7,10,15,.74);
       backdrop-filter:blur(12px);
-      border-bottom:1px solid rgba(255,255,255,.08)
+      border-bottom:1px solid rgba(255,255,255,.08);
     }
+
     .siteHeaderInner{
-      min-height:74px;display:flex;align-items:center;justify-content:space-between;
-      gap:16px;flex-wrap:wrap;padding:14px 0
+      min-height:74px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+      padding:14px 0;
     }
-    .brandMini{display:flex;align-items:center;gap:12px}
+
+    .brandMini{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
     .brandMiniLogo{
-      width:46px;height:46px;border-radius:14px;overflow:hidden;
-      background:rgba(240,141,52,.12);border:1px solid rgba(240,141,52,.35);
-      display:grid;place-items:center
+      width:46px;
+      height:46px;
+      border-radius:14px;
+      overflow:hidden;
+      background:rgba(240,141,52,.12);
+      border:1px solid rgba(240,141,52,.35);
+      display:grid;
+      place-items:center;
     }
-    .brandMiniLogo img{width:32px;height:32px;object-fit:contain}
+
+    .brandMiniLogo img{
+      width:32px;
+      height:32px;
+      object-fit:contain;
+    }
+
     .brandMiniText strong{
-      display:block;font-size:14px;letter-spacing:.06em;text-transform:uppercase
+      display:block;
+      font-size:14px;
+      letter-spacing:.06em;
+      text-transform:uppercase;
     }
-    .brandMiniText span{display:block;color:var(--muted);font-size:12px;margin-top:4px}
-    .nav{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+
+    .brandMiniText span{
+      display:block;
+      color:var(--muted);
+      font-size:12px;
+      margin-top:4px;
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
     .nav a{
-      font-size:13px;font-weight:800;color:var(--muted);
-      padding:10px 12px;border-radius:12px
+      font-size:13px;
+      font-weight:800;
+      color:var(--muted);
+      padding:10px 12px;
+      border-radius:12px;
     }
-    .nav a:hover{background:rgba(255,255,255,.04);color:var(--text)}
-    .hero{padding:54px 0 28px}
-    .heroGrid{display:grid;grid-template-columns:1.15fr .85fr;gap:20px}
-    @media (max-width:920px){.heroGrid{grid-template-columns:1fr}}
-    .heroCard{padding:28px}
-    .heroBrand{display:flex;align-items:center;gap:16px;margin-bottom:18px}
+
+    .nav a:hover{
+      background:rgba(255,255,255,.04);
+      color:var(--text);
+    }
+
+    .hero{
+      padding:44px 0 22px;
+    }
+
+    .heroCard{
+      padding:24px;
+      max-width:920px;
+      margin:0 auto;
+    }
+
+    .heroBrand{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      margin-bottom:16px;
+    }
+
     .heroLogo{
-      width:72px;height:72px;border-radius:18px;overflow:hidden;
-      background:rgba(240,141,52,.12);border:1px solid rgba(240,141,52,.35);
-      display:grid;place-items:center
+      width:68px;
+      height:68px;
+      border-radius:18px;
+      overflow:hidden;
+      background:rgba(240,141,52,.12);
+      border:1px solid rgba(240,141,52,.35);
+      display:grid;
+      place-items:center;
+      flex:0 0 auto;
     }
-    .heroLogo img{width:50px;height:50px;object-fit:contain}
+
+    .heroLogo img{
+      width:46px;
+      height:46px;
+      object-fit:contain;
+    }
+
     .heroBrandText .name{
-      font-weight:800;letter-spacing:.06em;font-size:22px;line-height:1.05;text-transform:uppercase
+      font-weight:800;
+      letter-spacing:.06em;
+      font-size:21px;
+      line-height:1.05;
+      text-transform:uppercase;
     }
-    .heroBrandText .tag{margin-top:6px;color:var(--muted);font-size:13px;font-weight:600}
+
+    .heroBrandText .tag{
+      margin-top:6px;
+      color:var(--muted);
+      font-size:13px;
+      font-weight:600;
+    }
+
     .eyebrow{
-      display:inline-flex;align-items:center;gap:8px;padding:8px 10px;
-      border-radius:999px;border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.04);font-size:12px;color:var(--muted);margin-bottom:14px
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
+      font-size:12px;
+      color:var(--muted);
+      margin-bottom:14px;
     }
+
     .dot{
-      width:8px;height:8px;border-radius:999px;background:var(--phoenix);
-      box-shadow:0 0 0 3px rgba(240,141,52,.14)
+      width:8px;
+      height:8px;
+      border-radius:999px;
+      background:var(--phoenix);
+      box-shadow:0 0 0 3px rgba(240,141,52,.14);
     }
-    h1{margin:0 0 12px;font-size:clamp(30px,5vw,50px);line-height:1.04;letter-spacing:-.03em}
-    .lead{margin:0;color:var(--muted);font-size:15px;line-height:1.65;max-width:62ch}
-    .heroCtas{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
-    .heroBadges{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+
+    h1{
+      margin:0 0 12px;
+      font-size:clamp(26px, 4.2vw, 40px);
+      line-height:1.08;
+      letter-spacing:-.03em;
+      max-width:18ch;
+    }
+
+    .lead{
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.65;
+      max-width:62ch;
+    }
+
+    .heroCtas{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:20px;
+    }
+
+    .heroBadges{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
+    }
+
     .badge{
-      font-size:12px;color:var(--muted);border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.04);padding:8px 10px;border-radius:999px;
-      display:flex;align-items:center;gap:8px
+      font-size:12px;
+      color:var(--muted);
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
+      padding:8px 10px;
+      border-radius:999px;
+      display:flex;
+      align-items:center;
+      gap:8px;
     }
-    .contactBox{padding:24px;display:flex;flex-direction:column;gap:16px;justify-content:center}
-    .contactBox h2{margin:0;font-size:20px}
-    .contactBox p{margin:0;color:var(--muted);font-size:14px;line-height:1.6}
-    .contactLine{
-      display:flex;flex-direction:column;gap:4px;padding:14px;border-radius:16px;
-      border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.04)
+
+    .section{
+      padding:20px 0 6px;
     }
-    .contactLine .label{color:var(--muted2);font-size:12px;font-weight:800}
-    .contactLine .value{font-size:18px;font-weight:900;letter-spacing:.02em}
-    .section{padding:22px 0 6px}
-    .sectionHead{margin-bottom:18px}
-    .sectionHead h2{margin:0 0 8px;font-size:28px;letter-spacing:-.02em}
-    .sectionHead p{margin:0;color:var(--muted);font-size:14px;line-height:1.6;max-width:70ch}
-    .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    @media (max-width:920px){.cards3{grid-template-columns:1fr}}
+
+    .sectionHead{
+      margin-bottom:18px;
+    }
+
+    .sectionHead h2{
+      margin:0 0 8px;
+      font-size:28px;
+      letter-spacing:-.02em;
+    }
+
+    .sectionHead p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.6;
+      max-width:70ch;
+    }
+
+    .cards3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+
+    @media (max-width:920px){
+      .cards3{grid-template-columns:1fr}
+    }
+
     .serviceCard{
-      padding:20px;border:1px solid rgba(255,255,255,.12);
-      background:rgba(0,0,0,.18);border-radius:18px
+      padding:20px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(0,0,0,.18);
+      border-radius:18px;
     }
-    .serviceCard h3{margin:0 0 10px;font-size:18px}
-    .serviceCard p{margin:0;color:var(--muted);font-size:14px;line-height:1.6}
-    .localBlock{padding:24px}
-    .localBlock h2{margin:0 0 10px;font-size:26px;letter-spacing:-.02em}
-    .localBlock p{margin:0;color:var(--muted);font-size:14px;line-height:1.7}
-    .ctaBand{
-      margin:28px 0 12px;padding:22px;border-radius:20px;
-      border:1px solid rgba(240,141,52,.22);
-      background:linear-gradient(180deg, rgba(240,141,52,.12), rgba(255,255,255,.04));
-      display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap
+
+    .serviceCard h3{
+      margin:0 0 10px;
+      font-size:18px;
     }
-    .ctaBand h2{margin:0 0 6px;font-size:24px;letter-spacing:-.02em}
-    .ctaBand p{margin:0;color:var(--muted);font-size:14px;line-height:1.6;max-width:60ch}
-    .faq{display:grid;gap:12px;margin-top:12px}
+
+    .serviceCard p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    .faq{
+      display:grid;
+      gap:12px;
+      margin-top:12px;
+    }
+
     .faqItem{
       border:1px solid rgba(255,255,255,.12);
-      background:rgba(0,0,0,.18);border-radius:18px;padding:18px
+      background:rgba(0,0,0,.18);
+      border-radius:18px;
+      padding:18px;
     }
-    .faqItem h3{margin:0 0 8px;font-size:17px}
-    .faqItem p{margin:0;color:var(--muted);font-size:14px;line-height:1.65}
-    .foot{margin-top:10px;text-align:center;font-size:12px;color:rgba(234,240,255,.45)}
+
+    .faqItem h3{
+      margin:0 0 8px;
+      font-size:17px;
+    }
+
+    .faqItem p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.65;
+    }
+
+    .ctaBand{
+      margin:28px 0 12px;
+      padding:22px;
+      border-radius:20px;
+      border:1px solid rgba(240,141,52,.22);
+      background:linear-gradient(180deg, rgba(240,141,52,.12), rgba(255,255,255,.04));
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .ctaBand h2{
+      margin:0 0 6px;
+      font-size:24px;
+      letter-spacing:-.02em;
+    }
+
+    .ctaBand p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.6;
+      max-width:60ch;
+    }
+
+    .foot{
+      margin-top:10px;
+      text-align:center;
+      font-size:12px;
+      color:rgba(234,240,255,.45);
+    }
   </style>
 </head>
 <body>
@@ -204,14 +428,13 @@
         <a href="/vendre-vehicule.html">Vendre</a>
         <a href="/recherche-vehicule.html">Acheter</a>
         <a href="/contact.html">Contact</a>
-        <a class="btn btnPrimary" href="/contact.html">Remplir le formulaire</a>
       </nav>
     </div>
   </header>
 
   <main>
     <section class="hero">
-      <div class="container heroGrid">
+      <div class="container">
         <div class="panel">
           <div class="heroCard">
             <div class="heroBrand">
@@ -246,32 +469,6 @@
             </div>
           </div>
         </div>
-
-        <aside class="panel">
-          <div class="contactBox">
-            <h2>Mon contact</h2>
-            <p>Pour une demande rapide, vous pouvez appeler directement ou remplir le formulaire pour être recontacté.</p>
-
-            <div class="contactLine">
-              <div class="label">Téléphone</div>
-              <div class="value">06 63 62 03 97</div>
-            </div>
-
-            <div class="contactLine">
-              <div class="label">Email</div>
-              <div class="value" style="font-size:16px;">contact@phoenix-automobile.com</div>
-            </div>
-
-            <div class="contactLine">
-              <div class="label">Zone principale</div>
-              <div class="value" style="font-size:16px;">Saint-Brieuc • Plérin • Côtes-d’Armor</div>
-            </div>
-
-            <div class="heroCtas" style="margin-top:4px;">
-              <a class="btn btnPrimary" href="/contact.html">Demander un rappel</a>
-            </div>
-          </div>
-        </aside>
       </div>
     </section>
 
@@ -298,30 +495,6 @@
             <p>Accompagnement sur la partie organisation et préparation du dossier pour rendre la transaction plus simple.</p>
           </article>
         </div>
-
-        <div class="ctaBand">
-          <div>
-            <h2>Deux besoins principaux</h2>
-            <p>Tu peux orienter les visiteurs directement vers la page qui colle à leur intention.</p>
-          </div>
-          <div style="display:flex; gap:10px; flex-wrap:wrap;">
-            <a class="btn btnGhost" href="/vendre-vehicule.html">Vendre un véhicule</a>
-            <a class="btn btnPrimary" href="/recherche-vehicule.html">Rechercher un véhicule</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="panel">
-          <div class="localBlock">
-            <h2>Phoenix Automobile à Saint-Brieuc, Plérin et dans les Côtes-d’Armor</h2>
-            <p>
-              Phoenix Automobile s’adresse en priorité aux particuliers situés autour de Saint-Brieuc, Plérin et plus largement dans les Côtes-d’Armor. Cette présence locale aide autant les visiteurs que Google à comprendre l’activité, la zone desservie et les services proposés.
-            </p>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -329,7 +502,6 @@
       <div class="container">
         <div class="sectionHead">
           <h2>Questions fréquentes</h2>
-          <p>Une FAQ propre aide aussi le référencement. Le SEO adore quand on arrête de parler dans le vague.</p>
         </div>
 
         <div class="faq">
