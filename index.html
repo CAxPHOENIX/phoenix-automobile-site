@@ -3,11 +3,61 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Phoenix Automobile — Formulaire</title>
+
+  <title>Phoenix Automobile | Vente et recherche de véhicules à Saint-Brieuc</title>
+  <meta name="description" content="Phoenix Automobile vous accompagne pour vendre ou trouver un véhicule à Saint-Brieuc, Plérin et dans les Côtes-d’Armor. Vente rapide, sécurisée et au meilleur prix." />
+  <meta name="robots" content="index,follow" />
+  <meta name="author" content="Phoenix Automobile" />
+  <meta name="theme-color" content="#F08D34" />
+
+  <link rel="canonical" href="https://phoenix-automobile.com/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="Phoenix Automobile" />
+  <meta property="og:title" content="Phoenix Automobile | Vente et recherche de véhicules à Saint-Brieuc" />
+  <meta property="og:description" content="Vente rapide, sécurisée et au meilleur prix. Accompagnement pour vendre ou acheter un véhicule à Saint-Brieuc, Plérin et dans les Côtes-d’Armor." />
+  <meta property="og:url" content="https://phoenix-automobile.com/" />
+  <meta property="og:image" content="https://phoenix-automobile.com/assets/logo.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Phoenix Automobile | Vente et recherche de véhicules à Saint-Brieuc" />
+  <meta name="twitter:description" content="Vente rapide, sécurisée et au meilleur prix. Accompagnement pour vendre ou acheter un véhicule à Saint-Brieuc, Plérin et dans les Côtes-d’Armor." />
+  <meta name="twitter:image" content="https://phoenix-automobile.com/assets/logo.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutoDealer",
+    "name": "Phoenix Automobile",
+    "url": "https://phoenix-automobile.com/",
+    "logo": "https://phoenix-automobile.com/assets/logo.png",
+    "image": "https://phoenix-automobile.com/assets/logo.png",
+    "telephone": "+33663620397",
+    "email": "contact@phoenix-automobile.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Saint-Brieuc",
+      "addressRegion": "Bretagne",
+      "postalCode": "22000",
+      "addressCountry": "FR"
+    },
+    "areaServed": [
+      "Saint-Brieuc",
+      "Plérin",
+      "Côtes-d’Armor",
+      "Bretagne"
+    ],
+    "description": "Phoenix Automobile accompagne les particuliers dans la vente et la recherche de véhicules avec une approche rapide, sécurisée et claire.",
+    "sameAs": [
+      "https://phoenix-automobile.com/"
+    ]
+  }
+  </script>
 
   <style>
     :root{
@@ -23,10 +73,13 @@
       --danger:#FF4D4D;
       --shadow: 0 14px 50px rgba(0,0,0,.50);
       --radius: 22px;
+      --container: 1080px;
     }
 
     *{ box-sizing:border-box; }
-    html,body{ height:100%; }
+    html{ scroll-behavior:smooth; }
+    html,body{ min-height:100%; }
+
     body{
       margin:0;
       font-family: "Manrope", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -39,16 +92,140 @@
       overflow-x:hidden;
     }
 
-    .wrap{
-      min-height:100%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:28px 16px 44px;
+    a{ color:inherit; text-decoration:none; }
+    img{ max-width:100%; display:block; }
+
+    .container{
+      width:min(var(--container), calc(100% - 32px));
+      margin:0 auto;
     }
 
-    .shell{
-      width:min(760px, 100%);
+    .hidden{ display:none !important; }
+
+    .btn{
+      appearance:none;
+      border:0;
+      cursor:pointer;
+      font-weight:900;
+      letter-spacing:.01em;
+      border-radius:14px;
+      padding:12px 16px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      transition: transform .12s ease, filter .12s ease, background .12s ease, border-color .12s ease;
+      text-decoration:none;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .btn:active{ transform: translateY(1px); }
+    .btn:hover{ filter: brightness(1.05); }
+
+    .btnPrimary{
+      background: linear-gradient(180deg, rgba(240,141,52,1), rgba(219,118,33,1));
+      color:#111;
+      box-shadow: 0 14px 40px rgba(240,141,52,.20);
+    }
+    .btnGhost{
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.14);
+      color: var(--text);
+    }
+    .btnDanger{
+      background: rgba(255,77,77,.10);
+      border:1px solid rgba(255,77,77,.25);
+      color: rgba(255,215,215,.95);
+    }
+    .btnWide{
+      min-width: 160px;
+    }
+
+    .siteHeader{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter: blur(12px);
+      background: rgba(7,10,15,.72);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .siteHeaderInner{
+      min-height:74px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+      padding:14px 0;
+    }
+    .brandMini{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .brandMiniLogo{
+      width:46px;
+      height:46px;
+      border-radius:14px;
+      background: rgba(240,141,52,.12);
+      border:1px solid rgba(240,141,52,.35);
+      display:grid;
+      place-items:center;
+      overflow:hidden;
+      flex:0 0 auto;
+    }
+    .brandMiniLogo img{
+      width:32px;
+      height:32px;
+      object-fit:contain;
+      filter: drop-shadow(0 8px 14px rgba(0,0,0,.35));
+    }
+    .brandMiniText{
+      line-height:1.05;
+    }
+    .brandMiniText strong{
+      display:block;
+      font-size:14px;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+    }
+    .brandMiniText span{
+      display:block;
+      color:var(--muted);
+      font-size:12px;
+      margin-top:4px;
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .nav a{
+      font-size:13px;
+      font-weight:800;
+      color:var(--muted);
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid transparent;
+    }
+    .nav a:hover{
+      color:var(--text);
+      border-color:rgba(255,255,255,.10);
+      background:rgba(255,255,255,.04);
+    }
+
+    .hero{
+      padding:56px 0 28px;
+    }
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:20px;
+    }
+    @media (max-width: 920px){
+      .heroGrid{ grid-template-columns:1fr; }
     }
 
     .panel{
@@ -71,144 +248,264 @@
     }
     .panel > *{ position:relative; }
 
-    .pageWrap{
-      padding:24px 22px 20px;
+    .heroCard{
+      padding:28px;
+    }
+
+    .heroBrand{
       display:flex;
-      flex-direction:column;
-      gap:14px;
-      min-height: 640px;
+      align-items:center;
+      gap:16px;
+      margin-bottom:18px;
     }
-
-    .homeScreen{
-      min-height: 100%;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      gap:18px;
-      padding: 18px 6px;
-    }
-
-    .homeHero{
-      text-align:center;
-      padding: 6px 8px 0;
-    }
-
-    .homeLogo{
-      width:84px;
-      height:84px;
-      border-radius:20px;
+    .heroLogo{
+      width:72px;
+      height:72px;
+      border-radius:18px;
       background: rgba(240,141,52,.12);
-      border: 1px solid rgba(240,141,52,.35);
+      border:1px solid rgba(240,141,52,.35);
       display:grid;
       place-items:center;
       overflow:hidden;
-      margin:0 auto 16px;
+      flex:0 0 auto;
     }
-    .homeLogo img{
-      width:62px;
-      height:62px;
+    .heroLogo img{
+      width:50px;
+      height:50px;
       object-fit:contain;
-      display:block;
       filter: drop-shadow(0 8px 14px rgba(0,0,0,.35));
     }
-
-    .homeName{
-      line-height:1.05;
-      margin:0 0 8px;
+    .heroBrandText .name{
       font-weight:800;
       letter-spacing:.06em;
-      font-size:28px;
+      font-size:22px;
+      line-height:1.05;
       text-transform:uppercase;
     }
-
-    .homeTag{
-      margin:0;
-      color: var(--muted);
-      font-size:14px;
-      font-weight:600;
-      line-height:1.55;
-    }
-
-    .homeCard{
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.18);
-      border-radius: 18px;
-      padding: 18px 16px;
-    }
-
-    .homeCard h2{
-      margin:0 0 10px;
-      font-size:16px;
-      letter-spacing:.01em;
-    }
-
-    .homeCard p{
-      margin:0;
-      color: var(--muted);
+    .heroBrandText .tag{
+      margin-top:6px;
+      color:var(--muted);
       font-size:13px;
-      line-height:1.5;
+      font-weight:600;
     }
 
-    .contactInfo{
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      padding:8px 10px;
+      border-radius:999px;
+      font-size:12px;
+      color:var(--muted);
+      user-select:none;
+      margin-bottom:14px;
+    }
+    .dot{
+      width:8px;
+      height:8px;
+      border-radius:999px;
+      background: var(--phoenix);
+      box-shadow:0 0 0 3px rgba(240,141,52,.14);
+    }
+
+    h1{
+      margin:0 0 12px;
+      font-size:clamp(30px, 5vw, 50px);
+      line-height:1.04;
+      letter-spacing:-.03em;
+    }
+
+    .lead{
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.65;
+      max-width: 62ch;
+    }
+
+    .heroCtas{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:22px;
+    }
+
+    .heroBadges{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
+    }
+    .badge{
+      font-size:12px;
+      color: var(--muted);
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      padding:8px 10px;
+      border-radius:999px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      user-select:none;
+    }
+
+    .contactBox{
+      padding:24px;
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+      justify-content:center;
+      min-height:100%;
+    }
+    .contactBox h2{
+      margin:0;
+      font-size:20px;
+      letter-spacing:-.01em;
+    }
+    .contactBox p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.6;
+    }
+    .contactLine{
       display:flex;
       flex-direction:column;
       gap:4px;
+      padding:14px 14px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
     }
-    .contactInfo .label{
-      color: var(--muted2);
+    .contactLine .label{
+      color:var(--muted2);
       font-size:12px;
-      font-weight:700;
+      font-weight:800;
     }
-    .contactInfo .value{
+    .contactLine .value{
       font-size:18px;
       font-weight:900;
       letter-spacing:.02em;
     }
 
-    .ctaRow{
+    .section{
+      padding:22px 0 6px;
+    }
+
+    .sectionHead{
+      margin-bottom:18px;
+    }
+    .sectionHead h2{
+      margin:0 0 8px;
+      font-size:28px;
+      letter-spacing:-.02em;
+    }
+    .sectionHead p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.6;
+      max-width:70ch;
+    }
+
+    .cards3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:16px;
+    }
+    @media (max-width: 920px){
+      .cards3{ grid-template-columns:1fr; }
+    }
+
+    .serviceCard{
+      padding:20px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.18);
+      border-radius:18px;
+    }
+    .serviceCard h3{
+      margin:0 0 10px;
+      font-size:18px;
+    }
+    .serviceCard p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    .localBlock{
+      padding:24px;
+    }
+    .localBlock h2{
+      margin:0 0 10px;
+      font-size:26px;
+      letter-spacing:-.02em;
+    }
+    .localBlock p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.7;
+    }
+
+    .ctaBand{
+      margin:28px 0 12px;
+      padding:22px;
+      border-radius:20px;
+      border:1px solid rgba(240,141,52,.22);
+      background: linear-gradient(180deg, rgba(240,141,52,.12), rgba(255,255,255,.04));
       display:flex;
-      gap:10px;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
       flex-wrap:wrap;
+    }
+    .ctaBand h2{
+      margin:0 0 6px;
+      font-size:24px;
+      letter-spacing:-.02em;
+    }
+    .ctaBand p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.6;
+      max-width:60ch;
+    }
+
+    .faq{
+      display:grid;
+      gap:12px;
       margin-top:12px;
     }
+    .faqItem{
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.18);
+      border-radius:18px;
+      padding:18px;
+    }
+    .faqItem h3{
+      margin:0 0 8px;
+      font-size:17px;
+    }
+    .faqItem p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.65;
+    }
 
-    .btn{
-      appearance:none;
-      border:0;
-      cursor:pointer;
-      font-weight:900;
-      letter-spacing:.01em;
-      border-radius:14px;
-      padding:12px 14px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      transition: transform .12s ease, filter .12s ease, background .12s ease;
-      text-decoration:none;
-      user-select:none;
-      white-space:nowrap;
-    }
-    .btn:active{ transform: translateY(1px); }
-    .btnPrimary{
-      background: linear-gradient(180deg, rgba(240,141,52,1), rgba(219,118,33,1));
-      color:#111;
-      box-shadow: 0 14px 40px rgba(240,141,52,.20);
-    }
-    .btnGhost{
-      background: rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.14);
-      color: var(--text);
-    }
-    .btnDanger{
-      background: rgba(255,77,77,.10);
-      border:1px solid rgba(255,77,77,.25);
-      color: rgba(255,215,215,.95);
-    }
-    .btn:hover{ filter: brightness(1.05); }
-
-    .btnWide{
-      min-width: 150px;
+    .pageWrap{
+      width:min(860px, calc(100% - 32px));
+      margin:34px auto 44px;
+      padding:24px 22px 20px;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      min-height:640px;
     }
 
     .topRow{
@@ -297,8 +594,8 @@
     .card{
       border:1px solid rgba(255,255,255,.12);
       background: rgba(0,0,0,.18);
-      border-radius: 18px;
-      padding: 16px;
+      border-radius:18px;
+      padding:16px;
     }
     .card h2{
       margin:0 0 10px;
@@ -330,11 +627,11 @@
     }
     .field{
       width:100%;
-      border-radius: 14px;
+      border-radius:14px;
       border:1px solid rgba(255,255,255,.14);
       background: rgba(255,255,255,.05);
       color: var(--text);
-      padding: 12px 12px;
+      padding:12px 12px;
       outline:none;
       font-size:14px;
       transition: border-color .12s ease, background .12s ease;
@@ -353,11 +650,11 @@
     }
     .choice{
       flex:1;
-      min-width: 160px;
-      border-radius: 16px;
+      min-width:160px;
+      border-radius:16px;
       border:1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.04);
-      padding: 12px 12px;
+      padding:12px 12px;
       display:flex;
       align-items:flex-start;
       gap:10px;
@@ -420,8 +717,6 @@
       color: rgba(255,235,235,.95);
     }
 
-    .hidden{ display:none !important; }
-
     .spin{
       width:16px; height:16px;
       border-radius:999px;
@@ -433,16 +728,16 @@
 
     .successScreen{
       text-align:center;
-      padding: 22px 16px;
+      padding:22px 16px;
     }
     .successIcon{
       width:54px; height:54px;
-      border-radius: 18px;
-      margin: 0 auto 14px;
+      border-radius:18px;
+      margin:0 auto 14px;
       display:grid; place-items:center;
       background: rgba(51,209,122,.12);
       border:1px solid rgba(51,209,122,.28);
-      font-size: 26px;
+      font-size:26px;
     }
     .successTitle{
       margin:0 0 8px;
@@ -452,7 +747,7 @@
     }
     .successText{
       margin:0 auto 10px;
-      max-width: 360px;
+      max-width:360px;
       color: var(--muted);
       font-size:13px;
       line-height:1.55;
@@ -539,40 +834,40 @@
       align-items:center;
       justify-content:space-between;
       gap:10px;
-      padding: 12px 12px;
+      padding:12px 12px;
       border-bottom: 1px solid rgba(255,255,255,.10);
     }
     .pickerTitle{
-      font-weight: 900;
-      letter-spacing: .01em;
-      font-size: 14px;
+      font-weight:900;
+      letter-spacing:.01em;
+      font-size:14px;
     }
     .pickerClose{
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,.14);
+      width:40px;
+      height:40px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.14);
       background: rgba(255,255,255,.06);
       color: rgba(234,240,255,.92);
-      font-weight: 900;
-      cursor: pointer;
+      font-weight:900;
+      cursor:pointer;
     }
     .pickerBody{
-      padding: 10px;
-      overflow: auto;
+      padding:10px;
+      overflow:auto;
       max-height: calc(70vh - 58px);
     }
     .pickerItem{
-      width: 100%;
+      width:100%;
       text-align:left;
-      padding: 12px 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.12);
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.04);
       color: var(--text);
       cursor: pointer;
-      font-weight: 800;
-      margin-bottom: 8px;
+      font-weight:800;
+      margin-bottom:8px;
     }
     .pickerItem:active{
       transform: translateY(1px);
@@ -581,277 +876,429 @@
 </head>
 
 <body>
-  <div class="wrap">
-    <div class="shell">
-      <section class="panel">
+  <header class="siteHeader" id="top">
+    <div class="container siteHeaderInner">
+      <a href="#top" class="brandMini" aria-label="Phoenix Automobile accueil">
+        <div class="brandMiniLogo">
+          <img src="assets/logo.png" alt="Phoenix Automobile" onerror="this.style.display='none';">
+        </div>
+        <div class="brandMiniText">
+          <strong>PHOENIX AUTOMOBILE</strong>
+          <span>Vente rapide, sécurisée et au meilleur prix.</span>
+        </div>
+      </a>
 
-        <!-- PAGE D'ACCUEIL -->
-        <div class="pageWrap" id="homeArea">
-          <div class="homeScreen">
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="#services">Services</a>
+        <a href="#zone">Zone</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+        <button class="btn btnPrimary" type="button" id="startFormTop">Remplir le formulaire</button>
+      </nav>
+    </div>
+  </header>
 
-            <div class="homeHero">
-              <div class="homeLogo" aria-label="Logo Phoenix Automobile">
+  <main id="homeArea">
+    <section class="hero">
+      <div class="container heroGrid">
+        <div class="panel">
+          <div class="heroCard">
+            <div class="heroBrand">
+              <div class="heroLogo" aria-label="Logo Phoenix Automobile">
                 <img src="assets/logo.png" alt="Phoenix Automobile" onerror="this.style.display='none';">
               </div>
-              <h1 class="homeName">PHOENIX<br>AUTOMOBILE</h1>
-              <p class="homeTag">Vente rapide, sécurisée et au meilleur prix.</p>
-            </div>
-
-            <div class="homeCard">
-              <div class="contactInfo">
-                <div class="label">Mon contact</div>
-                <div class="value">06 63 62 03 97</div>
-                <div class="small">contact@phoenix-automobile.com</div>
-              </div>
-
-              <div class="ctaRow">
-                <a class="btn btnGhost btnWide" href="tel:+33663620397">📞 Appeler</a>
-                <a class="btn btnGhost btnWide" href="mailto:contact@phoenix-automobile.com">📩 Email</a>
+              <div class="heroBrandText">
+                <div class="name">PHOENIX<br>AUTOMOBILE</div>
+                <div class="tag">Vente rapide, sécurisée et au meilleur prix.</div>
               </div>
             </div>
 
-            <div class="homeCard">
-              <h2>Formulaire à remplir</h2>
-              <p>Une fois ce formulaire rempli, vous serez recontacté rapidement par nos services pour vous aider à acheter ou vendre votre véhicule.</p>
+            <div class="eyebrow"><span class="dot"></span> Accompagnement automobile local</div>
 
-              <div class="ctaRow">
-                <button class="btn btnPrimary btnWide" type="button" id="startForm">Remplir le formulaire</button>
-              </div>
-            </div>
+            <h1>Vendre ou trouver un véhicule à Saint-Brieuc avec un accompagnement clair.</h1>
 
-            <div class="foot">© Phoenix Automobile — Intermédiaire entre professionnel et particuliers.</div>
-          </div>
-        </div>
-
-        <!-- FORMULAIRE -->
-        <div class="pageWrap hidden" id="formArea">
-
-          <div class="topRow">
-            <div class="steps">
-              <div class="stepPill" data-step="1"><span class="n">1</span> Type</div>
-              <div class="stepPill" data-step="2"><span class="n">2</span> Véhicule</div>
-              <div class="stepPill" data-step="3"><span class="n">3</span> Coordonnées</div>
-            </div>
-            <div class="lock">🔒 <b>Données</b> envoyées à Phoenix Automobile</div>
-          </div>
-
-          <div class="progress" aria-label="Progression">
-            <div class="bar" aria-hidden="true"><div id="barFill"></div></div>
-            <div class="small" id="ratio">1/3</div>
-          </div>
-
-          <!-- STEP 1 -->
-          <div class="card" id="step1">
-            <h2>1) Objet de votre demande</h2>
-            <p class="sub">Choisissez une option :</p>
-
-            <div class="radioRow">
-              <label class="choice" for="typeAcheter">
-                <input type="radio" id="typeAcheter" name="typeDemande" value="Acheter" />
-                <div>
-                  <div class="t">Acheter</div>
-                  <div class="d">Si vous souhaitez acheter un véhicule.</div>
-                </div>
-              </label>
-
-              <label class="choice" for="typeVendre">
-                <input type="radio" id="typeVendre" name="typeDemande" value="Vendre" />
-                <div>
-                  <div class="t">Vendre</div>
-                  <div class="d">Si vous souhaitez vendre votre véhicule.</div>
-                </div>
-              </label>
-            </div>
-
-            <div class="actions">
-              <button class="btn btnGhost btnWide btnDanger" type="button" id="resetAll">↺ Réinitialiser</button>
-              <button class="btn btnPrimary btnWide" type="button" id="next1">Continuer →</button>
-            </div>
-
-            <div class="toast" id="toast1"></div>
-          </div>
-
-          <!-- STEP 2 - ACHETER -->
-          <div class="card hidden" id="step2buy">
-            <h2>2) Informations pour diagnostiquer votre besoin</h2>
-            <p class="sub">Marque, tranche d’année, budget :</p>
-
-            <div class="grid2">
-              <div>
-                <label for="buyMarque">Marque souhaitée</label>
-                <input class="field" id="buyMarque" placeholder="Ex : BMW, Peugeot..." autocomplete="off" />
-              </div>
-              <div>
-                <label for="buyTrancheAnnee">Tranche d’année</label>
-                <input class="field" id="buyTrancheAnnee" placeholder="Ex : 2021 - 2023" autocomplete="off" />
-              </div>
-            </div>
-
-            <div style="margin-top:12px;">
-              <label for="buyBudget">Budget</label>
-              <input class="field" id="buyBudget" inputmode="numeric" autocomplete="off" />
-            </div>
-
-            <div class="actions">
-              <button class="btn btnGhost btnWide" type="button" id="back2buy">← Retour</button>
-              <button class="btn btnPrimary btnWide" type="button" id="next2buy">Continuer →</button>
-            </div>
-
-            <div class="toast" id="toast2buy"></div>
-          </div>
-
-          <!-- STEP 2 - VENDRE -->
-          <div class="card hidden" id="step2sell">
-            <h2>2) Informations sur votre véhicule</h2>
-            <p class="sub">Marque + modèle + année requis. Le reste est recommandé.</p>
-
-            <datalist id="dlMarques"></datalist>
-            <datalist id="dlModeles"></datalist>
-            <datalist id="dlCarburants"></datalist>
-            <datalist id="dlBoites"></datalist>
-
-            <div class="grid2">
-              <div>
-                <label for="sellMarque">Marque</label>
-                <div class="combo">
-                  <input class="field" id="sellMarque" list="dlMarques" placeholder="Ex : BMW" autocomplete="off" />
-                  <button class="dropBtn" type="button" data-open="sellMarque" aria-label="Afficher les marques">▼</button>
-                </div>
-              </div>
-
-              <div>
-                <label for="sellModele">Modèle</label>
-                <div class="combo">
-                  <input class="field" id="sellModele" list="dlModeles" placeholder="Ex : Série 1" autocomplete="off" />
-                  <button class="dropBtn" type="button" data-open="sellModele" aria-label="Afficher les modèles">▼</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="grid2" style="margin-top:12px;">
-              <div>
-                <label for="sellAnnee">Année</label>
-                <input class="field" id="sellAnnee" inputmode="numeric" placeholder="Ex : 2018" autocomplete="off" />
-              </div>
-              <div>
-                <label for="sellKm">Kilométrage</label>
-                <input class="field" id="sellKm" inputmode="numeric" placeholder="Ex : 125000" autocomplete="off" />
-              </div>
-            </div>
-
-            <div class="grid2" style="margin-top:12px;">
-              <div>
-                <label for="sellCarburant">Carburant</label>
-                <div class="combo">
-                  <input class="field" id="sellCarburant" list="dlCarburants" placeholder="Ex : Diesel" autocomplete="off" />
-                  <button class="dropBtn" type="button" data-open="sellCarburant" aria-label="Afficher les carburants">▼</button>
-                </div>
-              </div>
-
-              <div>
-                <label for="sellBoite">Boîte</label>
-                <div class="combo">
-                  <input class="field" id="sellBoite" list="dlBoites" placeholder="Ex : Automatique" autocomplete="off" />
-                  <button class="dropBtn" type="button" data-open="sellBoite" aria-label="Afficher les boîtes">▼</button>
-                </div>
-              </div>
-            </div>
-
-            <div style="margin-top:12px;">
-              <label>État</label>
-              <div class="checkRow" id="etatRow">
-                <label class="check"><input type="checkbox" name="sellEtat" value="Très bon état"> Très bon état</label>
-                <label class="check"><input type="checkbox" name="sellEtat" value="Bon état"> Bon état</label>
-                <label class="check"><input type="checkbox" name="sellEtat" value="Correct"> Correct</label>
-                <label class="check"><input type="checkbox" name="sellEtat" value="À prévoir"> À prévoir</label>
-              </div>
-            </div>
-
-            <div style="margin-top:12px;">
-              <label for="sellPrixSouhaite">Prix de vente souhaité</label>
-              <input class="field" id="sellPrixSouhaite" placeholder="Ex : 12 000 €" autocomplete="off" />
-            </div>
-
-            <div class="actions">
-              <button class="btn btnGhost btnWide" type="button" id="back2sell">← Retour</button>
-              <button class="btn btnPrimary btnWide" type="button" id="next2sell">Continuer →</button>
-            </div>
-
-            <div class="toast" id="toast2sell"></div>
-          </div>
-
-          <!-- STEP 3 -->
-          <div class="card hidden" id="step3">
-            <h2>3) Vos coordonnées</h2>
-            <p class="sub">Au moins un des deux champs (téléphone ou email) doit être renseigné.</p>
-
-            <div class="grid2">
-              <div>
-                <label for="nom">Nom</label>
-                <input class="field" id="nom" autocomplete="family-name" />
-              </div>
-              <div>
-                <label for="prenom">Prénom</label>
-                <input class="field" id="prenom" autocomplete="given-name" />
-              </div>
-              <div>
-                <label for="cp">Code postal</label>
-                <input class="field" id="cp" inputmode="numeric" autocomplete="postal-code" />
-              </div>
-              <div>
-                <label for="ville">Ville</label>
-                <input class="field" id="ville" autocomplete="address-level2" />
-              </div>
-            </div>
-
-            <div class="grid2" style="margin-top:12px;">
-              <div>
-                <label for="tel">Téléphone</label>
-                <input class="field" id="tel" inputmode="tel" placeholder="Ex : 06 12 34 56 78" autocomplete="tel" />
-              </div>
-              <div>
-                <label for="email">Email</label>
-                <input class="field" id="email" inputmode="email" placeholder="Ex : nom@mail.com" autocomplete="email" />
-              </div>
-            </div>
-
-            <div style="margin-top:12px;">
-              <label for="creneau">Créneau souhaité pour être rappelé(e)</label>
-              <input class="field" id="creneau" placeholder="Ex : mardi après-midi" autocomplete="off" />
-            </div>
-
-            <div class="actions">
-              <button class="btn btnGhost btnWide" type="button" id="back3">← Retour</button>
-              <button class="btn btnPrimary btnWide" type="button" id="submitBtn">
-                <span id="submitIcon">✅</span> Envoyer
-              </button>
-            </div>
-
-            <div class="toast" id="toast3"></div>
-          </div>
-
-          <div class="foot">© Phoenix Automobile — Intermédiaire entre professionnel et particuliers.</div>
-        </div>
-
-        <!-- SUCCESS ONLY -->
-        <div class="pageWrap hidden" id="successArea">
-          <div class="card successScreen">
-            <div class="successIcon">✅</div>
-            <h3 class="successTitle">Le formulaire a été envoyé.</h3>
-            <p class="successText">
-              Phoenix Automobile vous recontactera dans les plus brefs délais pour vous proposer un rendez-vous.
+            <p class="lead">
+              Phoenix Automobile accompagne les particuliers qui veulent vendre rapidement leur véhicule ou être aidés dans leur recherche automobile à Saint-Brieuc, Plérin et dans les Côtes-d’Armor. L’objectif est simple : aller vite, rester propre administrativement, et éviter les galères inutiles.
             </p>
-            <p class="thanks">Merci de votre confiance !</p>
-            <button class="btn btnPrimary btnWide" type="button" id="goHome">Retour au menu principal</button>
+
+            <div class="heroCtas">
+              <button class="btn btnPrimary btnWide" type="button" id="startFormHero">Remplir le formulaire</button>
+              <a class="btn btnGhost btnWide" href="tel:+33663620397">📞 Appeler</a>
+              <a class="btn btnGhost btnWide" href="mailto:contact@phoenix-automobile.com">🟧 Email</a>
+            </div>
+
+            <div class="heroBadges">
+              <div class="badge"><span class="dot"></span> Estimation gratuite</div>
+              <div class="badge"><span class="dot"></span> Vendeurs filtrés</div>
+              <div class="badge"><span class="dot"></span> Suivi administratif</div>
+              <div class="badge"><span class="dot"></span> Transaction sécurisée</div>
+            </div>
           </div>
-          <div class="foot">© Phoenix Automobile — Intermédiaire entre professionnel et particuliers.</div>
         </div>
 
-      </section>
-    </div>
-  </div>
+        <aside class="panel" id="contact">
+          <div class="contactBox">
+            <h2>Mon contact</h2>
+            <p>Pour une demande rapide, vous pouvez appeler directement ou remplir le formulaire pour être recontacté.</p>
 
-  <!-- MENU MOBILE POUR LES SUGGESTIONS -->
+            <div class="contactLine">
+              <div class="label">Téléphone</div>
+              <div class="value">06 63 62 03 97</div>
+            </div>
+
+            <div class="contactLine">
+              <div class="label">Email</div>
+              <div class="value" style="font-size:16px;">contact@phoenix-automobile.com</div>
+            </div>
+
+            <div class="contactLine">
+              <div class="label">Zone principale</div>
+              <div class="value" style="font-size:16px;">Saint-Brieuc • Plérin • Côtes-d’Armor</div>
+            </div>
+
+            <div class="heroCtas" style="margin-top:4px;">
+              <button class="btn btnPrimary btnWide" type="button" id="startFormAside">Demander un rappel</button>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="sectionHead">
+          <h2>Services proposés</h2>
+          <p>
+            Le site ne doit pas juste être joli. Il doit aussi dire clairement à Google et aux visiteurs ce que tu fais réellement. Voilà donc les services mis en avant, sans poudre de perlimpinpin.
+          </p>
+        </div>
+
+        <div class="cards3">
+          <article class="serviceCard">
+            <h3>Vendre son véhicule</h3>
+            <p>
+              Accompagnement pour présenter un véhicule, qualifier les informations importantes, filtrer les demandes et avancer vers une vente plus rapide avec un cadre plus clair.
+            </p>
+          </article>
+
+          <article class="serviceCard">
+            <h3>Recherche personnalisée</h3>
+            <p>
+              Aide à la recherche d’un véhicule selon la marque, l’année, le budget et le besoin réel. Le but est d’éviter les annonces douteuses et les choix bancals.
+            </p>
+          </article>
+
+          <article class="serviceCard">
+            <h3>Suivi administratif</h3>
+            <p>
+              Accompagnement sur la partie organisation, échanges et préparation du dossier pour rendre la transaction plus simple, plus lisible et plus sécurisée.
+            </p>
+          </article>
+        </div>
+
+        <div class="ctaBand">
+          <div>
+            <h2>Remplir le formulaire</h2>
+            <p>
+              Le formulaire permet de cadrer la demande dès le départ pour gagner du temps et être recontacté avec une proposition claire.
+            </p>
+          </div>
+          <button class="btn btnPrimary btnWide" type="button" id="startFormBand">Accéder au formulaire</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="zone">
+      <div class="container">
+        <div class="panel">
+          <div class="localBlock">
+            <h2>Phoenix Automobile à Saint-Brieuc, Plérin et dans les Côtes-d’Armor</h2>
+            <p>
+              Phoenix Automobile s’adresse en priorité aux particuliers situés autour de Saint-Brieuc, Plérin et plus largement dans les Côtes-d’Armor. Cette présence locale est importante : elle permet de mieux comprendre les attentes des vendeurs et des acheteurs de la zone, de fluidifier les échanges et de proposer un accompagnement plus concret. Pour le référencement naturel, c’est aussi vital : Google comprend mieux un site quand l’activité, la zone géographique et les services sont exprimés clairement au lieu de rester dans un brouillard marketing bien fumeux.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="sectionHead">
+          <h2>Questions fréquentes</h2>
+          <p>
+            Une FAQ sert aux visiteurs, mais aussi à Google pour mieux comprendre le sujet de la page. C’est bête comme une clé de 12, mais efficace.
+          </p>
+        </div>
+
+        <div class="faq">
+          <article class="faqItem">
+            <h3>Comment vendre sa voiture rapidement à Saint-Brieuc ?</h3>
+            <p>
+              La première étape consiste à fournir des informations claires sur le véhicule : marque, modèle, année, kilométrage, état général et prix souhaité. Le formulaire Phoenix Automobile permet justement de cadrer cette demande dès le départ pour accélérer la prise de contact.
+            </p>
+          </article>
+
+          <article class="faqItem">
+            <h3>Phoenix Automobile peut-il aider à rechercher un véhicule ?</h3>
+            <p>
+              Oui. Le service permet de transmettre un besoin avec une marque souhaitée, une tranche d’année ou un budget afin d’orienter la recherche de manière plus cohérente et éviter les recherches au hasard.
+            </p>
+          </article>
+
+          <article class="faqItem">
+            <h3>Dans quelle zone intervient Phoenix Automobile ?</h3>
+            <p>
+              L’activité vise principalement Saint-Brieuc, Plérin et les Côtes-d’Armor, avec une logique d’accompagnement local et de contact rapide selon les demandes.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-bottom:44px;">
+      <div class="container">
+        <div class="ctaBand">
+          <div>
+            <h2>Prêt à avancer ?</h2>
+            <p>
+              Que ce soit pour vendre un véhicule ou en trouver un, le plus simple est de remplir le formulaire pour être recontacté proprement.
+            </p>
+          </div>
+          <button class="btn btnPrimary btnWide" type="button" id="startFormBottom">Remplir le formulaire</button>
+        </div>
+
+        <div class="foot">© Phoenix Automobile — Intermédiaire entre professionnel et particuliers.</div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FORMULAIRE -->
+  <section class="panel pageWrap hidden" id="formArea" aria-label="Formulaire Phoenix Automobile">
+    <div class="topRow">
+      <div class="steps">
+        <div class="stepPill" data-step="1"><span class="n">1</span> Type</div>
+        <div class="stepPill" data-step="2"><span class="n">2</span> Véhicule</div>
+        <div class="stepPill" data-step="3"><span class="n">3</span> Coordonnées</div>
+      </div>
+      <div class="lock">🔒 <b>Données</b> envoyées à Phoenix Automobile</div>
+    </div>
+
+    <div class="progress" aria-label="Progression">
+      <div class="bar" aria-hidden="true"><div id="barFill"></div></div>
+      <div class="small" id="ratio">1/3</div>
+    </div>
+
+    <!-- STEP 1 -->
+    <div class="card" id="step1">
+      <h2>1) Objet de votre demande</h2>
+      <p class="sub">Choisissez une option.</p>
+
+      <div class="radioRow">
+        <label class="choice" for="typeAcheter">
+          <input type="radio" id="typeAcheter" name="typeDemande" value="Acheter" />
+          <div>
+            <div class="t">Acheter</div>
+            <div class="d">Pour diagnostiquer votre besoin.</div>
+          </div>
+        </label>
+
+        <label class="choice" for="typeVendre">
+          <input type="radio" id="typeVendre" name="typeDemande" value="Vendre" />
+          <div>
+            <div class="t">Vendre</div>
+            <div class="d">Pour détailler votre véhicule.</div>
+          </div>
+        </label>
+      </div>
+
+      <div class="actions">
+        <button class="btn btnGhost btnWide" type="button" id="backHome1">← Retour à l’accueil</button>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <button class="btn btnGhost btnWide btnDanger" type="button" id="resetAll">↺ Réinitialiser</button>
+          <button class="btn btnPrimary btnWide" type="button" id="next1">Continuer →</button>
+        </div>
+      </div>
+
+      <div class="toast" id="toast1"></div>
+    </div>
+
+    <!-- STEP 2 - ACHETER -->
+    <div class="card hidden" id="step2buy">
+      <h2>2) Informations pour diagnostiquer votre besoin</h2>
+      <p class="sub">Marque, tranche d’année, budget :</p>
+
+      <div class="grid2">
+        <div>
+          <label for="buyMarque">Marque souhaitée</label>
+          <input class="field" id="buyMarque" placeholder="Ex : BMW, Peugeot..." autocomplete="off" />
+        </div>
+        <div>
+          <label for="buyTrancheAnnee">Tranche d’année</label>
+          <input class="field" id="buyTrancheAnnee" placeholder="Ex : 2021 - 2023" autocomplete="off" />
+        </div>
+      </div>
+
+      <div style="margin-top:12px;">
+        <label for="buyBudget">Budget</label>
+        <input class="field" id="buyBudget" inputmode="numeric" autocomplete="off" />
+      </div>
+
+      <div class="actions">
+        <button class="btn btnGhost btnWide" type="button" id="back2buy">← Retour</button>
+        <button class="btn btnPrimary btnWide" type="button" id="next2buy">Continuer →</button>
+      </div>
+
+      <div class="toast" id="toast2buy"></div>
+    </div>
+
+    <!-- STEP 2 - VENDRE -->
+    <div class="card hidden" id="step2sell">
+      <h2>2) Informations sur votre véhicule</h2>
+      <p class="sub">Marque + modèle + année requis. Le reste est recommandé.</p>
+
+      <datalist id="dlMarques"></datalist>
+      <datalist id="dlModeles"></datalist>
+      <datalist id="dlCarburants"></datalist>
+      <datalist id="dlBoites"></datalist>
+
+      <div class="grid2">
+        <div>
+          <label for="sellMarque">Marque</label>
+          <div class="combo">
+            <input class="field" id="sellMarque" list="dlMarques" placeholder="Ex : BMW" autocomplete="off" />
+            <button class="dropBtn" type="button" data-open="sellMarque" aria-label="Afficher les marques">▼</button>
+          </div>
+        </div>
+
+        <div>
+          <label for="sellModele">Modèle</label>
+          <div class="combo">
+            <input class="field" id="sellModele" list="dlModeles" placeholder="Ex : Série 1" autocomplete="off" />
+            <button class="dropBtn" type="button" data-open="sellModele" aria-label="Afficher les modèles">▼</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid2" style="margin-top:12px;">
+        <div>
+          <label for="sellAnnee">Année</label>
+          <input class="field" id="sellAnnee" inputmode="numeric" placeholder="Ex : 2018" autocomplete="off" />
+        </div>
+        <div>
+          <label for="sellKm">Kilométrage</label>
+          <input class="field" id="sellKm" inputmode="numeric" placeholder="Ex : 125000" autocomplete="off" />
+        </div>
+      </div>
+
+      <div class="grid2" style="margin-top:12px;">
+        <div>
+          <label for="sellCarburant">Carburant</label>
+          <div class="combo">
+            <input class="field" id="sellCarburant" list="dlCarburants" placeholder="Ex : Diesel" autocomplete="off" />
+            <button class="dropBtn" type="button" data-open="sellCarburant" aria-label="Afficher les carburants">▼</button>
+          </div>
+        </div>
+
+        <div>
+          <label for="sellBoite">Boîte</label>
+          <div class="combo">
+            <input class="field" id="sellBoite" list="dlBoites" placeholder="Ex : Automatique" autocomplete="off" />
+            <button class="dropBtn" type="button" data-open="sellBoite" aria-label="Afficher les boîtes">▼</button>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:12px;">
+        <label>État</label>
+        <div class="checkRow" id="etatRow">
+          <label class="check"><input type="checkbox" name="sellEtat" value="Très bon état"> Très bon état</label>
+          <label class="check"><input type="checkbox" name="sellEtat" value="Bon état"> Bon état</label>
+          <label class="check"><input type="checkbox" name="sellEtat" value="Correct"> Correct</label>
+          <label class="check"><input type="checkbox" name="sellEtat" value="À prévoir"> À prévoir</label>
+        </div>
+      </div>
+
+      <div style="margin-top:12px;">
+        <label for="sellPrixSouhaite">Prix de vente souhaité</label>
+        <input class="field" id="sellPrixSouhaite" placeholder="Ex : 12 000 €" autocomplete="off" />
+      </div>
+
+      <div class="actions">
+        <button class="btn btnGhost btnWide" type="button" id="back2sell">← Retour</button>
+        <button class="btn btnPrimary btnWide" type="button" id="next2sell">Continuer →</button>
+      </div>
+
+      <div class="toast" id="toast2sell"></div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="card hidden" id="step3">
+      <h2>3) Vos coordonnées</h2>
+      <p class="sub">Au moins un des deux champs (téléphone ou email) doit être renseigné.</p>
+
+      <div class="grid2">
+        <div>
+          <label for="nom">Nom</label>
+          <input class="field" id="nom" autocomplete="family-name" />
+        </div>
+        <div>
+          <label for="prenom">Prénom</label>
+          <input class="field" id="prenom" autocomplete="given-name" />
+        </div>
+        <div>
+          <label for="cp">Code postal</label>
+          <input class="field" id="cp" inputmode="numeric" autocomplete="postal-code" />
+        </div>
+        <div>
+          <label for="ville">Ville</label>
+          <input class="field" id="ville" autocomplete="address-level2" />
+        </div>
+      </div>
+
+      <div class="grid2" style="margin-top:12px;">
+        <div>
+          <label for="tel">Téléphone</label>
+          <input class="field" id="tel" inputmode="tel" placeholder="Ex : 06 12 34 56 78" autocomplete="tel" />
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input class="field" id="email" inputmode="email" placeholder="Ex : nom@mail.com" autocomplete="email" />
+        </div>
+      </div>
+
+      <div style="margin-top:12px;">
+        <label for="creneau">Créneau souhaité pour être rappelé(e)</label>
+        <input class="field" id="creneau" placeholder="Ex : mardi après-midi" autocomplete="off" />
+      </div>
+
+      <div class="actions">
+        <button class="btn btnGhost btnWide" type="button" id="back3">← Retour</button>
+        <button class="btn btnPrimary btnWide" type="button" id="submitBtn">
+          <span id="submitIcon">✅</span> Envoyer
+        </button>
+      </div>
+
+      <div class="toast" id="toast3"></div>
+    </div>
+
+    <div class="foot">© Phoenix Automobile — Intermédiaire entre professionnel et particuliers.</div>
+  </section>
+
+  <!-- SUCCESS -->
+  <section class="panel pageWrap hidden" id="successArea">
+    <div class="card successScreen">
+      <div class="successIcon">✅</div>
+      <h3 class="successTitle">Le formulaire a été envoyé.</h3>
+      <p class="successText">
+        Phoenix Automobile vous recontactera dans les plus brefs délais pour vous proposer un rendez-vous.
+      </p>
+      <p class="thanks">Merci de votre confiance !</p>
+      <button class="btn btnPrimary btnWide" type="button" id="goHome">Retour au menu principal</button>
+    </div>
+    <div class="foot">© Phoenix Automobile — Intermédiaire entre professionnel et particuliers.</div>
+  </section>
+
+  <!-- PICKER MOBILE -->
   <div id="pickerOverlay" class="hidden" aria-hidden="true"></div>
   <div id="pickerPanel" class="hidden" role="dialog" aria-modal="true" aria-label="Sélection">
     <div class="pickerHead">
@@ -1010,7 +1457,7 @@
       step2sell.classList.toggle("hidden", !(step === 2 && !showBuy));
 
       ratio.textContent = `${step}/3`;
-      barFill.style.width = (step/3*100) + "%";
+      barFill.style.width = (step / 3 * 100) + "%";
 
       pills.forEach(p => {
         const s = Number(p.dataset.step);
@@ -1018,7 +1465,7 @@
       });
 
       clearAllToasts();
-      setTimeout(()=>window.scrollTo(0,y),0);
+      setTimeout(() => window.scrollTo(0, y), 0);
     }
 
     function validateStep1(){
@@ -1170,6 +1617,13 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
+    function goHome(){
+      formArea.classList.add("hidden");
+      successArea.classList.add("hidden");
+      homeArea.classList.remove("hidden");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
     function resetAll(){
       document.querySelectorAll('input[name="typeDemande"]').forEach(x => x.checked = false);
 
@@ -1201,15 +1655,21 @@
       clearAllToasts();
       fillDatalist(dlModeles, []);
       showOnlyStep(1);
-
-      successArea.classList.add("hidden");
-      formArea.classList.add("hidden");
-      homeArea.classList.remove("hidden");
-
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      goHome();
     }
 
-    document.getElementById("startForm").addEventListener("click", openForm);
+    [
+      "startFormTop",
+      "startFormHero",
+      "startFormAside",
+      "startFormBand",
+      "startFormBottom"
+    ].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener("click", openForm);
+    });
+
+    document.getElementById("backHome1").addEventListener("click", goHome);
 
     document.getElementById("next1").addEventListener("click", () => {
       if (!validateStep1()) return;
@@ -1254,8 +1714,13 @@
 
       pickerTitle.textContent = title;
       pickerBody.innerHTML = items.map(x => {
-        const safe = String(x).replace(/</g,"&lt;").replace(/>/g,"&gt;");
-        return `<button type="button" class="pickerItem" data-value="${safe}">${safe}</button>`;
+        const safeText = String(x).replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        const safeAttr = String(x)
+          .replace(/&/g, "&amp;")
+          .replace(/"/g, "&quot;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;");
+        return `<button type="button" class="pickerItem" data-value="${safeAttr}">${safeText}</button>`;
       }).join("");
 
       pickerOverlay.classList.remove("hidden");
@@ -1282,7 +1747,6 @@
 
       if (input){
         input.value = val;
-
         if (currentTargetInputId === "sellMarque"){
           updateModelsForBrand();
         }
