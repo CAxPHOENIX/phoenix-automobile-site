@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Phoenix Automobile | Vente et recherche de véhicules à Saint-Brieuc</title>
-  <meta name="description" content="Phoenix Automobile vous accompagne pour vendre ou trouver un véhicule à Saint-Brieuc, Plérin et dans les Côtes-d’Armor. Vente rapide, sécurisée et au meilleur prix." />
+  <title>Phoenix Automobile | Courtier automobile à Saint-Brieuc</title>
+  <meta name="description" content="Phoenix Automobile vous accompagne pour vendre votre véhicule ou trouver le bon modèle selon votre budget à Saint-Brieuc, Plérin et dans les Côtes-d’Armor." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://phoenix-automobile.com/" />
   <meta name="theme-color" content="#F08D34" />
@@ -16,8 +16,8 @@
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="fr_FR" />
   <meta property="og:site_name" content="Phoenix Automobile" />
-  <meta property="og:title" content="Phoenix Automobile | Vente et recherche de véhicules à Saint-Brieuc" />
-  <meta property="og:description" content="Vente rapide, sécurisée et au meilleur prix. Accompagnement pour vendre ou acheter un véhicule à Saint-Brieuc, Plérin et dans les Côtes-d’Armor." />
+  <meta property="og:title" content="Phoenix Automobile | Courtier automobile à Saint-Brieuc" />
+  <meta property="og:description" content="Vente, recherche et accompagnement automobile à Saint-Brieuc. Un service clair, local et sécurisé pour vendre ou trouver le bon véhicule." />
   <meta property="og:url" content="https://phoenix-automobile.com/" />
   <meta property="og:image" content="https://phoenix-automobile.com/assets/logo-avecap.png" />
 
@@ -28,15 +28,19 @@
   <style>
     :root{
       --phoenix:#F08D34;
+      --phoenix-dark:#DB7621;
       --bg0:#070A0F;
       --bg1:#0B1020;
+      --card:rgba(255,255,255,.05);
       --stroke:rgba(255,255,255,.12);
       --text:#EAF0FF;
-      --muted:rgba(234,240,255,.72);
+      --muted:rgba(234,240,255,.74);
       --muted2:rgba(234,240,255,.52);
-      --shadow:0 14px 50px rgba(0,0,0,.50);
+      --success:#6DDA98;
+      --shadow:0 16px 50px rgba(0,0,0,.45);
       --radius:22px;
-      --container:1120px;
+      --radius-sm:18px;
+      --container:1160px;
     }
 
     *{box-sizing:border-box}
@@ -46,9 +50,9 @@
       font-family:"Manrope",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       color:var(--text);
       background:
-        radial-gradient(900px 500px at 20% 10%, rgba(240,141,52,.25), transparent 60%),
-        radial-gradient(900px 600px at 85% 20%, rgba(120,120,255,.16), transparent 60%),
-        radial-gradient(900px 600px at 60% 95%, rgba(255,255,255,.08), transparent 60%),
+        radial-gradient(900px 500px at 20% 10%, rgba(240,141,52,.22), transparent 60%),
+        radial-gradient(900px 600px at 85% 20%, rgba(120,120,255,.14), transparent 60%),
+        radial-gradient(900px 600px at 60% 95%, rgba(255,255,255,.06), transparent 60%),
         linear-gradient(180deg, var(--bg0), var(--bg1));
       overflow-x:hidden;
     }
@@ -66,33 +70,23 @@
       background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
       border-radius:var(--radius);
       box-shadow:
-      0 14px 50px rgba(0,0,0,.50),
-      0 0 80px rgba(240,141,52,.12);
+        0 14px 50px rgba(0,0,0,.50),
+        0 0 80px rgba(240,141,52,.10);
       position:relative;
       overflow:hidden;
     }
 
-    .panel>*{position:relative}
+    .panel > *{position:relative}
 
     .panel::before{
       content:"";
       position:absolute;
       inset:-2px;
       background:
-        radial-gradient(700px 250px at 20% 0%, rgba(240,141,52,.23), transparent 62%),
-        radial-gradient(700px 250px at 85% 10%, rgba(255,255,255,.10), transparent 62%);
+        radial-gradient(700px 250px at 20% 0%, rgba(240,141,52,.18), transparent 62%),
+        radial-gradient(700px 250px at 85% 10%, rgba(255,255,255,.08), transparent 62%);
       pointer-events:none;
       opacity:.9;
-    }
-
-    .panel::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      border-radius:var(--radius);
-      background:
-      radial-gradient(600px 300px at 50% -10%, rgba(240,141,52,.15), transparent 70%);
-      pointer-events:none;
     }
 
     .btn{
@@ -100,52 +94,50 @@
       border:0;
       cursor:pointer;
       text-decoration:none;
-      font-weight:900;
+      font-weight:800;
       letter-spacing:.01em;
       border-radius:14px;
-      padding:12px 16px;
+      padding:13px 17px;
       display:inline-flex;
       align-items:center;
       justify-content:center;
       gap:10px;
-      transition:.15s ease;
+      transition:.18s ease;
       white-space:nowrap;
     }
 
     .btn:hover{filter:brightness(1.05)}
 
     .btnPrimary{
-      background:linear-gradient(180deg, rgba(240,141,52,1), rgba(219,118,33,1));
+      background:linear-gradient(180deg, var(--phoenix), var(--phoenix-dark));
       color:#111;
       box-shadow:
         0 14px 40px rgba(240,141,52,.20),
         0 0 0 rgba(240,141,52,0);
-      transition:transform .15s ease, box-shadow .15s ease, filter .15s ease;
     }
 
     .btnPrimary:hover{
       transform:translateY(-2px);
       box-shadow:
         0 18px 50px rgba(240,141,52,.35),
-        0 0 25px rgba(240,141,52,.35);
-    }
-
-    .btnPrimary:active{
-      transform:translateY(1px);
-      box-shadow:0 10px 25px rgba(240,141,52,.25);
+        0 0 25px rgba(240,141,52,.25);
     }
 
     .btnGhost{
-      background:rgba(255,255,255,.06);
+      background:rgba(255,255,255,.05);
       border:1px solid rgba(255,255,255,.14);
       color:var(--text);
+    }
+
+    .btnGhost:hover{
+      background:rgba(255,255,255,.08);
     }
 
     .siteHeader{
       position:sticky;
       top:0;
       z-index:50;
-      background:rgba(7,10,15,.74);
+      background:rgba(7,10,15,.78);
       backdrop-filter:blur(12px);
       border-bottom:1px solid rgba(255,255,255,.08);
     }
@@ -200,7 +192,7 @@
     .nav{
       display:flex;
       align-items:center;
-      gap:10px;
+      gap:8px;
       flex-wrap:wrap;
     }
 
@@ -218,20 +210,52 @@
     }
 
     .hero{
-      padding:44px 0 22px;
+      padding:42px 0 18px;
     }
 
     .heroCard{
-      padding:36px;
-      max-width:820px;
-      margin:0 auto;
+      padding:38px;
+    }
+
+    .heroTop{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:28px;
+      align-items:center;
+    }
+
+    @media (max-width:960px){
+      .heroTop{
+        grid-template-columns:1fr;
+      }
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
+      font-size:12px;
+      color:var(--muted);
+      margin-bottom:14px;
+    }
+
+    .dot{
+      width:8px;
+      height:8px;
+      border-radius:999px;
+      background:var(--phoenix);
+      box-shadow:0 0 0 3px rgba(240,141,52,.14);
+      flex:0 0 auto;
     }
 
     .heroBrand{
       display:flex;
       align-items:center;
-      justify-content:center;
-      gap:16px;
+      gap:14px;
       margin-bottom:18px;
     }
 
@@ -268,54 +292,31 @@
       font-weight:600;
     }
 
-    .eyebrow{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.04);
-      font-size:12px;
-      color:var(--muted);
-      margin-bottom:14px;
-    }
-
-    .dot{
-      width:8px;
-      height:8px;
-      border-radius:999px;
-      background:var(--phoenix);
-      box-shadow:0 0 0 3px rgba(240,141,52,.14);
-    }
-
     h1{
       margin:0 0 16px;
-      font-size:clamp(26px, 4.2vw, 40px);
-      line-height:1.08;
-      letter-spacing:-.03em;
-      max-width:32ch;
+      font-size:clamp(29px, 4.5vw, 48px);
+      line-height:1.05;
+      letter-spacing:-.035em;
+      max-width:12ch;
     }
 
     .lead{
       margin:0;
       color:var(--muted);
       font-size:15px;
-      line-height:1.65;
-      max-width:60ch;
+      line-height:1.7;
+      max-width:62ch;
     }
 
     .heroCtas{
       display:flex;
-      justify-content:center;
       gap:12px;
       flex-wrap:wrap;
-      margin-top:22px;
+      margin-top:24px;
     }
 
     .heroBadges{
       display:flex;
-      justify-content:center;
       flex-wrap:wrap;
       gap:10px;
       margin-top:20px;
@@ -333,8 +334,64 @@
       gap:8px;
     }
 
+    .heroProof{
+      display:grid;
+      gap:14px;
+    }
+
+    .proofCard{
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(0,0,0,.20);
+      border-radius:18px;
+      padding:18px;
+    }
+
+    .proofCard h3{
+      margin:0 0 8px;
+      font-size:17px;
+    }
+
+    .proofCard p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.65;
+    }
+
+    .proofList{
+      display:grid;
+      gap:10px;
+      margin-top:14px;
+    }
+
+    .proofLine{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      font-size:14px;
+      color:var(--muted);
+      line-height:1.55;
+    }
+
+    .proofLine strong{
+      color:var(--text);
+    }
+
+    .tick{
+      width:20px;
+      height:20px;
+      border-radius:999px;
+      display:grid;
+      place-items:center;
+      font-size:12px;
+      color:#07110a;
+      background:var(--success);
+      flex:0 0 auto;
+      margin-top:1px;
+    }
+
     .section{
-      padding:20px 0 6px;
+      padding:20px 0;
     }
 
     .sectionHead{
@@ -343,15 +400,15 @@
 
     .sectionHead h2{
       margin:0 0 8px;
-      font-size:28px;
-      letter-spacing:-.02em;
+      font-size:30px;
+      letter-spacing:-.03em;
     }
 
     .sectionHead p{
       margin:0;
       color:var(--muted);
       font-size:14px;
-      line-height:1.6;
+      line-height:1.7;
       max-width:70ch;
     }
 
@@ -365,23 +422,151 @@
       .cards3{grid-template-columns:1fr}
     }
 
-    .serviceCard{
+    .serviceCard,
+    .vehicleCard,
+    .stepCard,
+    .faqItem,
+    .trustCard{
       padding:20px;
       border:1px solid rgba(255,255,255,.12);
       background:rgba(0,0,0,.18);
       border-radius:18px;
     }
 
-    .serviceCard h3{
+    .serviceCard h3,
+    .vehicleCard h3,
+    .stepCard h3,
+    .trustCard h3,
+    .faqItem h3{
       margin:0 0 10px;
       font-size:18px;
     }
 
-    .serviceCard p{
+    .serviceCard p,
+    .vehicleCard p,
+    .stepCard p,
+    .trustCard p,
+    .faqItem p{
       margin:0;
       color:var(--muted);
       font-size:14px;
-      line-height:1.6;
+      line-height:1.65;
+    }
+
+    .servicesGrid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+
+    @media (max-width:920px){
+      .servicesGrid{grid-template-columns:1fr}
+    }
+
+    .serviceCard{
+      position:relative;
+      overflow:hidden;
+    }
+
+    .serviceCard::before{
+      content:"";
+      position:absolute;
+      inset:auto auto 0 0;
+      width:100%;
+      height:2px;
+      background:linear-gradient(90deg, var(--phoenix), transparent);
+      opacity:.9;
+    }
+
+    .serviceSmall{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin-bottom:12px;
+      font-size:12px;
+      color:var(--muted2);
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
+
+    .vehicleGrid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+
+    @media (max-width:980px){
+      .vehicleGrid{grid-template-columns:1fr}
+    }
+
+    .vehicleThumb{
+      height:150px;
+      border-radius:14px;
+      margin-bottom:14px;
+      background:
+        radial-gradient(500px 140px at 10% 0%, rgba(240,141,52,.22), transparent 50%),
+        linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.10);
+      display:grid;
+      place-items:center;
+      color:rgba(234,240,255,.38);
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      font-size:12px;
+    }
+
+    .vehicleMeta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin:12px 0 14px;
+    }
+
+    .chip{
+      font-size:12px;
+      color:var(--muted);
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.04);
+      padding:7px 10px;
+      border-radius:999px;
+    }
+
+    .stepsGrid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+
+    @media (max-width:920px){
+      .stepsGrid{grid-template-columns:1fr}
+    }
+
+    .stepNumber{
+      width:36px;
+      height:36px;
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      font-weight:800;
+      background:rgba(240,141,52,.15);
+      border:1px solid rgba(240,141,52,.35);
+      color:var(--phoenix);
+      margin-bottom:12px;
+    }
+
+    .trustGrid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+    }
+
+    @media (max-width:980px){
+      .trustGrid{grid-template-columns:1fr 1fr}
+    }
+
+    @media (max-width:640px){
+      .trustGrid{grid-template-columns:1fr}
     }
 
     .faq{
@@ -390,60 +575,42 @@
       margin-top:12px;
     }
 
-    .faqItem{
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(0,0,0,.18);
-      border-radius:18px;
-      padding:18px;
-    }
-
-    .faqItem h3{
-      margin:0 0 8px;
-      font-size:17px;
-    }
-
-    .faqItem p{
-      margin:0;
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.65;
-    }
-
     .ctaBand{
-      margin:28px 0 12px;
-      padding:22px;
+      margin:30px 0 12px;
+      padding:24px;
       border-radius:20px;
       border:1px solid rgba(240,141,52,.22);
-      background:linear-gradient(180deg, rgba(240,141,52,.12), rgba(255,255,255,.04));
+      background:linear-gradient(180deg, rgba(240,141,52,.13), rgba(255,255,255,.04));
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:16px;
+      gap:18px;
       flex-wrap:wrap;
     }
 
     .ctaBand h2{
-      margin:0 0 6px;
-      font-size:24px;
-      letter-spacing:-.02em;
+      margin:0 0 8px;
+      font-size:26px;
+      letter-spacing:-.03em;
     }
 
     .ctaBand p{
       margin:0;
       color:var(--muted);
       font-size:14px;
-      line-height:1.6;
-      max-width:60ch;
+      line-height:1.65;
+      max-width:62ch;
     }
 
     .foot{
-      margin-top:10px;
+      margin-top:12px;
       text-align:center;
       font-size:12px;
       color:rgba(234,240,255,.45);
+      padding-bottom:24px;
     }
   </style>
-  
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -453,19 +620,18 @@
     "logo": "https://phoenix-automobile.com/assets/logo-avecap.png",
     "image": "https://phoenix-automobile.com/assets/logo-avecap.png"
   }
-</script>
-  
+  </script>
 </head>
 <body>
   <header class="siteHeader">
     <div class="container siteHeaderInner">
       <a href="/" class="brandMini" aria-label="Phoenix Automobile accueil">
         <div class="brandMiniLogo">
-          <img src="assets/logo.png" alt="Phoenix Automobile">
+          <img src="/assets/logo.png" alt="Phoenix Automobile">
         </div>
         <div class="brandMiniText">
-          <strong>PHOENIX AUTOMOBILE</strong>
-          <span>Vente rapide, sécurisée et au meilleur prix.</span>
+          <strong>Phoenix Automobile</strong>
+          <span>Vendre ou trouver le bon véhicule, simplement.</span>
         </div>
       </a>
 
@@ -473,6 +639,7 @@
         <a href="/">Accueil</a>
         <a href="/vendre-vehicule.html">Vendre</a>
         <a href="/recherche-vehicule.html">Acheter</a>
+        <a href="/formulaire.html">Formulaire</a>
       </nav>
     </div>
   </header>
@@ -482,35 +649,60 @@
       <div class="container">
         <div class="panel">
           <div class="heroCard">
-            <div class="heroBrand">
-              <div class="heroLogo">
-                <img src="assets/logo.png" alt="Phoenix Automobile">
+            <div class="heroTop">
+              <div>
+                <div class="heroBrand">
+                  <div class="heroLogo">
+                    <img src="/assets/logo.png" alt="Phoenix Automobile">
+                  </div>
+                  <div class="heroBrandText">
+                    <div class="name">PHOENIX<br>AUTOMOBILE</div>
+                    <div class="tag">Courtier automobile à Saint-Brieuc</div>
+                  </div>
+                </div>
+
+                <div class="eyebrow"><span class="dot"></span> Accompagnement local • Achat • Vente • Recherche</div>
+
+                <h1>Vous voulez vendre ou trouver un véhicule sans perdre votre temps ?</h1>
+
+                <p class="lead">
+                  Phoenix Automobile accompagne les particuliers à Saint-Brieuc, Plérin et dans les Côtes-d’Armor pour vendre un véhicule plus sereinement ou rechercher le bon modèle selon un budget précis. Le but est simple : vous faire gagner du temps, cadrer la démarche et avancer plus clairement.
+                </p>
+
+                <div class="heroCtas">
+                  <a class="btn btnPrimary" href="/formulaire.html">Faire une demande</a>
+                  <a class="btn btnGhost" href="tel:+33663620397">📞 Appeler</a>
+                  <a class="btn btnGhost" href="mailto:contact@phoenix-automobile.com">📧 Envoyer un email</a>
+                </div>
+
+                <div class="heroBadges">
+                  <div class="badge"><span class="dot"></span> Demande rapide</div>
+                  <div class="badge"><span class="dot"></span> Budget cadré</div>
+                  <div class="badge"><span class="dot"></span> Accompagnement local</div>
+                  <div class="badge"><span class="dot"></span> Suivi plus clair</div>
+                </div>
               </div>
-              <div class="heroBrandText">
-                <div class="name">PHOENIX<br>AUTOMOBILE</div>
-                <div class="tag">Vente rapide, sécurisée et au meilleur prix.</div>
-              </div>
-            </div>
 
-            <div class="eyebrow"><span class="dot"></span> Accompagnement automobile local</div>
+              <aside class="heroProof">
+                <div class="proofCard">
+                  <h3>Ce que fait Phoenix Automobile</h3>
+                  <p>
+                    Phoenix Automobile n’est pas un garage avec un stock à pousser. Le rôle est d’accompagner une vente ou une recherche de véhicule avec une approche plus ciblée, plus claire et plus simple pour le client.
+                  </p>
+                  <div class="proofList">
+                    <div class="proofLine"><span class="tick">✓</span><span><strong>Vente :</strong> qualification du véhicule, cadrage des informations et premier tri.</span></div>
+                    <div class="proofLine"><span class="tick">✓</span><span><strong>Recherche :</strong> véhicule ciblé selon le budget, le besoin et les critères importants.</span></div>
+                    <div class="proofLine"><span class="tick">✓</span><span><strong>Accompagnement :</strong> échange simple, humain et local.</span></div>
+                  </div>
+                </div>
 
-            <h1>Vendre ou trouver un véhicule à Saint-Brieuc avec un accompagnement clair.</h1>
-
-            <p class="lead">
-              Phoenix Automobile accompagne les particuliers qui veulent vendre rapidement leur véhicule ou être aidés dans leur recherche automobile à Saint-Brieuc, Plérin et dans les Côtes-d’Armor.
-            </p>
-
-            <div class="heroCtas">
-              <a class="btn btnPrimary" href="/formulaire.html">Remplir le formulaire</a>
-              <a class="btn btnGhost" href="tel:+33663620397">📞 Appeler</a>
-              <a class="btn btnGhost" href="mailto:contact@phoenix-automobile.com">📧 Email</a>
-            </div>
-
-            <div class="heroBadges">
-              <div class="badge"><span class="dot"></span> Estimation gratuite</div>
-              <div class="badge"><span class="dot"></span> Vendeurs filtrés</div>
-              <div class="badge"><span class="dot"></span> Suivi administratif</div>
-              <div class="badge"><span class="dot"></span> Transaction sécurisée</div>
+                <div class="proofCard">
+                  <h3>Zone principale</h3>
+                  <p>
+                    Saint-Brieuc, Plérin et plus largement les Côtes-d’Armor, avec étude possible d’autres demandes selon le projet.
+                  </p>
+                </div>
+              </aside>
             </div>
           </div>
         </div>
@@ -521,23 +713,153 @@
       <div class="container">
         <div class="sectionHead">
           <h2>Services proposés</h2>
-          <p>Phoenix Automobile met en avant trois axes clairs : vendre, rechercher, accompagner.</p>
+          <p>
+            Trois besoins reviennent toujours : vendre correctement, trouver le bon véhicule et éviter de perdre du temps dans des échanges inutiles.
+          </p>
         </div>
 
-        <div class="cards3">
+        <div class="servicesGrid">
           <article class="serviceCard">
+            <div class="serviceSmall"><span class="dot"></span> Vente</div>
             <h3>Vendre son véhicule</h3>
-            <p>Accompagnement pour présenter un véhicule, qualifier les informations importantes et avancer vers une vente plus rapide.</p>
+            <p>
+              Vous voulez avancer plus proprement sur la vente de votre voiture ? Phoenix Automobile vous aide à cadrer les informations utiles, à mieux présenter le véhicule et à lancer la démarche plus sérieusement.
+            </p>
           </article>
 
           <article class="serviceCard">
+            <div class="serviceSmall"><span class="dot"></span> Recherche</div>
             <h3>Recherche personnalisée</h3>
-            <p>Aide à la recherche d’un véhicule selon la marque, l’année, le budget et le besoin réel.</p>
+            <p>
+              Vous cherchez un modèle précis ou un véhicule qui respecte un budget réel ? La recherche se fait selon vos critères utiles : motorisation, année, budget, kilométrage, boîte, usage et priorités.
+            </p>
           </article>
 
           <article class="serviceCard">
-            <h3>Suivi administratif</h3>
-            <p>Accompagnement sur la partie organisation et préparation du dossier pour rendre la transaction plus simple.</p>
+            <div class="serviceSmall"><span class="dot"></span> Accompagnement</div>
+            <h3>Suivi plus clair</h3>
+            <p>
+              L’objectif n’est pas de vous noyer sous des annonces inutiles. Le but est d’avancer avec une méthode simple, un échange direct et une demande mieux cadrée dès le départ.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="sectionHead">
+          <h2>Exemples de recherches de véhicules</h2>
+          <p>
+            Phoenix Automobile ne fonctionne pas comme un parc automobile classique. Voici des exemples de types de véhicules pouvant être recherchés selon le budget, le besoin et les opportunités du moment.
+          </p>
+        </div>
+
+        <div class="vehicleGrid">
+          <article class="vehicleCard">
+            <div class="vehicleThumb">Exemple de recherche</div>
+            <h3>BMW X6</h3>
+            <p>Recherche orientée budget, kilométrage cohérent et historique d’entretien à vérifier selon version et motorisation.</p>
+            <div class="vehicleMeta">
+              <span class="chip">SUV</span>
+              <span class="chip">Budget défini</span>
+              <span class="chip">Critères précis</span>
+            </div>
+            <a class="btn btnGhost" href="/recherche-vehicule.html">Je cherche un véhicule similaire</a>
+          </article>
+
+          <article class="vehicleCard">
+            <div class="vehicleThumb">Exemple de recherche</div>
+            <h3>Mini Cooper</h3>
+            <p>Recherche adaptée à un budget ciblé, avec attention sur la génération, le kilométrage et les points mécaniques importants.</p>
+            <div class="vehicleMeta">
+              <span class="chip">Citadine</span>
+              <span class="chip">Budget serré</span>
+              <span class="chip">Tri utile</span>
+            </div>
+            <a class="btn btnGhost" href="/recherche-vehicule.html">Je cherche un véhicule similaire</a>
+          </article>
+
+          <article class="vehicleCard">
+            <div class="vehicleThumb">Exemple de recherche</div>
+            <h3>Berline / compacte / SUV</h3>
+            <p>Volkswagen, Audi, Peugeot, Renault, BMW, Mercedes… la recherche dépend du besoin réel, pas seulement de la marque.</p>
+            <div class="vehicleMeta">
+              <span class="chip">Usage quotidien</span>
+              <span class="chip">Famille</span>
+              <span class="chip">Projet cadré</span>
+            </div>
+            <a class="btn btnGhost" href="/recherche-vehicule.html">Lancer ma recherche</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="sectionHead">
+          <h2>Comment ça fonctionne ?</h2>
+          <p>
+            Le site ne doit pas juste “présenter”. Il doit montrer un chemin simple. Voilà le chemin.
+          </p>
+        </div>
+
+        <div class="stepsGrid">
+          <article class="stepCard">
+            <div class="stepNumber">1</div>
+            <h3>Vous envoyez votre demande</h3>
+            <p>
+              Vous indiquez si vous souhaitez vendre ou acheter, avec les informations principales dès le départ pour éviter les échanges flous.
+            </p>
+          </article>
+
+          <article class="stepCard">
+            <div class="stepNumber">2</div>
+            <h3>Votre besoin est cadré</h3>
+            <p>
+              Le projet est analysé selon vos critères utiles : type de véhicule, budget, contraintes, zone, année, kilométrage et priorités.
+            </p>
+          </article>
+
+          <article class="stepCard">
+            <div class="stepNumber">3</div>
+            <h3>Vous avancez plus clairement</h3>
+            <p>
+              L’objectif est d’aller vers une vente mieux présentée ou une recherche plus ciblée, avec un accompagnement simple et humain.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="sectionHead">
+          <h2>Pourquoi passer par Phoenix Automobile ?</h2>
+          <p>
+            Parce qu’un client ne cherche pas juste “un formulaire”. Il cherche quelqu’un qui paraît concret, sérieux et utile.
+          </p>
+        </div>
+
+        <div class="trustGrid">
+          <article class="trustCard">
+            <h3>Approche locale</h3>
+            <p>Un service pensé pour les particuliers autour de Saint-Brieuc, avec un contact plus direct et plus humain.</p>
+          </article>
+
+          <article class="trustCard">
+            <h3>Demande cadrée</h3>
+            <p>Moins de flou, moins de temps perdu, plus de clarté dès le départ sur le besoin réel.</p>
+          </article>
+
+          <article class="trustCard">
+            <h3>Critères utiles</h3>
+            <p>Budget, année, kilométrage, motorisation, usage : l’important passe avant le blabla.</p>
+          </article>
+
+          <article class="trustCard">
+            <h3>Accompagnement simple</h3>
+            <p>Le but n’est pas de compliquer. Le but est d’avancer plus vite et plus proprement.</p>
           </article>
         </div>
       </div>
@@ -551,30 +873,45 @@
 
         <div class="faq">
           <article class="faqItem">
-            <h3>Comment vendre sa voiture rapidement à Saint-Brieuc ?</h3>
-            <p>La première étape consiste à transmettre des informations claires sur le véhicule via le formulaire de contact.</p>
+            <h3>Phoenix Automobile vend-il un stock de véhicules ?</h3>
+            <p>
+              Non, le fonctionnement repose surtout sur l’accompagnement, la recherche et la mise en forme plus claire d’un projet de vente ou d’achat.
+            </p>
           </article>
 
           <article class="faqItem">
-            <h3>Phoenix Automobile peut-il aider à rechercher un véhicule ?</h3>
-            <p>Oui, selon la marque souhaitée, la tranche d’année ou le budget indiqué dans le formulaire.</p>
+            <h3>Je veux vendre ma voiture, par où commencer ?</h3>
+            <p>
+              Le plus simple est d’envoyer votre demande avec les informations principales sur le véhicule : marque, modèle, année, kilométrage et état général.
+            </p>
           </article>
 
           <article class="faqItem">
-            <h3>Dans quelle zone intervient Phoenix Automobile ?</h3>
-            <p>L’activité vise principalement Saint-Brieuc, Plérin et les Côtes-d’Armor.</p>
+            <h3>Je cherche un véhicule précis, puis-je faire une demande ?</h3>
+            <p>
+              Oui. Plus votre demande est précise, plus la recherche peut être orientée correctement dès le départ.
+            </p>
+          </article>
+
+          <article class="faqItem">
+            <h3>Quelle zone est couverte ?</h3>
+            <p>
+              Principalement Saint-Brieuc, Plérin et les Côtes-d’Armor, avec ouverture à d’autres demandes selon le projet.
+            </p>
           </article>
         </div>
 
         <div class="ctaBand">
           <div>
-            <h2>Prêt à avancer ?</h2>
-            <p>Le plus simple est de remplir le formulaire pour être recontacté proprement.</p>
+            <h2>Prêt à lancer votre demande ?</h2>
+            <p>
+              Que vous souhaitiez vendre votre véhicule ou trouver le bon modèle, le plus simple est d’envoyer une demande claire dès maintenant.
+            </p>
           </div>
-          <a class="btn btnPrimary" href="/formulaire.html">Remplir le formulaire</a>
+          <a class="btn btnPrimary" href="/formulaire.html">Accéder au formulaire</a>
         </div>
 
-        <div class="foot">© Phoenix Automobile — Intermédiaire entre professionnel et particuliers.</div>
+        <div class="foot">© Phoenix Automobile — Accompagnement automobile pour particuliers.</div>
       </div>
     </section>
   </main>
