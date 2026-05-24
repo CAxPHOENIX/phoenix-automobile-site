@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
   <title>Phoenix Automobile | Courtier automobile à Saint-Brieuc</title>
   <meta name="description" content="Phoenix Automobile vous accompagne pour vendre votre véhicule ou trouver le bon modèle selon votre budget à Saint-Brieuc, Plérin et dans les Côtes-d’Armor." />
   <meta name="robots" content="index,follow" />
@@ -27,620 +28,675 @@
 
   <style>
     :root{
-      --phoenix:#F08D34;
-      --phoenix-dark:#DB7621;
-      --bg0:#070A0F;
-      --bg1:#0B1020;
-      --card:rgba(255,255,255,.05);
-      --stroke:rgba(255,255,255,.12);
-      --text:#EAF0FF;
-      --muted:rgba(234,240,255,.74);
-      --muted2:rgba(234,240,255,.52);
-      --success:#6DDA98;
-      --shadow:0 16px 50px rgba(0,0,0,.45);
-      --radius:22px;
-      --radius-sm:18px;
-      --container:1160px;
-    }
-
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:"Manrope",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(900px 500px at 20% 10%, rgba(240,141,52,.22), transparent 60%),
-        radial-gradient(900px 600px at 85% 20%, rgba(120,120,255,.14), transparent 60%),
-        radial-gradient(900px 600px at 60% 95%, rgba(255,255,255,.06), transparent 60%),
-        linear-gradient(180deg, var(--bg0), var(--bg1));
-      overflow-x:hidden;
-    }
-
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
-
-    .container{
-      width:min(var(--container), calc(100% - 32px));
-      margin:0 auto;
-    }
-
-    .panel{
-      border:1px solid var(--stroke);
-      background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
-      border-radius:var(--radius);
-      box-shadow:
-        0 14px 50px rgba(0,0,0,.50),
-        0 0 80px rgba(240,141,52,.10);
-      position:relative;
-      overflow:hidden;
-    }
-
-    .panel > *{position:relative}
-
-    .panel::before{
-      content:"";
-      position:absolute;
-      inset:-2px;
-      background:
-        radial-gradient(700px 250px at 20% 0%, rgba(240,141,52,.18), transparent 62%),
-        radial-gradient(700px 250px at 85% 10%, rgba(255,255,255,.08), transparent 62%);
-      pointer-events:none;
-      opacity:.9;
-    }
-
-    .btn{
-      appearance:none;
-      border:0;
-      cursor:pointer;
-      text-decoration:none;
-      font-weight:800;
-      letter-spacing:.01em;
-      border-radius:14px;
-      padding:13px 17px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      transition:.18s ease;
-      white-space:nowrap;
-    }
-
-    .btn:hover{filter:brightness(1.05)}
-
-    .btnPrimary{
-      background:linear-gradient(180deg, var(--phoenix), var(--phoenix-dark));
-      color:#111;
-      box-shadow:
-        0 14px 40px rgba(240,141,52,.20),
-        0 0 0 rgba(240,141,52,0);
-    }
-
-    .btnPrimary:hover{
-      transform:translateY(-2px);
-      box-shadow:
-        0 18px 50px rgba(240,141,52,.35),
-        0 0 25px rgba(240,141,52,.25);
-    }
-
-    .btnGhost{
-      background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.14);
-      color:var(--text);
-    }
-
-    .btnGhost:hover{
-      background:rgba(255,255,255,.08);
-    }
-
-    .siteHeader{
-      position:sticky;
-      top:0;
-      z-index:50;
-      background:rgba(7,10,15,.78);
-      backdrop-filter:blur(12px);
-      border-bottom:1px solid rgba(255,255,255,.08);
-    }
-
-    .siteHeaderInner{
-      min-height:74px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      flex-wrap:wrap;
-      padding:14px 0;
-    }
-
-    .brandMini{
-      display:flex;
-      align-items:center;
-      gap:12px;
-    }
-
-    .brandMiniLogo{
-      width:46px;
-      height:46px;
-      border-radius:14px;
-      overflow:hidden;
-      background:rgba(240,141,52,.12);
-      border:1px solid rgba(240,141,52,.35);
-      display:grid;
-      place-items:center;
-    }
-
-    .brandMiniLogo img{
-      width:32px;
-      height:32px;
-      object-fit:contain;
-    }
-
-    .brandMiniText strong{
-      display:block;
-      font-size:14px;
-      letter-spacing:.06em;
-      text-transform:uppercase;
-    }
-
-    .brandMiniText span{
-      display:block;
-      color:var(--muted);
-      font-size:12px;
-      margin-top:4px;
-    }
-
-    .nav{
-      display:flex;
-      align-items:center;
-      gap:8px;
-      flex-wrap:wrap;
-    }
-
-    .nav a{
-      font-size:13px;
-      font-weight:800;
-      color:var(--muted);
-      padding:10px 12px;
-      border-radius:12px;
-    }
-
-    .nav a:hover{
-      background:rgba(255,255,255,.04);
-      color:var(--text);
-    }
-
-    .hero{
-      padding:42px 0 18px;
-    }
-
-    .heroCard{
-      padding:38px;
-    }
-
-    .heroTop{
-      display:grid;
-      grid-template-columns:1.15fr .85fr;
-      gap:28px;
-      align-items:center;
-    }
-
-    @media (max-width:960px){
-      .heroTop{
-        grid-template-columns:1fr;
-      }
-    }
-
-    .eyebrow{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.04);
-      font-size:12px;
-      color:var(--muted);
-      margin-bottom:14px;
-    }
-
-    .dot{
-      width:8px;
-      height:8px;
-      border-radius:999px;
-      background:var(--phoenix);
-      box-shadow:0 0 0 3px rgba(240,141,52,.14);
-      flex:0 0 auto;
-    }
-
-    .heroBrand{
-      display:flex;
-      align-items:center;
-      gap:14px;
-      margin-bottom:18px;
-    }
-
-    .heroLogo{
-      width:68px;
-      height:68px;
-      border-radius:18px;
-      overflow:hidden;
-      background:rgba(240,141,52,.12);
-      border:1px solid rgba(240,141,52,.35);
-      display:grid;
-      place-items:center;
-      flex:0 0 auto;
-    }
-
-    .heroLogo img{
-      width:46px;
-      height:46px;
-      object-fit:contain;
-    }
-
-    .heroBrandText .name{
-      font-weight:800;
-      letter-spacing:.06em;
-      font-size:21px;
-      line-height:1.05;
-      text-transform:uppercase;
-    }
-
-    .heroBrandText .tag{
-      margin-top:6px;
-      color:var(--muted);
-      font-size:13px;
-      font-weight:600;
-    }
-
-    h1{
-      margin:0 0 16px;
-      font-size:clamp(29px, 4.5vw, 48px);
-      line-height:1.05;
-      letter-spacing:-.035em;
-      max-width:12ch;
-    }
-
-    .lead{
-      margin:0;
-      color:var(--muted);
-      font-size:15px;
-      line-height:1.7;
-      max-width:62ch;
-    }
-
-    .heroCtas{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-top:24px;
-    }
-
-    .heroBadges{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top:20px;
-    }
-
-    .badge{
-      font-size:12px;
-      color:var(--muted);
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.04);
-      padding:8px 10px;
-      border-radius:999px;
-      display:flex;
-      align-items:center;
-      gap:8px;
-    }
-
-    .heroProof{
-      display:grid;
-      gap:14px;
-    }
-
-    .proofCard{
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(0,0,0,.20);
-      border-radius:18px;
-      padding:18px;
-    }
-
-    .proofCard h3{
-      margin:0 0 8px;
-      font-size:17px;
-    }
-
-    .proofCard p{
-      margin:0;
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.65;
-    }
-
-    .proofList{
-      display:grid;
-      gap:10px;
-      margin-top:14px;
-    }
-
-    .proofLine{
-      display:flex;
-      align-items:flex-start;
-      gap:10px;
-      font-size:14px;
-      color:var(--muted);
-      line-height:1.55;
-    }
-
-    .proofLine strong{
-      color:var(--text);
-    }
-
-    .tick{
-      width:20px;
-      height:20px;
-      border-radius:999px;
-      display:grid;
-      place-items:center;
-      font-size:12px;
-      color:#07110a;
-      background:var(--success);
-      flex:0 0 auto;
-      margin-top:1px;
-    }
-
-    .section{
-      padding:20px 0;
-    }
-
-    .sectionHead{
-      margin-bottom:18px;
-    }
-
-    .sectionHead h2{
-      margin:0 0 8px;
-      font-size:30px;
-      letter-spacing:-.03em;
-    }
-
-    .sectionHead p{
-      margin:0;
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.7;
-      max-width:70ch;
-    }
-
-    .cards3{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:16px;
-    }
-
-    @media (max-width:920px){
-      .cards3{grid-template-columns:1fr}
-    }
-
-    .serviceCard,
-    .stepCard,
-    .faqItem,
-    .trustCard{
-      padding:20px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(0,0,0,.18);
-      border-radius:18px;
-    }
-
-    .serviceCard h3,
-    .vehicleCard h3,
-    .stepCard h3,
-    .trustCard h3,
-    .faqItem h3{
-      margin:0 0 10px;
-      font-size:18px;
-    }
-
-    .serviceCard p,
-    .vehicleCard p,
-    .stepCard p,
-    .trustCard p,
-    .faqItem p{
-      margin:0;
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.65;
-    }
-
-    .servicesGrid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:16px;
-    }
-
-    @media (max-width:920px){
-      .servicesGrid{grid-template-columns:1fr}
-    }
-
-    .serviceCard{
-      position:relative;
-      overflow:hidden;
-    }
-
-    .serviceCard::before{
-      content:"";
-      position:absolute;
-      inset:auto auto 0 0;
-      width:100%;
-      height:2px;
-      background:linear-gradient(90deg, var(--phoenix), transparent);
-      opacity:.9;
-    }
-
-    .serviceSmall{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      margin-bottom:12px;
-      font-size:12px;
-      color:var(--muted2);
-      text-transform:uppercase;
-      letter-spacing:.08em;
-    }
-
-    .vehicleGrid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:16px;
-      align-items:stretch;
-    }
-
-    @media (max-width:980px){
-      .vehicleGrid{grid-template-columns:1fr}
-    }
-
-    .vehicleCard{
-      padding:20px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(0,0,0,.18);
-      border-radius:18px;
-      display:flex;
-      flex-direction:column;
-      height:100%;
-    }
-
-    .vehicleThumb{
-      width:100%;
-      aspect-ratio:16 / 9;
-      overflow:hidden;
-      border-radius:14px;
-      margin-bottom:22px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.03);
-    }
-
-    .vehicleThumb img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-      transition:transform .3s ease;
-    }
-
-    .vehicleCard:hover .vehicleThumb img{
-      transform:scale(1.05);
-    }
-
-    .vehicleCard h3{
-      margin:0 0 14px;
-      font-size:18px;
-    }
-
-    .vehicleCard p{
-      margin:0;
-       color:var(--muted);
-      font-size:14px;
-      line-height:1.65;
-    }
-
-    .vehicleMeta{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin:12px 0 14px;
-    }
-
-    .vehicleCard .btn{
-      margin-top:auto;
-      align-self:flex-start;
-    }
-
-    .chip{
-      font-size:12px;
-      color:var(--muted);
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.04);
-      padding:7px 10px;
-      border-radius:999px;
-    }
-
-    .stepsGrid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:16px;
-    }
-
-    @media (max-width:920px){
-      .stepsGrid{grid-template-columns:1fr}
-    }
-
-    .stepNumber{
-      width:36px;
-      height:36px;
-      border-radius:12px;
-      display:grid;
-      place-items:center;
-      font-weight:800;
-      background:rgba(240,141,52,.15);
-      border:1px solid rgba(240,141,52,.35);
-      color:var(--phoenix);
-      margin-bottom:12px;
-    }
-
-    .trustGrid{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:16px;
-    }
-
-    @media (max-width:980px){
-      .trustGrid{grid-template-columns:1fr 1fr}
-    }
-
-    @media (max-width:640px){
-      .trustGrid{grid-template-columns:1fr}
-    }
-
-    .faq{
-      display:grid;
-      gap:12px;
-      margin-top:12px;
-    }
-
-    .ctaBand{
-      margin:30px 0 12px;
-      padding:24px;
-      border-radius:20px;
-      border:1px solid rgba(240,141,52,.22);
-      background:linear-gradient(180deg, rgba(240,141,52,.13), rgba(255,255,255,.04));
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:18px;
-      flex-wrap:wrap;
-    }
-
-    .ctaBand h2{
-      margin:0 0 8px;
-      font-size:26px;
-      letter-spacing:-.03em;
-    }
-
-    .ctaBand p{
-      margin:0;
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.65;
-      max-width:62ch;
-    }
-
-    .foot{
-      margin-top:12px;
-      text-align:center;
-      font-size:12px;
-      color:rgba(234,240,255,.45);
-      padding-bottom:24px;
-    }
+  --phoenix:#F08D34;
+  --phoenix-dark:#C96618;
+  --phoenix-soft:#FFF1E4;
+
+  --bg:#FFFFFF;
+  --bg-soft:#FAF7F3;
+  --card:#FFFFFF;
+  --stroke:#E8D6C6;
+
+  --text:#151515;
+  --muted:#5F5F5F;
+  --muted2:#8B8B8B;
+
+  --success:#1E9E5A;
+  --shadow:0 18px 45px rgba(40,25,10,.10);
+
+  --radius:10px;
+  --radius-sm:8px;
+  --container:1160px;
+}
+
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  font-family:"Manrope",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--text);
+  background:
+    linear-gradient(90deg, rgba(240,141,52,.08) 0, transparent 30%),
+    linear-gradient(180deg, #FFFFFF 0%, #FAF7F3 100%);
+  overflow-x:hidden;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+img{
+  max-width:100%;
+  display:block;
+}
+
+.container{
+  width:min(var(--container), calc(100% - 32px));
+  margin:0 auto;
+}
+
+.panel{
+  border:1px solid var(--stroke);
+  background:#FFFFFF;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  position:relative;
+  overflow:hidden;
+}
+
+.panel::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:5px;
+  background:linear-gradient(90deg, var(--phoenix), var(--phoenix-dark));
+}
+
+.panel > *{
+  position:relative;
+}
+
+.btn{
+  appearance:none;
+  border:0;
+  cursor:pointer;
+  text-decoration:none;
+  font-weight:800;
+  letter-spacing:.01em;
+  border-radius:6px;
+  padding:14px 18px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  transition:.18s ease;
+  white-space:nowrap;
+  text-transform:none;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+}
+
+.btnPrimary{
+  background:var(--phoenix);
+  color:#111;
+  box-shadow:0 12px 30px rgba(240,141,52,.28);
+}
+
+.btnPrimary:hover{
+  background:var(--phoenix-dark);
+  color:#FFFFFF;
+}
+
+.btnGhost{
+  background:#FFFFFF;
+  border:1px solid var(--stroke);
+  color:var(--text);
+}
+
+.btnGhost:hover{
+  border-color:var(--phoenix);
+  color:var(--phoenix-dark);
+  background:var(--phoenix-soft);
+}
+
+.siteHeader{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--stroke);
+}
+
+.siteHeaderInner{
+  min-height:74px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  flex-wrap:wrap;
+  padding:14px 0;
+}
+
+.brandMini{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.brandMiniLogo{
+  width:46px;
+  height:46px;
+  border-radius:8px;
+  overflow:hidden;
+  background:var(--phoenix-soft);
+  border:1px solid rgba(240,141,52,.35);
+  display:grid;
+  place-items:center;
+}
+
+.brandMiniLogo img{
+  width:32px;
+  height:32px;
+  object-fit:contain;
+}
+
+.brandMiniText strong{
+  display:block;
+  font-size:14px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.brandMiniText span{
+  display:block;
+  color:var(--muted);
+  font-size:12px;
+  margin-top:4px;
+}
+
+.nav{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  flex-wrap:wrap;
+}
+
+.nav a{
+  font-size:13px;
+  font-weight:800;
+  color:var(--muted);
+  padding:10px 12px;
+  border-radius:6px;
+}
+
+.nav a:hover{
+  background:var(--phoenix-soft);
+  color:var(--phoenix-dark);
+}
+
+.hero{
+  padding:46px 0 22px;
+}
+
+.heroCard{
+  padding:42px;
+}
+
+.heroTop{
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:32px;
+  align-items:center;
+}
+
+.heroBrand{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:20px;
+}
+
+.heroLogo{
+  width:70px;
+  height:70px;
+  border-radius:10px;
+  overflow:hidden;
+  background:var(--phoenix-soft);
+  border:1px solid rgba(240,141,52,.35);
+  display:grid;
+  place-items:center;
+  flex:0 0 auto;
+}
+
+.heroLogo img{
+  width:48px;
+  height:48px;
+  object-fit:contain;
+}
+
+.heroBrandText .name{
+  font-weight:800;
+  letter-spacing:.08em;
+  font-size:21px;
+  line-height:1.05;
+  text-transform:uppercase;
+}
+
+.heroBrandText .tag{
+  margin-top:6px;
+  color:var(--phoenix-dark);
+  font-size:13px;
+  font-weight:800;
+}
+
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 11px;
+  border-radius:6px;
+  border:1px solid rgba(240,141,52,.25);
+  background:var(--phoenix-soft);
+  font-size:12px;
+  color:var(--phoenix-dark);
+  font-weight:800;
+  margin-bottom:16px;
+}
+
+.dot{
+  width:8px;
+  height:8px;
+  border-radius:2px;
+  background:var(--phoenix);
+  flex:0 0 auto;
+}
+
+h1{
+  margin:0 0 18px;
+  font-size:clamp(32px, 4.6vw, 54px);
+  line-height:1.02;
+  letter-spacing:-.045em;
+  max-width:13ch;
+}
+
+h1::after{
+  content:"";
+  display:block;
+  width:78px;
+  height:5px;
+  background:var(--phoenix);
+  margin-top:18px;
+  border-radius:2px;
+}
+
+.lead{
+  margin:0;
+  color:var(--muted);
+  font-size:15.5px;
+  line-height:1.75;
+  max-width:64ch;
+}
+
+.heroCtas{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:26px;
+}
+
+.heroBadges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:22px;
+}
+
+.badge{
+  font-size:12px;
+  color:var(--text);
+  border:1px solid var(--stroke);
+  background:#FFFFFF;
+  padding:8px 10px;
+  border-radius:6px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-weight:700;
+}
+
+.heroProof{
+  display:grid;
+  gap:14px;
+}
+
+.proofCard,
+.serviceCard,
+.stepCard,
+.faqItem,
+.trustCard,
+.vehicleCard{
+  border:1px solid var(--stroke);
+  background:#FFFFFF;
+  border-radius:var(--radius-sm);
+  box-shadow:0 10px 26px rgba(40,25,10,.06);
+}
+
+.proofCard{
+  padding:20px;
+}
+
+.proofCard h3,
+.serviceCard h3,
+.vehicleCard h3,
+.stepCard h3,
+.trustCard h3,
+.faqItem h3{
+  margin:0 0 10px;
+  font-size:18px;
+  letter-spacing:-.02em;
+}
+
+.proofCard h3,
+.sectionHead h2,
+.serviceCard h3,
+.vehicleCard h3{
+  color:var(--text);
+}
+
+.proofCard h3::first-letter,
+.serviceCard h3::first-letter,
+.vehicleCard h3::first-letter{
+  color:var(--phoenix);
+}
+
+.proofCard p,
+.serviceCard p,
+.vehicleCard p,
+.stepCard p,
+.trustCard p,
+.faqItem p{
+  margin:0;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.68;
+}
+
+.proofList{
+  display:grid;
+  gap:10px;
+  margin-top:15px;
+}
+
+.proofLine{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  font-size:14px;
+  color:var(--muted);
+  line-height:1.55;
+}
+
+.proofLine strong{
+  color:var(--phoenix-dark);
+}
+
+.tick{
+  width:20px;
+  height:20px;
+  border-radius:4px;
+  display:grid;
+  place-items:center;
+  font-size:12px;
+  color:#FFFFFF;
+  background:var(--phoenix);
+  flex:0 0 auto;
+  margin-top:1px;
+}
+
+.section{
+  padding:24px 0;
+}
+
+.sectionHead{
+  margin-bottom:20px;
+  border-left:5px solid var(--phoenix);
+  padding-left:16px;
+}
+
+.sectionHead h2{
+  margin:0 0 8px;
+  font-size:32px;
+  letter-spacing:-.035em;
+}
+
+.sectionHead p{
+  margin:0;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.7;
+  max-width:70ch;
+}
+
+.servicesGrid,
+.vehicleGrid,
+.stepsGrid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.serviceCard,
+.stepCard,
+.faqItem,
+.trustCard,
+.vehicleCard{
+  padding:22px;
+}
+
+.serviceCard,
+.vehicleCard{
+  position:relative;
+  overflow:hidden;
+}
+
+.serviceCard::before,
+.vehicleCard::before,
+.trustCard::before,
+.stepCard::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:4px;
+  background:linear-gradient(90deg, var(--phoenix), transparent);
+}
+
+.serviceSmall{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:13px;
+  font-size:12px;
+  color:var(--phoenix-dark);
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-weight:900;
+}
+
+.vehicleCard{
+  display:flex;
+  flex-direction:column;
+  height:100%;
+}
+
+.vehicleThumb{
+  width:100%;
+  aspect-ratio:16 / 9;
+  overflow:hidden;
+  border-radius:6px;
+  margin-bottom:22px;
+  border:1px solid var(--stroke);
+  background:var(--phoenix-soft);
+}
+
+.vehicleThumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .3s ease;
+}
+
+.vehicleCard:hover .vehicleThumb img{
+  transform:scale(1.04);
+}
+
+.vehicleMeta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:14px 0 16px;
+}
+
+.vehicleCard .btn{
+  margin-top:auto;
+  align-self:flex-start;
+}
+
+.chip{
+  font-size:12px;
+  color:var(--phoenix-dark);
+  border:1px solid rgba(240,141,52,.28);
+  background:var(--phoenix-soft);
+  padding:7px 10px;
+  border-radius:5px;
+  font-weight:800;
+}
+
+.stepNumber{
+  width:38px;
+  height:38px;
+  border-radius:6px;
+  display:grid;
+  place-items:center;
+  font-weight:900;
+  background:var(--phoenix);
+  color:#FFFFFF;
+  margin-bottom:14px;
+}
+
+.trustGrid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+
+.trustCard{
+  position:relative;
+  overflow:hidden;
+}
+
+.trustCard h3{
+  color:var(--phoenix-dark);
+}
+
+.faq{
+  display:grid;
+  gap:12px;
+  margin-top:12px;
+}
+
+.faqItem{
+  border-left:5px solid var(--phoenix);
+}
+
+.ctaBand{
+  margin:32px 0 12px;
+  padding:28px;
+  border-radius:var(--radius);
+  border:1px solid rgba(240,141,52,.32);
+  background:
+    linear-gradient(90deg, var(--phoenix-soft), #FFFFFF);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  flex-wrap:wrap;
+  box-shadow:var(--shadow);
+}
+
+.ctaBand h2{
+  margin:0 0 8px;
+  font-size:28px;
+  letter-spacing:-.035em;
+}
+
+.ctaBand h2{
+  color:var(--phoenix-dark);
+}
+
+.ctaBand p{
+  margin:0;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.65;
+  max-width:62ch;
+}
+
+.foot{
+  margin-top:12px;
+  text-align:center;
+  font-size:12px;
+  color:var(--muted2);
+  padding-bottom:24px;
+}
+
+@media (max-width:980px){
+  .heroTop{
+    grid-template-columns:1fr;
+  }
+
+  .trustGrid{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media (max-width:920px){
+  .servicesGrid,
+  .vehicleGrid,
+  .stepsGrid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media (max-width:640px){
+  .heroCard{
+    padding:24px;
+  }
+
+  .siteHeaderInner{
+    align-items:flex-start;
+  }
+
+  .nav{
+    width:100%;
+  }
+
+  .nav a{
+    background:#FFFFFF;
+    border:1px solid var(--stroke);
+  }
+
+  .btn{
+    width:100%;
+  }
+
+  .heroCtas{
+    flex-direction:column;
+  }
+
+  h1{
+    max-width:100%;
+    font-size:34px;
+  }
+
+  .sectionHead h2{
+    font-size:27px;
+  }
+
+  .trustGrid{
+    grid-template-columns:1fr;
+  }
+}
   </style>
 
   <script type="application/ld+json">
@@ -654,6 +710,7 @@
   }
   </script>
 </head>
+
 <body>
   <header class="siteHeader">
     <div class="container siteHeaderInner">
@@ -693,16 +750,17 @@
                   </div>
                 </div>
 
-                <div class="eyebrow"><span class="dot"></span> Accompagnement local • Achat • Vente • Recherche</div>
-
-                <h1>Vous voulez vendre ou trouver un véhicule sans perdre votre temps ?</h1>
+                <div class="eyebrow">
+                  <span class="dot"></span>
+                  Accompagnement local • Achat • Vente • Recherche
+                </div>
 
                 <p class="lead">
                   Phoenix Automobile accompagne les particuliers à Saint-Brieuc, Plérin et dans les Côtes-d’Armor pour vendre un véhicule plus sereinement ou rechercher le bon modèle selon un budget précis. Le but est simple : vous faire gagner du temps, cadrer la démarche et avancer plus clairement.
                 </p>
 
                 <div class="heroCtas">
-                  <a class="btn btnPrimary" href="/formulaire.html">Faire une demande</a>
+                  <a class="btn btnPrimary" href="/formulaire.html">✉️ Faire une demande</a>
                   <a class="btn btnGhost" href="tel:+33663620397">📞 Appeler</a>
                   <a class="btn btnGhost" href="mailto:contact@phoenix-automobile.com">📧 Envoyer un email</a>
                 </div>
@@ -721,10 +779,22 @@
                   <p>
                     Phoenix Automobile n’est pas un garage avec un stock à pousser. Le rôle est d’accompagner une vente ou une recherche de véhicule avec une approche plus ciblée, plus claire et plus simple pour le client.
                   </p>
+
                   <div class="proofList">
-                    <div class="proofLine"><span class="tick">✓</span><span><strong>Vente :</strong> qualification du véhicule, cadrage des informations et premier tri.</span></div>
-                    <div class="proofLine"><span class="tick">✓</span><span><strong>Recherche :</strong> véhicule ciblé selon le budget, le besoin et les critères importants.</span></div>
-                    <div class="proofLine"><span class="tick">✓</span><span><strong>Accompagnement :</strong> échange simple, humain et local.</span></div>
+                    <div class="proofLine">
+                      <span class="tick">✓</span>
+                      <span><strong>Vente :</strong> qualification du véhicule, cadrage des informations et premier tri.</span>
+                    </div>
+
+                    <div class="proofLine">
+                      <span class="tick">✓</span>
+                      <span><strong>Recherche :</strong> véhicule ciblé selon le budget, le besoin et les critères importants.</span>
+                    </div>
+
+                    <div class="proofLine">
+                      <span class="tick">✓</span>
+                      <span><strong>Accompagnement :</strong> échange simple, humain et local.</span>
+                    </div>
                   </div>
                 </div>
 
@@ -793,7 +863,9 @@
               <img src="assets/x6.png" alt="BMW X6">
             </div>
             <h3>BMW X6</h3>
-            <p>Recherche orientée budget, kilométrage cohérent et historique d’entretien à vérifier selon version et motorisation.</p>
+            <p>
+              Recherche orientée budget, kilométrage cohérent et historique d’entretien à vérifier selon version et motorisation.
+            </p>
             <div class="vehicleMeta">
               <span class="chip">SUV</span>
               <span class="chip">Budget défini</span>
@@ -807,7 +879,9 @@
               <img src="assets/mini.png" alt="Mini Cooper">
             </div>
             <h3>Mini Cooper</h3>
-            <p>Recherche adaptée à un budget ciblé, avec attention sur la génération, le kilométrage et les points mécaniques importants.</p>
+            <p>
+              Recherche adaptée à un budget ciblé, avec attention sur la génération, le kilométrage et les points mécaniques importants.
+            </p>
             <div class="vehicleMeta">
               <span class="chip">Citadine</span>
               <span class="chip">Budget serré</span>
@@ -821,7 +895,9 @@
               <img src="assets/mazda.png" alt="Mazda MX-5">
             </div>
             <h3>Mazda MX-5</h3>
-            <p>Recherche orientée plaisir de conduite, avec sélection selon budget et historique d’entretien à vérifier selon utilisation du véhicule.</p>
+            <p>
+              Recherche orientée plaisir de conduite, avec sélection selon budget et historique d’entretien à vérifier selon utilisation du véhicule.
+            </p>
             <div class="vehicleMeta">
               <span class="chip">Loisir</span>
               <span class="chip">Roadster</span>
@@ -876,22 +952,30 @@
         <div class="trustGrid">
           <article class="trustCard">
             <h3>Approche locale</h3>
-            <p>Un service pensé pour les particuliers autour de Saint-Brieuc, avec un contact plus direct et plus humain.</p>
+            <p>
+              Un service pensé pour les particuliers autour de Saint-Brieuc, avec un contact plus direct et plus humain.
+            </p>
           </article>
 
           <article class="trustCard">
             <h3>Demande cadrée</h3>
-            <p>Moins de flou, moins de temps perdu, plus de clarté dès le départ sur le besoin réel.</p>
+            <p>
+              Moins de flou, moins de temps perdu, plus de clarté dès le départ sur le besoin réel.
+            </p>
           </article>
 
           <article class="trustCard">
             <h3>Critères utiles</h3>
-            <p>Budget, année, kilométrage, motorisation, usage : l’important passe avant le blabla.</p>
+            <p>
+              Budget, année, kilométrage, motorisation, usage : l’important passe avant le blabla.
+            </p>
           </article>
 
           <article class="trustCard">
             <h3>Accompagnement simple</h3>
-            <p>Le but n’est pas de compliquer. Le but est d’avancer plus vite et plus proprement.</p>
+            <p>
+              Le but n’est pas de compliquer. Le but est d’avancer plus vite et plus proprement.
+            </p>
           </article>
         </div>
       </div>
